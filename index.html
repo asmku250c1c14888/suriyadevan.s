@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return _f;
+            },
+            set: function(val) {
+              _f = val;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          // Fallback if property is non-configurable
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEO & Digital Marketing Specialist in Palani | SuriyaDevan S</title>
+    <meta name="description" content="Portfolio and freelance digital marketing services of SuriyaDevan S. End-to-end SEO, Local SEO, Technical SEO, Social Media, and Meta Ads specialist based in Palani, Tamil Nadu." />
+    <meta property="og:title" content="SEO & Digital Marketing Specialist in Palani | SuriyaDevan S" />
+    <meta property="og:description" content="Helping businesses in Palani and Tamil Nadu grow Google visibility, organic traffic, local search presence, and digital brand visibility." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#F8FAFC] text-[#0F172A] antialiased selection:bg-[#4F46E5] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

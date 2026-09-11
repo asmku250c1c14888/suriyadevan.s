@@ -1,0 +1,81 @@
+import React from 'react';
+import { useData } from '../../context/DataContext';
+import { SEOHead } from '../common/SEOHead';
+import { Breadcrumbs } from '../common/Breadcrumbs';
+
+export const LegalView: React.FC<{ type: 'privacy' | 'terms' | 'disclaimer' }> = ({ type }) => {
+  const { siteSettings } = useData();
+
+  const titles = {
+    privacy: 'Privacy Policy',
+    terms: 'Terms of Service',
+    disclaimer: 'Disclaimer & Factual Representation Policy'
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50/70 pb-20">
+      <SEOHead
+        title={`${titles[type]} | SuriyaDevan S`}
+        description={`Legal information and ${titles[type]} for SuriyaDevan S's website.`}
+      />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+        <Breadcrumbs items={[{ label: titles[type] }]} />
+
+        <div className="mt-4 pb-8 border-b border-slate-200">
+          <h1 className="text-3xl font-black text-slate-900 font-display">{titles[type]}</h1>
+          <p className="text-xs text-slate-500 mt-1">Last updated: {new Date().getFullYear()}</p>
+        </div>
+
+        <div className="py-8 prose prose-slate text-xs sm:text-sm text-slate-600 space-y-4 leading-relaxed">
+          {type === 'privacy' && (
+            <>
+              <p>
+                This Privacy Policy outlines how SuriyaDevan S handles information collected through this portfolio and consultation website.
+              </p>
+              <h2 className="text-base font-bold text-slate-900 font-display">Information Collection</h2>
+              <p>
+                When you submit an inquiry via the contact form, your name, email address, phone number, and project details are collected solely to evaluate and respond to your digital marketing consultation request. We never sell, rent, or distribute personal information to third parties.
+              </p>
+              <h2 className="text-base font-bold text-slate-900 font-display">Analytics & Performance</h2>
+              <p>
+                Standard website interaction metrics (such as page views, device types, and referral sources) may be monitored via Google Search Console and Google Analytics to improve website accessibility and user experience.
+              </p>
+            </>
+          )}
+
+          {type === 'terms' && (
+            <>
+              <p>
+                By using this website, you agree to these Terms of Service.
+              </p>
+              <h2 className="text-base font-bold text-slate-900 font-display">Consulting Services</h2>
+              <p>
+                All digital marketing, search engine optimization, and local SEO services provided by SuriyaDevan S are subject to individual written agreements and proposals mutually agreed upon prior to project commencement.
+              </p>
+              <h2 className="text-base font-bold text-slate-900 font-display">Intellectual Property</h2>
+              <p>
+                All original textual content, frameworks, and portfolio presentations on this website are the intellectual property of SuriyaDevan S unless otherwise stated.
+              </p>
+            </>
+          )}
+
+          {type === 'disclaimer' && (
+            <>
+              <p>
+                <strong>Search Ranking & Performance Disclaimer:</strong>
+              </p>
+              <p>
+                Search Engine Optimization (SEO) involves complex third-party algorithms managed by search engines including Google. While SuriyaDevan S employs verified white-hat methodologies, best practices, and data-driven optimizations that have successfully generated Google first-page rankings, no digital marketer can ethically guarantee fixed #1 positions or specific traffic volumes.
+              </p>
+              <h2 className="text-base font-bold text-slate-900 font-display">Data Transparency & Metrics</h2>
+              <p>
+                Case study overviews document verified client deliverables. Where client data confidentiality is required, metrics reflect actual methodology outcomes without compromising proprietary company data.
+              </p>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};

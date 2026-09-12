@@ -901,67 +901,74 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
 
             {/* List of projects */}
             <div className="space-y-3">
-              {projects.map((proj) => (
-                <div
-                  key={proj.id}
-                  className="bg-white p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs shadow-2xs hover:border-indigo-300 transition-colors"
-                >
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-bold text-sm text-slate-900">{proj.name}</span>
-                      <span className="bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-[10px] text-slate-700 font-semibold">
-                        {proj.category}
-                      </span>
-                      <span className="bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded text-[10px] text-indigo-700 font-bold">
-                        Service: /services/{proj.relatedServices?.[0] || 'seo'}
-                      </span>
-                    </div>
-                    <p className="text-slate-500 text-xs mt-1 max-w-xl truncate">
-                      {proj.overview}
-                    </p>
-                  </div>
+              {projects.map((proj) => {
+                const serviceSlug = proj.relatedServices?.[0] || 
+                  (proj.category?.toLowerCase().includes('local') ? 'local-seo' :
+                   proj.category?.toLowerCase().includes('social') ? 'social-media-management' :
+                   proj.category?.toLowerCase().includes('meta') ? 'meta-ads' :
+                   proj.category?.toLowerCase().includes('tech') ? 'technical-seo' : 'seo');
 
-                  <div className="flex items-center space-x-2 self-end sm:self-auto flex-shrink-0">
-                    <button
-                      onClick={() => navigateTo(`/services/${proj.relatedServices?.[0] || 'seo'}`)}
-                      title="View in Service Page"
-                      className="p-1.5 border border-indigo-200 bg-indigo-50/50 hover:bg-indigo-100/70 text-indigo-700 rounded-lg flex items-center space-x-1 font-semibold"
-                    >
-                      <Eye className="w-3.5 h-3.5" />
-                      <span className="text-[11px] pr-1">View in Service</span>
-                    </button>
-                    <button
-                      onClick={() => duplicateProject(proj.id)}
-                      title="Duplicate project"
-                      className="p-1.5 border border-slate-200 rounded-lg hover:bg-slate-50 text-slate-600"
-                    >
-                      <Copy className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => {
-                        setEditingProject(proj);
-                        setIsNewProject(false);
-                      }}
-                      title="Edit project"
-                      className="p-1.5 border border-slate-200 rounded-lg hover:bg-slate-50 text-slate-800"
-                    >
-                      <Edit3 className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => {
-                        if (confirm(`Delete project "${proj.name}"?`)) {
-                          deleteProject(proj.id);
-                          showNotice(`Project "${proj.name}" removed`);
-                        }
-                      }}
-                      title="Delete project"
-                      className="p-1.5 border border-red-200 rounded-lg hover:bg-red-50 text-red-600"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                return (
+                  <div
+                    key={proj.id}
+                    className="bg-white p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs shadow-2xs hover:border-indigo-300 transition-colors"
+                  >
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="font-bold text-sm text-slate-900">{proj.name}</span>
+                        <span className="bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-[10px] text-slate-700 font-semibold">
+                          {proj.category}
+                        </span>
+                        <span className="bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded text-[10px] text-indigo-700 font-bold">
+                          Service: /services/{serviceSlug}
+                        </span>
+                        <span className="bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded text-[10px] text-emerald-700 font-semibold flex items-center space-x-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                          <span>Live on Website</span>
+                        </span>
+                      </div>
+                      <p className="text-slate-500 text-xs mt-1 max-w-xl truncate">
+                        {proj.overview || `Project for ${proj.client}`}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center space-x-2 self-end sm:self-auto flex-shrink-0">
+                      <button
+                        onClick={() => navigateTo(`/services/${serviceSlug}`)}
+                        title="View in Service Page"
+                        className="p-1.5 border border-indigo-200 bg-indigo-50/50 hover:bg-indigo-100/70 text-indigo-700 rounded-lg flex items-center space-x-1 font-semibold"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        <span className="text-[11px] pr-1">View in Service</span>
+                      </button>
+                      <button
+                        onClick={() => duplicateProject(proj.id)}
+                        title="Duplicate project"
+                        className="p-1.5 border border-slate-200 rounded-lg hover:bg-slate-50 text-slate-600"
+                      >
+                        <Copy className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => {
+                          setEditingProject(proj);
+                          setIsNewProject(false);
+                        }}
+                        title="Edit project"
+                        className="p-1.5 border border-slate-200 rounded-lg hover:bg-slate-50 text-slate-800"
+                      >
+                        <Edit3 className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => deleteProject(proj.id)}
+                        title="Delete project"
+                        className="p-1.5 border border-red-200 rounded-lg hover:bg-red-50 text-red-600"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}

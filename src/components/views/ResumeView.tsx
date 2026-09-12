@@ -18,7 +18,7 @@ import {
 import { toolsAndTech } from '../../data/initialData';
 
 export const ResumeView: React.FC = () => {
-  const { siteSettings, experience, certifications, education, trackEvent } = useData();
+  const { siteSettings, experience, certifications, education, projects, trackEvent } = useData();
 
   const handlePrint = () => {
     trackEvent('resume_download', 'Print / PDF Resume');
@@ -151,32 +151,35 @@ export const ResumeView: React.FC = () => {
             ))}
           </div>
 
-          {/* Key SEO Projects Managed */}
+          {/* Key Projects Managed */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1C1917] border-b border-[#E7E2D8] pb-1">
-              SEO Projects Executed
-            </h3>
+            <div className="flex justify-between items-center border-b border-[#E7E2D8] pb-1">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1C1917]">
+                Real-World Projects Executed ({projects.length})
+              </h3>
+              <span className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium">
+                Live Portfolio Synced
+              </span>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div className="p-2.5 bg-[#FAF9F6] rounded border border-[#E7E2D8]">
-                <div className="font-bold text-[#1C1917]">1. Intrax (SEO)</div>
-                <div className="text-[#57534E]">SEO Strategy & On-Page SEO Optimization</div>
-              </div>
-              <div className="p-2.5 bg-[#FAF9F6] rounded border border-[#E7E2D8]">
-                <div className="font-bold text-[#1C1917]">2. Insd (SEO)</div>
-                <div className="text-[#57534E]">Keyword Research & Content Optimization</div>
-              </div>
-              <div className="p-2.5 bg-[#FAF9F6] rounded border border-[#E7E2D8]">
-                <div className="font-bold text-[#1C1917]">3. Triaz (Technical SEO)</div>
-                <div className="text-[#57534E]">Technical SEO & Site Performance</div>
-              </div>
-              <div className="p-2.5 bg-[#FAF9F6] rounded border border-[#E7E2D8]">
-                <div className="font-bold text-[#1C1917]">4. Dream Sketch (SEO / WordPress)</div>
-                <div className="text-[#57534E]">SEO & WordPress Asset Optimization</div>
-              </div>
-              <div className="p-2.5 bg-[#FAF9F6] rounded border border-[#E7E2D8] sm:col-span-2">
-                <div className="font-bold text-[#1C1917]">5. Best Precision (Local SEO)</div>
-                <div className="text-[#57534E]">Local SEO & Google Business Profile Optimization</div>
-              </div>
+              {projects.map((proj, idx) => (
+                <div key={proj.id} className="p-2.5 bg-[#FAF9F6] rounded border border-[#E7E2D8]">
+                  <div className="flex justify-between items-start">
+                    <span className="font-bold text-[#1C1917]">
+                      {idx + 1}. {proj.name}
+                    </span>
+                    <span className="text-[10px] bg-white border border-[#E7E2D8] px-1.5 py-0.5 rounded text-[#78716C] font-semibold">
+                      {proj.category}
+                    </span>
+                  </div>
+                  <div className="text-[#57534E] text-[11px] mt-1 line-clamp-1">
+                    Client: {proj.client}
+                  </div>
+                  <div className="text-[#78716C] text-[10px] mt-0.5 line-clamp-1">
+                    Services: {proj.services?.slice(0, 3).join(', ')}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { 
@@ -100,7 +100,26 @@ export const HomeView: React.FC = () => {
     showFaqToast('FAQ removed successfully.');
   };
 
-  const featuredProjects = projects.filter(p => p.featured).slice(0, 3);
+  const [projectCategoryFilter, setProjectCategoryFilter] = useState<string>('All');
+
+  // Dynamic project categories with live counts
+  const projectCategories = useMemo(() => {
+    const cats = ['All', 'Local SEO', 'Social Media', 'Meta Ads', 'SEO'];
+    return cats.map(cat => ({
+      name: cat,
+      count: cat === 'All' 
+        ? projects.length 
+        : projects.filter(p => (p.category || '').toLowerCase().includes(cat.toLowerCase())).length
+    }));
+  }, [projects]);
+
+  const displayedProjects = useMemo(() => {
+    return projects.filter(p => {
+      if (projectCategoryFilter === 'All') return true;
+      return (p.category || '').toLowerCase().includes(projectCategoryFilter.toLowerCase());
+    });
+  }, [projects, projectCategoryFilter]);
+
   const displayedFaqs = showAllFaqs ? faqs : faqs.slice(0, 6);
 
   const homeSchema = {
@@ -267,7 +286,7 @@ export const HomeView: React.FC = () => {
           <div className="pt-8 border-t border-slate-200/80 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
             <div className="p-3.5 bg-slate-50/80 rounded-xl border border-slate-200/80 shadow-2xs">
               <div className="text-[11px] text-indigo-600 uppercase font-bold tracking-wider">Experience</div>
-              <div className="text-sm font-black text-slate-900 mt-0.5">5 Projects Managed End-to-End</div>
+              <div className="text-sm font-black text-slate-900 mt-0.5">{projects.length}+ Projects Delivered Live</div>
             </div>
             <div className="p-3.5 bg-slate-50/80 rounded-xl border border-slate-200/80 shadow-2xs">
               <div className="text-[11px] text-indigo-600 uppercase font-bold tracking-wider">Rankings</div>
@@ -379,30 +398,59 @@ export const HomeView: React.FC = () => {
       {/* Featured SEO Projects embedded with Service context */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-b border-slate-200">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
             <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-indigo-600 mb-1">
-                Real-World Execution
+              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-indigo-600 mb-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Live Client Portfolio & Case Studies</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-900 font-display">
-                Client Projects Delivered by Service
+                Client Projects Delivered by Service ({projects.length} Live)
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-2 max-w-xl">
-                Real client work executed with verified tasks across On-Page SEO, Keyword Research, Technical SEO, WordPress, and Local Google Business Profile optimization.
+                Real-world client work managed and updated live from the owner management panel across Local SEO, Social Media, Meta Ads, Technical SEO, and Google Business Profile optimization.
               </p>
             </div>
-            <button
-              onClick={() => navigateTo('/services')}
-              className="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1"
-            >
-              <span>Explore All Services & Projects</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => navigateTo('/services')}
+                className="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1"
+              >
+                <span>Explore All Services & Projects</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Interactive Project Category Filter Tabs */}
+          <div className="flex flex-wrap items-center gap-2 mb-8 pb-4 border-b border-slate-100">
+            {projectCategories.map((cat) => (
+              <button
+                key={cat.name}
+                onClick={() => setProjectCategoryFilter(cat.name)}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-2 ${
+                  projectCategoryFilter === cat.name
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                }`}
+              >
+                <span>{cat.name}</span>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold ${
+                  projectCategoryFilter === cat.name ? 'bg-slate-700 text-slate-100' : 'bg-slate-200 text-slate-600'
+                }`}>
+                  {cat.count}
+                </span>
+              </button>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.map((project) => {
-              const matchingServiceSlug = project.relatedServices?.[0] || 'seo';
+            {displayedProjects.map((project) => {
+              const matchingServiceSlug = project.relatedServices?.[0] || 
+                (project.category.toLowerCase().includes('local') ? 'local-seo' :
+                 project.category.toLowerCase().includes('social') ? 'social-media-management' :
+                 project.category.toLowerCase().includes('meta') ? 'meta-ads' :
+                 project.category.toLowerCase().includes('tech') ? 'technical-seo' : 'seo');
 
               return (
                 <div
@@ -411,11 +459,17 @@ export const HomeView: React.FC = () => {
                 >
                   <div>
                     <div className="flex justify-between items-center mb-3">
-                      <span className="text-[10px] font-bold text-indigo-700 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-200/60">
-                        {project.category}
-                      </span>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[10px] font-bold text-indigo-700 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-200/60">
+                          {project.category}
+                        </span>
+                        <span className="inline-flex items-center space-x-1 text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                          <span>Live</span>
+                        </span>
+                      </div>
                       <span className="text-[11px] text-slate-400 font-medium">
-                        {project.date}
+                        {project.date || '2026'}
                       </span>
                     </div>
 
@@ -424,11 +478,11 @@ export const HomeView: React.FC = () => {
                     </h3>
 
                     <p className="text-xs text-slate-500 mt-1 font-semibold">
-                      Client: {project.client} • {project.industry}
+                      Client: {project.client} {project.industry ? `• ${project.industry}` : ''}
                     </p>
 
                     <p className="text-xs text-slate-600 mt-3 leading-relaxed line-clamp-3">
-                      {project.overview}
+                      {project.overview || `Comprehensive ${project.category} campaign delivered for ${project.client}, focusing on measurable growth and audience engagement.`}
                     </p>
 
                     <div className="mt-4 pt-3 border-t border-slate-200/60">
@@ -436,7 +490,7 @@ export const HomeView: React.FC = () => {
                         Delivered Under Service:
                       </div>
                       <div className="flex flex-wrap gap-1.5">
-                        {project.services.map((serv, idx) => (
+                        {(project.services && project.services.length > 0 ? project.services : [project.category]).map((serv, idx) => (
                           <span key={idx} className="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded text-slate-600 font-medium">
                             {serv}
                           </span>

@@ -20,184 +20,374 @@ export const initialSiteSettings: SiteSettings = {
 
 export const initialProjects: Project[] = [
   {
-    id: 'proj-1',
-    slug: 'intrax',
-    name: 'Intrax',
-    category: 'SEO',
-    client: 'Intrax',
-    industry: 'Education & Global Exchange',
-    services: ['SEO Strategy', 'On-Page SEO Optimization', 'Meta Data Structuring'],
-    overview: 'End-to-end SEO strategy and comprehensive on-page optimization designed to improve search indexing, organic search visibility, and search-intent alignment.',
-    challenge: 'Addressing fragmented page meta structures, lack of targeted keyword mapping across core informational landing pages, and weak internal anchor signals.',
-    strategy: 'Conducted systematic search intent analysis, restructured title tags and meta descriptions, optimized H1-H3 heading hierarchies, and established contextual internal link paths.',
-    implementation: [
-      'Comprehensive on-page audit analyzing URL structures, title tag lengths, and CTR factors.',
-      'Refined heading hierarchy (H1, H2, H3) for content clarity and crawlability.',
-      'Targeted on-page content alignment with user intent for primary industry queries.',
-      'Optimized internal linking structures to distribute link equity to key conversion pages.'
+    "slug": "ilan-home-store",
+    "name": "Ilan Home Store",
+    "category": "Meta Ads",
+    "client": "Ilan Home Store",
+    "industry": "Home Store",
+    "services": [
+      "Meta Ads Management"
     ],
-    tools: ['Google Search Console', 'SEMrush', 'Google Analytics 4', 'Screaming Frog'],
-    resultsNote: 'Project performance metrics can be added when verified data is available.',
-    featured: true,
-    status: 'published',
-    date: '2024',
-    location: 'India / Global',
-    seoTitle: 'Intrax SEO Project Case Study | On-Page SEO & Strategy | SURIYADEVAN S',
-    metaDescription: 'Detailed breakdown of the Intrax SEO project executed by SURIYADEVAN S, focusing on strategic on-page SEO optimization, crawl efficiency, and content relevance.',
-    focusKeyword: 'Intrax SEO Case Study',
-    secondaryKeywords: ['On-Page SEO Optimization', 'SEO Strategy', 'SURIYADEVAN S Portfolio'],
-    schemaType: 'CreativeWork',
-    faq: [
-      {
-        question: 'What was the primary focus of the Intrax project?',
-        answer: 'The primary focus was establishing a robust on-page SEO architecture, repairing meta data inconsistencies, and aligning content with search intent.'
-      }
+    "overview": "Comprehensive Meta Ads Management project deployed to improve organic search authority and visibility.",
+    "challenge": "Low search discoverability and unoptimized structure requiring targeted optimization.",
+    "strategy": "Executed strategic Meta Ads Management roadmap focusing on high-impact ranking factors.",
+    "implementation": [
+      "Crawl analysis, content refinement, technical indexing hygiene, continuous search query monitoring."
     ],
-    relatedServices: ['seo', 'technical-seo']
+    "tools": [
+      "Meta Ads Manager",
+      "Meta Business Suite",
+      "Google Analytics 4"
+    ],
+    "resultsNote": "Optimization delivered according to best-practice search engine guidelines.",
+    "featured": true,
+    "status": "published",
+    "date": "2026",
+    "location": "Palani, Tamil Nadu",
+    "seoTitle": "Ilan Home Store Case Study | Meta Ads | SURIYADEVAN S",
+    "metaDescription": "Comprehensive Meta Ads Management project deployed to improve organic search authority and visibility.",
+    "focusKeyword": "Ilan Home Store SEO",
+    "secondaryKeywords": [
+      "Meta Ads",
+      "SEO Case Study"
+    ],
+    "schemaType": "CreativeWork",
+    "relatedServices": [
+      "meta-ads"
+    ],
+    "id": "proj-1789195672584"
   },
   {
-    id: 'proj-2',
-    slug: 'insd',
-    name: 'Insd',
-    category: 'SEO',
-    client: 'INSD (International School of Design)',
-    industry: 'Design & Vocational Education',
-    services: ['Keyword Research', 'Content Optimization', 'Search Intent Mapping'],
-    overview: 'High-intent keyword research, informational cluster mapping, and structured content optimization tailored to prospective design students.',
-    challenge: 'High competition in design education search landscapes with legacy content that did not align with student search intent.',
-    strategy: 'Segmented search queries into commercial vs informational intents, built topic clusters around design careers and diploma courses, and revamped course landing page content.',
-    implementation: [
-      'Extensive keyword discovery using SEMrush to identify localized and commercial search queries.',
-      'Search intent categorization ensuring prospective student queries land on informative, conversion-oriented pages.',
-      'Content enrichment with FAQ sections targeting answer engines and featured snippets.',
-      'Structured on-page body copy with strategic placement of primary and secondary semantic keywords.'
+    "slug": "ilan-homes-tore",
+    "name": "ilan homes tore",
+    "category": "Social Media",
+    "client": "Ilan Home Store",
+    "industry": "Home Store",
+    "services": [
+      "Social Media Management"
     ],
-    tools: ['SEMrush', 'Google Search Console', 'Google Analytics 4'],
-    resultsNote: 'Project performance metrics can be added when verified data is available.',
-    featured: true,
-    status: 'published',
-    date: '2024',
-    location: 'India',
-    seoTitle: 'Insd Keyword Research & Content Optimization Project | SURIYADEVAN S',
-    metaDescription: 'Discover how SURIYADEVAN S executed keyword research and content optimization for INSD, matching search intent to educational program offerings.',
-    focusKeyword: 'Insd Content Optimization',
-    secondaryKeywords: ['Design School SEO', 'Keyword Research Case Study', 'Search Intent Strategy'],
-    schemaType: 'CreativeWork',
-    faq: [
-      {
-        question: 'How was keyword research conducted for INSD?',
-        answer: 'In-depth research using SEMrush segmented keywords by search intent (informational vs. transactional) to match course curriculum and admissions cycles.'
-      }
+    "overview": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+    "challenge": "Low search discoverability and unoptimized structure requiring targeted optimization.",
+    "strategy": "Executed strategic Social Media Management roadmap focusing on high-impact ranking factors.",
+    "implementation": [
+      "Crawl analysis, content refinement, technical indexing hygiene, continuous search query monitoring."
     ],
-    relatedServices: ['seo', 'content-optimization']
+    "tools": [
+      "Adobe Express",
+      "Hootsuite",
+      "Meta Business Suite",
+      "Canva"
+    ],
+    "resultsNote": "Optimization delivered according to best-practice search engine guidelines.",
+    "featured": true,
+    "status": "published",
+    "date": "2026",
+    "location": "Palani, Tamil Nadu",
+    "seoTitle": "ilan homes tore Case Study | Social Media | SURIYADEVAN S",
+    "metaDescription": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+    "focusKeyword": "ilan homes tore SEO",
+    "secondaryKeywords": [
+      "Social Media",
+      "SEO Case Study"
+    ],
+    "schemaType": "CreativeWork",
+    "relatedServices": [
+      "social-media-management"
+    ],
+    "id": "proj-1789195624204"
   },
   {
-    id: 'proj-3',
-    slug: 'triaz',
-    name: 'Triaz',
-    category: 'Technical SEO',
-    client: 'Triaz',
-    industry: 'Technology & Enterprise Solutions',
-    services: ['Technical SEO', 'Site Performance', 'Crawlability Optimization'],
-    overview: 'Technical health audit and performance enhancement addressing crawl bottlenecks, resource minification, and indexation hygiene.',
-    challenge: 'Slow asset loading times, unnecessary redirect chains, and crawling inefficiencies dampening search engine bot resource allocation.',
-    strategy: 'Identified critical rendering path delays, eliminated canonical discrepancies, streamlined internal redirect chains, and enhanced mobile accessibility.',
-    implementation: [
-      'Deep technical crawl audit to identify indexation anomalies, 4xx errors, and redirect hops.',
-      'Analyzed Core Web Vitals diagnostics (LCP, CLS, INP) and advised on asset delivery optimizations.',
-      'Resolved canonical tag conflicts ensuring clean indexable signals for Googlebot.',
-      'Structured XML sitemap hierarchies and validated robots.txt crawl directives.'
+    "slug": "triaz",
+    "name": "Triaz",
+    "category": "Social Media",
+    "client": "triaz_travel_and_tours",
+    "industry": "Travel Agency",
+    "services": [
+      "Social Media Management"
     ],
-    tools: ['Google Search Console', 'Microsoft Clarity', 'SEMrush', 'PageSpeed Insights'],
-    resultsNote: 'Project performance metrics can be added when verified data is available.',
-    featured: true,
-    status: 'published',
-    date: '2024',
-    location: 'India',
-    seoTitle: 'Triaz Technical SEO & Performance Optimization | SURIYADEVAN S',
-    metaDescription: 'Case breakdown of the Triaz technical SEO project by SURIYADEVAN S: optimizing site performance, crawl hygiene, and Core Web Vitals alignment.',
-    focusKeyword: 'Triaz Technical SEO',
-    secondaryKeywords: ['Site Performance Optimization', 'Technical SEO Audit', 'Core Web Vitals'],
-    schemaType: 'CreativeWork',
-    faq: [
-      {
-        question: 'What technical areas were audited for Triaz?',
-        answer: 'The audit evaluated crawlability, canonicalization, Core Web Vitals diagnostics, indexation hygiene, and sitemap/robots directives.'
-      }
+    "overview": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+    "challenge": "Low search discoverability and unoptimized structure requiring targeted optimization.",
+    "strategy": "Executed strategic Social Media Management roadmap focusing on high-impact ranking factors.",
+    "implementation": [
+      "Crawl analysis, content refinement, technical indexing hygiene, continuous search query monitoring."
     ],
-    relatedServices: ['technical-seo', 'seo']
+    "tools": [
+      "Adobe Express",
+      "Hootsuite",
+      "Meta Business Suite",
+      "Canva"
+    ],
+    "resultsNote": "Optimization delivered according to best-practice search engine guidelines.",
+    "featured": true,
+    "status": "published",
+    "date": "2026",
+    "location": "Palani, Tamil Nadu",
+    "seoTitle": "Triaz Case Study | Social Media | SURIYADEVAN S",
+    "metaDescription": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+    "focusKeyword": "Triaz SEO",
+    "secondaryKeywords": [
+      "Social Media",
+      "SEO Case Study"
+    ],
+    "schemaType": "CreativeWork",
+    "relatedServices": [
+      "social-media-management"
+    ],
+    "id": "proj-1789195564468"
   },
   {
-    id: 'proj-4',
-    slug: 'dream-sketch',
-    name: 'Dream Sketch',
-    category: 'WordPress',
-    client: 'Dream Sketch',
-    industry: 'Architecture & Interior Design',
-    services: ['SEO', 'WordPress Optimization', 'Image SEO'],
-    overview: 'Search engine optimization tailored for a WordPress architecture portfolio, with focus on visual asset optimization, metadata structure, and local service showcase.',
-    challenge: 'Image-heavy website with uncompressed assets and missing alt text, slowing down page loads and hindering image search discoverability.',
-    strategy: 'Implemented image optimization protocols, structured WordPress schema markup, created service area landing sections, and enhanced portfolio pages.',
-    implementation: [
-      'WordPress on-site SEO configuration including clean permalinks and metadata controls.',
-      'Image SEO implementation: descriptive file naming conventions, contextual alt text, and responsive display practices.',
-      'Content structuring for portfolio case studies highlighting design deliverables.',
-      'Configured Google Search Console and Analytics integration for performance tracking.'
+    "slug": "indtrax-industries",
+    "name": "indtrax_industries",
+    "category": "Social Media",
+    "client": "Indtrax",
+    "industry": "Transformer Manufacturers",
+    "services": [
+      "Social Media Management"
     ],
-    tools: ['WordPress', 'Google Search Console', 'Google Analytics 4', 'Microsoft Clarity'],
-    resultsNote: 'Project performance metrics can be added when verified data is available.',
-    featured: true,
-    status: 'published',
-    date: '2024',
-    location: 'Tamil Nadu, India',
-    seoTitle: 'Dream Sketch WordPress SEO & Asset Optimization | SURIYADEVAN S',
-    metaDescription: 'See how SURIYADEVAN S optimized Dream Sketch on WordPress with Image SEO, structured metadata, and streamlined content architecture.',
-    focusKeyword: 'Dream Sketch WordPress SEO',
-    secondaryKeywords: ['WordPress SEO Specialist', 'Architecture Portfolio SEO', 'Image SEO'],
-    schemaType: 'CreativeWork',
-    faq: [
-      {
-        question: 'Why was Image SEO critical for Dream Sketch?',
-        answer: 'As an architecture and interior design firm, visual searches and fast-loading image galleries directly influence prospect engagement and brand credibility.'
-      }
+    "overview": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+    "challenge": "Low search discoverability and unoptimized structure requiring targeted optimization.",
+    "strategy": "Executed strategic Social Media Management roadmap focusing on high-impact ranking factors.",
+    "implementation": [
+      "Crawl analysis, content refinement, technical indexing hygiene, continuous search query monitoring."
     ],
-    relatedServices: ['seo', 'local-seo']
+    "tools": [
+      "Adobe Express",
+      "Hootsuite",
+      "Meta Business Suite",
+      "Canva"
+    ],
+    "resultsNote": "Optimization delivered according to best-practice search engine guidelines.",
+    "featured": true,
+    "status": "published",
+    "date": "2026",
+    "location": "Palani, Tamil Nadu",
+    "seoTitle": "indtrax_industries Case Study | Social Media | SURIYADEVAN S",
+    "metaDescription": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+    "focusKeyword": "indtrax_industries SEO",
+    "secondaryKeywords": [
+      "Social Media",
+      "SEO Case Study"
+    ],
+    "schemaType": "CreativeWork",
+    "relatedServices": [
+      "social-media-management"
+    ],
+    "id": "proj-1789195489816"
   },
   {
-    id: 'proj-5',
-    slug: 'best-precision',
-    name: 'Best Precision',
-    category: 'Local SEO',
-    client: 'Best Precision',
-    industry: 'Manufacturing & Precision Engineering',
-    services: ['Local SEO', 'Google Business Profile Optimization', 'NAP Consistency'],
-    overview: 'Local SEO strategy and Google Business Profile (formerly Google My Business) enhancement to capture high-intent localized commercial queries.',
-    challenge: 'Under-optimized Google Business Profile with inconsistent category classifications, missing business attributes, and low visibility on Google Maps.',
-    strategy: 'Optimized the Google Business Profile with verified categories, service listings, high-resolution operational photos, and established NAP consistency.',
-    implementation: [
-      'Primary and secondary category restructuring inside Google Business Profile to align with precision engineering buyer intent.',
-      'Standardized Name, Address, and Phone (NAP) across digital touchpoints.',
-      'Drafted informative business descriptions emphasizing specialized industrial services.',
-      'Implemented review monitoring and engagement guidelines to strengthen local brand reputation.'
+    "slug": "best-precision-tools",
+    "name": "Best Precision Tools",
+    "category": "Local SEO",
+    "client": "Best Precision Tools",
+    "industry": "Plastic injection molding",
+    "services": [
+      "Local SEO Services"
     ],
-    tools: ['Google Business Profile', 'Google Maps', 'Google Search Console'],
-    resultsNote: 'Project performance metrics can be added when verified data is available.',
-    featured: true,
-    status: 'published',
-    date: '2024',
-    location: 'Tamil Nadu, India',
-    seoTitle: 'Best Precision Local SEO & Google Business Profile Case Study | SURIYADEVAN S',
-    metaDescription: 'Local SEO and Google Business Profile optimization case study for Best Precision by SURIYADEVAN S. Enhancing local maps presence and industrial search visibility.',
-    focusKeyword: 'Best Precision Local SEO',
-    secondaryKeywords: ['Google Business Profile Optimization', 'Local SEO Tamil Nadu', 'NAP Consistency'],
-    schemaType: 'CreativeWork',
-    faq: [
+    "overview": "Comprehensive Local SEO Services project deployed to improve organic search authority and visibility.",
+    "challenge": "Low search discoverability and unoptimized structure requiring targeted optimization.",
+    "strategy": "Executed strategic Local SEO Services roadmap focusing on high-impact ranking factors.",
+    "implementation": [
+      "Crawl analysis, content refinement, technical indexing hygiene, continuous search query monitoring."
+    ],
+    "tools": [
+      "Google Business Profile",
+      "Google Maps",
+      "Google Search Console"
+    ],
+    "resultsNote": "Optimization delivered according to best-practice search engine guidelines.",
+    "featured": true,
+    "status": "published",
+    "date": "2026",
+    "location": "Palani, Tamil Nadu",
+    "seoTitle": "Best Precision Tools Case Study | Local SEO | SURIYADEVAN S",
+    "metaDescription": "Comprehensive Local SEO Services project deployed to improve organic search authority and visibility.",
+    "focusKeyword": "Best Precision Tools SEO",
+    "secondaryKeywords": [
+      "Local SEO",
+      "SEO Case Study"
+    ],
+    "schemaType": "CreativeWork",
+    "relatedServices": [
+      "local-seo"
+    ],
+    "id": "proj-1789195402734"
+  },
+  {
+    "slug": "dream-sketch",
+    "name": "Dream Sketch",
+    "category": "Local SEO",
+    "client": "Dream Sketch Interiors - Interior Designers in Coimbatore",
+    "industry": "Interior Designers",
+    "services": [
+      "Local SEO Services"
+    ],
+    "overview": "Comprehensive Local SEO Services project deployed to improve organic search authority and visibility.",
+    "challenge": "Low search discoverability and unoptimized structure requiring targeted optimization.",
+    "strategy": "Executed strategic Local SEO Services roadmap focusing on high-impact ranking factors.",
+    "implementation": [
+      "Crawl analysis, content refinement, technical indexing hygiene, continuous search query monitoring."
+    ],
+    "tools": [
+      "Google Business Profile",
+      "Google Maps"
+    ],
+    "resultsNote": "Optimization delivered according to best-practice search engine guidelines.",
+    "featured": true,
+    "status": "published",
+    "date": "2026",
+    "location": "Palani, Tamil Nadu",
+    "seoTitle": "Dream Sketch Case Study | Local SEO | SURIYADEVAN S",
+    "metaDescription": "Comprehensive Local SEO Services project deployed to improve organic search authority and visibility.",
+    "focusKeyword": "Dream Sketch SEO",
+    "secondaryKeywords": [
+      "Local SEO",
+      "SEO Case Study"
+    ],
+    "schemaType": "CreativeWork",
+    "relatedServices": [
+      "local-seo"
+    ],
+    "id": "proj-1789195361284"
+  },
+  {
+    "slug": "ilan-home-store-palani",
+    "name": "ILAN HOME STORE PALANI",
+    "category": "Local SEO",
+    "client": "ILAN HOME STORE",
+    "industry": "HOME STORE",
+    "services": [
+      "Local SEO Services"
+    ],
+    "overview": "Local SEO campaign and Google Business Profile positioning for ILAN HOME STORE in Palani, driving higher local 3-pack map visibility, phone calls, and showroom visits.",
+    "challenge": "Low search discoverability and unoptimized structure requiring targeted optimization.",
+    "strategy": "Executed strategic Local SEO Services roadmap focusing on high-impact ranking factors.",
+    "implementation": [
+      "Crawl analysis, content refinement, technical indexing hygiene, continuous search query monitoring."
+    ],
+    "tools": [
+      "Google Business Profile",
+      "Google Maps"
+    ],
+    "resultsNote": "Optimization delivered according to best-practice search engine guidelines.",
+    "featured": true,
+    "status": "published",
+    "date": "2026",
+    "location": "Palani, Tamil Nadu",
+    "seoTitle": "ILAN HOME STORE PALANI Case Study | Local SEO | SURIYADEVAN S",
+    "metaDescription": "Local SEO campaign and Google Business Profile positioning for ILAN HOME STORE in Palani, driving higher local 3-pack map visibility, phone calls, and show",
+    "focusKeyword": "ILAN HOME STORE PALANI SEO",
+    "secondaryKeywords": [
+      "Local SEO",
+      "SEO Case Study"
+    ],
+    "schemaType": "CreativeWork",
+    "relatedServices": [
+      "local-seo"
+    ],
+    "id": "proj-1789195299635"
+  },
+  {
+    "id": "proj-1",
+    "slug": "intrax",
+    "name": "Intrax",
+    "category": "SEO",
+    "client": "Intrax",
+    "industry": "Education & Global Exchange",
+    "services": [
+      "SEO Strategy",
+      "On-Page SEO Optimization",
+      "Meta Data Structuring"
+    ],
+    "overview": "End-to-end SEO strategy and comprehensive on-page optimization designed to improve search indexing, organic search visibility, and search-intent alignment.",
+    "challenge": "Addressing fragmented page meta structures, lack of targeted keyword mapping across core informational landing pages, and weak internal anchor signals.",
+    "strategy": "Conducted systematic search intent analysis, restructured title tags and meta descriptions, optimized H1-H3 heading hierarchies, and established contextual internal link paths.",
+    "implementation": [
+      "Comprehensive on-page audit analyzing URL structures, title tag lengths, and CTR factors.",
+      "Refined heading hierarchy (H1, H2, H3) for content clarity and crawlability.",
+      "Targeted on-page content alignment with user intent for primary industry queries.",
+      "Optimized internal linking structures to distribute link equity to key conversion pages."
+    ],
+    "tools": [
+      "Google Search Console",
+      "SEMrush",
+      "Google Analytics 4",
+      "Screaming Frog"
+    ],
+    "resultsNote": "Project performance metrics can be added when verified data is available.",
+    "featured": true,
+    "status": "published",
+    "date": "2024",
+    "location": "India / Global",
+    "seoTitle": "Intrax SEO Project Case Study | On-Page SEO & Strategy | SURIYADEVAN S",
+    "metaDescription": "Detailed breakdown of the Intrax SEO project executed by SURIYADEVAN S, focusing on strategic on-page SEO optimization, crawl efficiency, and content relevance.",
+    "focusKeyword": "Intrax SEO Case Study",
+    "secondaryKeywords": [
+      "On-Page SEO Optimization",
+      "SEO Strategy",
+      "SURIYADEVAN S Portfolio"
+    ],
+    "schemaType": "CreativeWork",
+    "faq": [
       {
-        question: 'How does Google Business Profile optimization help engineering firms?',
-        answer: 'It positions the company in Google Local 3-Packs and Maps for procurement officers and partners seeking precision engineering vendors in the region.'
+        "question": "What was the primary focus of the Intrax project?",
+        "answer": "The primary focus was establishing a robust on-page SEO architecture, repairing meta data inconsistencies, and aligning content with search intent."
       }
     ],
-    relatedServices: ['local-seo', 'google-business-profile']
+    "relatedServices": [
+      "seo",
+      "technical-seo"
+    ]
+  },
+  {
+    "id": "proj-2",
+    "slug": "insd",
+    "name": "Insd",
+    "category": "SEO",
+    "client": "INSD (International School of Design)",
+    "industry": "Design & Vocational Education",
+    "services": [
+      "Keyword Research",
+      "Content Optimization",
+      "Search Intent Mapping"
+    ],
+    "overview": "High-intent keyword research, informational cluster mapping, and structured content optimization tailored to prospective design students.",
+    "challenge": "High competition in design education search landscapes with legacy content that did not align with student search intent.",
+    "strategy": "Segmented search queries into commercial vs informational intents, built topic clusters around design careers and diploma courses, and revamped course landing page content.",
+    "implementation": [
+      "Extensive keyword discovery using SEMrush to identify localized and commercial search queries.",
+      "Search intent categorization ensuring prospective student queries land on informative, conversion-oriented pages.",
+      "Content enrichment with FAQ sections targeting answer engines and featured snippets.",
+      "Structured on-page body copy with strategic placement of primary and secondary semantic keywords."
+    ],
+    "tools": [
+      "SEMrush",
+      "Google Search Console",
+      "Google Analytics 4"
+    ],
+    "resultsNote": "Project performance metrics can be added when verified data is available.",
+    "featured": true,
+    "status": "published",
+    "date": "2024",
+    "location": "India",
+    "seoTitle": "Insd Keyword Research & Content Optimization Project | SURIYADEVAN S",
+    "metaDescription": "Discover how SURIYADEVAN S executed keyword research and content optimization for INSD, matching search intent to educational program offerings.",
+    "focusKeyword": "Insd Content Optimization",
+    "secondaryKeywords": [
+      "Design School SEO",
+      "Keyword Research Case Study",
+      "Search Intent Strategy"
+    ],
+    "schemaType": "CreativeWork",
+    "faq": [
+      {
+        "question": "How was keyword research conducted for INSD?",
+        "answer": "In-depth research using SEMrush segmented keywords by search intent (informational vs. transactional) to match course curriculum and admissions cycles."
+      }
+    ],
+    "relatedServices": [
+      "seo",
+      "content-optimization"
+    ]
   }
 ];
 

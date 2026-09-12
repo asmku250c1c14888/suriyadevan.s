@@ -413,6 +413,11 @@ app.post('/api/content/reset', (req: Request, res: Response) => {
   }
 });
 
+// Google Search Console Site Verification
+app.get('/googlea239e06ba267341d.html', (_req: Request, res: Response) => {
+  res.type('text/html').send('google-site-verification: googlea239e06ba267341d.html');
+});
+
 // -------------------------------------------------------------
 // Vite middleware / Static Serving Setup
 // -------------------------------------------------------------

@@ -28,7 +28,8 @@ import {
   LogOut,
   Mail,
   Inbox,
-  Instagram
+  Instagram,
+  RefreshCw
 } from 'lucide-react';
 import { Project, BlogPost, FAQItem } from '../../types';
 import { SocialMediaPortfolio } from '../services/SocialMediaPortfolio';
@@ -61,7 +62,12 @@ export const AdminView: React.FC = () => {
     isAdmin,
     adminLogin,
     adminLogout,
-    updateAdminPasscode
+    updateAdminPasscode,
+    isSyncing,
+    lastSyncedAt,
+    syncStatus,
+    syncToServer,
+    refreshFromServer
   } = useData();
 
   const [activeTab, setActiveTab] = useState<'seoAudit' | 'projects' | 'socialMedia' | 'metaAds' | 'blogs' | 'faqs' | 'settings' | 'machineFiles' | 'conversions' | 'aiAssistant'>('seoAudit');
@@ -116,16 +122,16 @@ export const AdminView: React.FC = () => {
 
   // SEO Health Audit computation across all public routes
   const pagesToAudit = [
-    { title: 'SEO & Digital Marketing Specialist in Palani | SuriyaDevan S', path: '/', h1: 'SEO & Digital Marketing Specialist in Palani, Tamil Nadu', meta: 'Helping businesses grow their Google visibility, organic traffic, local search presence and digital brand visibility.', wordCount: 1420 },
-    { title: 'About SuriyaDevan S — SEO & Digital Marketing Specialist | Palani', path: '/about', h1: 'About SuriyaDevan S — SEO & Digital Marketing Specialist', meta: 'Learn about SuriyaDevan S, an SEO & Digital Marketing Specialist in Palani, Tamil Nadu.', wordCount: 890 },
-    { title: 'SEO & Digital Marketing Services in Palani, Tamil Nadu | SuriyaDevan S', path: '/services', h1: 'SEO & Digital Marketing Services', meta: 'Explore end-to-end SEO, Local SEO, Technical SEO, Meta Ads, Social Media, and Google Business Profile optimization services.', wordCount: 1150 },
-    { title: 'SEO Services in Palani, Tamil Nadu | Freelance SEO Specialist', path: '/services/seo', h1: 'SEO Services in Palani, Tamil Nadu', meta: 'Looking for professional SEO services in Palani? SuriyaDevan S provides data-driven On-Page, Technical, and Organic SEO strategies.', wordCount: 940 },
-    { title: 'Local SEO Services in Palani | Google Maps Optimization | SuriyaDevan S', path: '/services/local-seo', h1: 'Local SEO Services in Palani', meta: 'Boost your local search visibility with Local SEO services in Palani. Expert Google Business Profile optimization and local citations.', wordCount: 880 },
-    { title: 'Technical SEO Consultant Palani | Site Speed & Indexing | SuriyaDevan S', path: '/services/technical-seo', h1: 'Technical SEO & Website Performance in Palani', meta: 'Improve website crawlability, indexation, and Core Web Vitals with technical SEO consulting by SuriyaDevan S.', wordCount: 790 },
-    { title: 'Social Media Management & Meta Ads in Palani | SuriyaDevan S', path: '/services/social-media-management', h1: 'Social Media & Meta Ads', meta: 'Engaging social media creatives, reel production, and targeted Meta Ads campaigns.', wordCount: 680 },
-    { title: 'SEO & Digital Marketing Blog | SuriyaDevan S | Palani Guides', path: '/blog', h1: 'SEO & Digital Marketing Articles', meta: 'Actionable SEO guides, Local SEO advice for Palani businesses, WordPress technical checklists.', wordCount: 650 },
-    { title: 'Resume — SuriyaDevan S | SEO & Digital Marketing Executive Palani', path: '/resume', h1: 'Professional Resume', meta: 'Official professional resume of SuriyaDevan S: SEO & Digital Marketing Executive.', wordCount: 810 },
-    { title: 'Contact SuriyaDevan — SEO & Digital Marketing Specialist | Palani', path: '/contact', h1: 'Contact SuriyaDevan — SEO & Digital Marketing Specialist', meta: 'Contact SuriyaDevan S for SEO consulting, Local SEO in Palani, technical audits, and digital marketing services.', wordCount: 450 }
+    { title: 'SEO & Digital Marketing Specialist in Palani | SURIYADEVAN S', path: '/', h1: 'SEO & Digital Marketing Specialist in Palani, Tamil Nadu', meta: 'Helping businesses grow their Google visibility, organic traffic, local search presence and digital brand visibility.', wordCount: 1420 },
+    { title: 'About SURIYADEVAN S — SEO & Digital Marketing Specialist | Palani', path: '/about', h1: 'About SURIYADEVAN S — SEO & Digital Marketing Specialist', meta: 'Learn about SURIYADEVAN S, an SEO & Digital Marketing Specialist in Palani, Tamil Nadu.', wordCount: 890 },
+    { title: 'SEO & Digital Marketing Services in Palani, Tamil Nadu | SURIYADEVAN S', path: '/services', h1: 'SEO & Digital Marketing Services', meta: 'Explore end-to-end SEO, Local SEO, Technical SEO, Meta Ads, Social Media, and Google Business Profile optimization services.', wordCount: 1150 },
+    { title: 'SEO Services in Palani, Tamil Nadu | Freelance SEO Specialist', path: '/services/seo', h1: 'SEO Services in Palani, Tamil Nadu', meta: 'Looking for professional SEO services in Palani? SURIYADEVAN S provides data-driven On-Page, Technical, and Organic SEO strategies.', wordCount: 940 },
+    { title: 'Local SEO Services in Palani | Google Maps Optimization | SURIYADEVAN S', path: '/services/local-seo', h1: 'Local SEO Services in Palani', meta: 'Boost your local search visibility with Local SEO services in Palani. Expert Google Business Profile optimization and local citations.', wordCount: 880 },
+    { title: 'Technical SEO Consultant Palani | Site Speed & Indexing | SURIYADEVAN S', path: '/services/technical-seo', h1: 'Technical SEO & Website Performance in Palani', meta: 'Improve website crawlability, indexation, and Core Web Vitals with technical SEO consulting by SURIYADEVAN S.', wordCount: 790 },
+    { title: 'Social Media Management & Meta Ads in Palani | SURIYADEVAN S', path: '/services/social-media-management', h1: 'Social Media & Meta Ads', meta: 'Engaging social media creatives, reel production, and targeted Meta Ads campaigns.', wordCount: 680 },
+    { title: 'SEO & Digital Marketing Blog | SURIYADEVAN S | Palani Guides', path: '/blog', h1: 'SEO & Digital Marketing Articles', meta: 'Actionable SEO guides, Local SEO advice for Palani businesses, WordPress technical checklists.', wordCount: 650 },
+    { title: 'Resume — SURIYADEVAN S | SEO & Digital Marketing Executive Palani', path: '/resume', h1: 'Professional Resume', meta: 'Official professional resume of SURIYADEVAN S: SEO & Digital Marketing Executive.', wordCount: 810 },
+    { title: 'Contact SURIYADEVAN — SEO & Digital Marketing Specialist | Palani', path: '/contact', h1: 'Contact SURIYADEVAN — SEO & Digital Marketing Specialist', meta: 'Contact SURIYADEVAN S for SEO consulting, Local SEO in Palani, technical audits, and digital marketing services.', wordCount: 450 }
   ];
 
   // Audit checks calculation
@@ -219,10 +225,10 @@ Disallow: /#admin
 
 Sitemap: ${window.location.origin}/sitemap.xml`;
 
-  const llmsTxt = `# SuriyaDevan S — SEO & Digital Marketing Specialist
+  const llmsTxt = `# SURIYADEVAN S — SEO & Digital Marketing Specialist
 
 ## Entity Overview
-- Name: SuriyaDevan S
+- Name: SURIYADEVAN S
 - Role: SEO & Digital Marketing Executive | Freelance SEO Specialist | Local SEO Specialist
 - Geographic Location: Palani, Tamil Nadu, India
 - Secondary Target Areas: Dindigul, Oddanchatram, Dharapuram, Udumalpet, Pollachi, Coimbatore, Madurai, Tamil Nadu, India
@@ -255,7 +261,7 @@ Sitemap: ${window.location.origin}/sitemap.xml`;
       setAiResponse(`[AI SEO Suggestion for Palani Local Search]
 Focus Keyword: "Local SEO Specialist in Palani"
 Target H2: "How Palani Retailers and Service Showrooms Can Capture High-Intent Foot Traffic"
-Suggested Meta Description: "Discover actionable Local SEO steps for businesses in Palani, Tamil Nadu. Optimize your Google Business Profile and local citations with SuriyaDevan S."
+Suggested Meta Description: "Discover actionable Local SEO steps for businesses in Palani, Tamil Nadu. Optimize your Google Business Profile and local citations with SURIYADEVAN S."
 Factual Guardrail: Metrics must remain marked as "Needs verified information" until real client data is attached.`);
     } else if (promptLower.includes('project') || promptLower.includes('case study')) {
       setAiResponse(`[AI Template: New Client SEO Project]
@@ -267,11 +273,11 @@ Strategy: Intent mapping, meta corrections, internal linking
 Results: Needs verified information (Zero fabricated claims permitted)`);
     } else if (promptLower.includes('faq')) {
       setAiResponse(`[AI Suggested FAQ for Answer Engine Optimization]
-Q: Does SuriyaDevan provide on-site SEO audits for Palani and Tamil Nadu businesses?
-A: Yes, SuriyaDevan offers technical site audits covering crawl efficiency, Core Web Vitals, metadata hygiene, and Google Business Profile positioning.`);
+Q: Does SURIYADEVAN provide on-site SEO audits for Palani and Tamil Nadu businesses?
+A: Yes, SURIYADEVAN offers technical site audits covering crawl efficiency, Core Web Vitals, metadata hygiene, and Google Business Profile positioning.`);
     } else {
       setAiResponse(`[AI Assistant Output for: "${aiPrompt}"]
-Analysis: Query mapped to entity-first structure for SuriyaDevan S (Palani, Tamil Nadu).
+Analysis: Query mapped to entity-first structure for SURIYADEVAN S (Palani, Tamil Nadu).
 Suggestion: Ensure all headings reflect clear search intent. Never introduce speculative ranking numbers or unverified revenue claims.`);
     }
   };
@@ -307,7 +313,7 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
         <SEOHead
-          title="Owner Access Verification | SuriyaDevan S"
+          title="Owner Access Verification | SURIYADEVAN S"
           description="Owner authentication required to access the CMS Dashboard."
         />
         <div className="max-w-md w-full bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
@@ -317,7 +323,7 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
             </div>
             <div>
               <h2 className="text-base font-bold font-display">Owner Access Control</h2>
-              <p className="text-xs text-slate-400">SuriyaDevan S Portfolio CMS</p>
+              <p className="text-xs text-slate-400">SURIYADEVAN S Portfolio CMS</p>
             </div>
           </div>
 
@@ -382,8 +388,8 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
   return (
     <div className="min-h-screen bg-[#FAF9F6]">
       <SEOHead
-        title="Admin CMS & Live SEO Health Dashboard | SuriyaDevan S"
-        description="Private content management system and technical SEO health auditor for SuriyaDevan S's personal digital marketing portfolio."
+        title="Admin CMS & Live SEO Health Dashboard | SURIYADEVAN S"
+        description="Private content management system and technical SEO health auditor for SURIYADEVAN S's personal digital marketing portfolio."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
@@ -451,6 +457,47 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset Defaults</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Live Website Synchronization Bar */}
+        <div className="mt-4 p-3.5 bg-white border border-[#E7E2D8] rounded-xl shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex items-center space-x-3">
+            <div className={`p-2 rounded-lg ${isSyncing ? 'bg-amber-100 text-amber-700' : syncStatus === 'error' ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-800'}`}>
+              <RefreshCw className={`w-4 h-4 ${isSyncing ? 'animate-spin' : ''}`} />
+            </div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <span className="text-xs font-bold text-slate-900">
+                  {isSyncing ? 'Publishing Updates to Live Website...' : 'Website is Live & Synchronized'}
+                </span>
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                  Auto-Save Active
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 mt-0.5">
+                Every project, blog post, reel, Meta Ads campaign, or entity setting you add is automatically updated on your website for all visitors.
+                {lastSyncedAt && ` • Last live sync: ${new Date(lastSyncedAt).toLocaleTimeString()}`}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-2 shrink-0">
+            <button
+              onClick={async () => {
+                const ok = await syncToServer();
+                if (ok) {
+                  showNotice('Website updated live successfully! All visitors will see your latest additions.');
+                } else {
+                  showNotice('Notice: Saved locally. Check internet connection for server sync.');
+                }
+              }}
+              disabled={isSyncing}
+              className="px-3.5 py-1.5 bg-[#1C1917] hover:bg-black text-white rounded-lg text-xs font-semibold flex items-center space-x-1.5 transition-colors shadow-xs disabled:opacity-50"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin' : ''}`} />
+              <span>{isSyncing ? 'Publishing...' : 'Sync All to Live Website'}</span>
             </button>
           </div>
         </div>
@@ -834,19 +881,19 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
                     Cancel
                   </button>
                   <button
-                    onClick={() => {
+                    onClick={async () => {
                       if (isNewProject) {
                         addProject(editingProject);
-                        showNotice(`Project "${editingProject.name}" added successfully`);
+                        showNotice(`Project "${editingProject.name}" added and published live to website!`);
                       } else {
                         updateProject(editingProject.id, editingProject);
-                        showNotice(`Project "${editingProject.name}" updated`);
+                        showNotice(`Project "${editingProject.name}" updated and published live to website!`);
                       }
                       setEditingProject(null);
                     }}
                     className="px-5 py-2 bg-[#1C1917] text-white rounded font-semibold"
                   >
-                    Save Project
+                    Save & Publish Project
                   </button>
                 </div>
               </div>
@@ -1024,19 +1071,19 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
                 <div className="pt-2 flex justify-end space-x-2">
                   <button onClick={() => setEditingBlog(null)} className="px-4 py-2 border rounded">Cancel</button>
                   <button
-                    onClick={() => {
+                    onClick={async () => {
                       if (isNewBlog) {
                         addBlogPost(editingBlog);
-                        showNotice(`Article "${editingBlog.title}" added`);
+                        showNotice(`Article "${editingBlog.title}" added and published live to website!`);
                       } else {
                         updateBlogPost(editingBlog.id, editingBlog);
-                        showNotice(`Article "${editingBlog.title}" updated`);
+                        showNotice(`Article "${editingBlog.title}" updated and published live to website!`);
                       }
                       setEditingBlog(null);
                     }}
                     className="px-5 py-2 bg-[#1C1917] text-white rounded font-semibold"
                   >
-                    Save Article
+                    Save & Publish Article
                   </button>
                 </div>
               </div>
@@ -1167,7 +1214,7 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
                     Cancel
                   </button>
                   <button
-                    onClick={() => {
+                    onClick={async () => {
                       if (!editingFAQ.question.trim() || !editingFAQ.answer.trim()) {
                         alert('Please fill in both the question and answer.');
                         return;
@@ -1179,16 +1226,16 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
                           category: editingFAQ.category,
                           featured: editingFAQ.featured
                         });
-                        showNotice(`New FAQ added`);
+                        showNotice(`New FAQ added and published live to website!`);
                       } else {
                         updateFAQ(editingFAQ.id, editingFAQ);
-                        showNotice(`FAQ updated`);
+                        showNotice(`FAQ updated and published live to website!`);
                       }
                       setEditingFAQ(null);
                     }}
                     className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold transition-all shadow-2xs"
                   >
-                    Save FAQ
+                    Save & Publish FAQ
                   </button>
                 </div>
               </div>
@@ -1315,10 +1362,13 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
 
             <div className="pt-2 flex items-center space-x-3">
               <button
-                onClick={() => showNotice('Site settings updated successfully')}
+                onClick={async () => {
+                  const ok = await syncToServer();
+                  showNotice(ok ? 'Site settings saved and published live to website!' : 'Site settings updated locally.');
+                }}
                 className="px-5 py-2 bg-[#1C1917] text-white rounded font-semibold hover:bg-slate-800 transition-colors"
               >
-                Save Settings
+                Save & Publish Settings
               </button>
             </div>
 

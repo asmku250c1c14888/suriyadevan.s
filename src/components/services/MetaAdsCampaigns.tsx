@@ -123,7 +123,7 @@ export const MetaAdsCampaigns: React.FC = () => {
       reportSummary: formData.reportSummary
     });
 
-    setFormSuccess('Meta Ads Campaign Report added successfully!');
+    setFormSuccess('Meta Ads Campaign Report added & updated live on website!');
     setTimeout(() => {
       setIsAddModalOpen(false);
       setFormSuccess('');

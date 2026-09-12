@@ -46,7 +46,7 @@ export const AdminAuthModal: React.FC = () => {
             </div>
             <div>
               <h3 className="text-sm font-bold font-display">Owner Access Control</h3>
-              <p className="text-[11px] text-slate-400">SuriyaDevan S Portfolio CMS</p>
+              <p className="text-[11px] text-slate-400">SURIYADEVAN S Portfolio CMS</p>
             </div>
           </div>
           <button

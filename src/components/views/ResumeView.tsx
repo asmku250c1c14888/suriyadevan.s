@@ -47,8 +47,8 @@ export const ResumeView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title="Resume — SuriyaDevan S | SEO & Digital Marketing Executive Palani"
-        description="Official professional resume of SuriyaDevan S: SEO & Digital Marketing Executive with experience managing 5 end-to-end SEO projects at Avanexa, certifications, and tools."
+        title="Resume — SURIYADEVAN S | SEO & Digital Marketing Executive Palani"
+        description="Official professional resume of SURIYADEVAN S: SEO & Digital Marketing Executive with experience managing 5 end-to-end SEO projects at Avanexa, certifications, and tools."
         schema={resumeSchema}
       />
 
@@ -64,7 +64,7 @@ export const ResumeView: React.FC = () => {
               Professional Resume
             </h1>
             <p className="text-xs text-slate-500">
-              Verified resume of SuriyaDevan S • Palani, Tamil Nadu
+              Verified resume of SURIYADEVAN S • Palani, Tamil Nadu
             </p>
           </div>
           <button

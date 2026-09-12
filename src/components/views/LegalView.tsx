@@ -15,8 +15,8 @@ export const LegalView: React.FC<{ type: 'privacy' | 'terms' | 'disclaimer' }> =
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title={`${titles[type]} | SuriyaDevan S`}
-        description={`Legal information and ${titles[type]} for SuriyaDevan S's website.`}
+        title={`${titles[type]} | SURIYADEVAN S`}
+        description={`Legal information and ${titles[type]} for SURIYADEVAN S's website.`}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
@@ -31,7 +31,7 @@ export const LegalView: React.FC<{ type: 'privacy' | 'terms' | 'disclaimer' }> =
           {type === 'privacy' && (
             <>
               <p>
-                This Privacy Policy outlines how SuriyaDevan S handles information collected through this portfolio and consultation website.
+                This Privacy Policy outlines how SURIYADEVAN S handles information collected through this portfolio and consultation website.
               </p>
               <h2 className="text-base font-bold text-slate-900 font-display">Information Collection</h2>
               <p>
@@ -51,11 +51,11 @@ export const LegalView: React.FC<{ type: 'privacy' | 'terms' | 'disclaimer' }> =
               </p>
               <h2 className="text-base font-bold text-slate-900 font-display">Consulting Services</h2>
               <p>
-                All digital marketing, search engine optimization, and local SEO services provided by SuriyaDevan S are subject to individual written agreements and proposals mutually agreed upon prior to project commencement.
+                All digital marketing, search engine optimization, and local SEO services provided by SURIYADEVAN S are subject to individual written agreements and proposals mutually agreed upon prior to project commencement.
               </p>
               <h2 className="text-base font-bold text-slate-900 font-display">Intellectual Property</h2>
               <p>
-                All original textual content, frameworks, and portfolio presentations on this website are the intellectual property of SuriyaDevan S unless otherwise stated.
+                All original textual content, frameworks, and portfolio presentations on this website are the intellectual property of SURIYADEVAN S unless otherwise stated.
               </p>
             </>
           )}
@@ -66,7 +66,7 @@ export const LegalView: React.FC<{ type: 'privacy' | 'terms' | 'disclaimer' }> =
                 <strong>Search Ranking & Performance Disclaimer:</strong>
               </p>
               <p>
-                Search Engine Optimization (SEO) involves complex third-party algorithms managed by search engines including Google. While SuriyaDevan S employs verified white-hat methodologies, best practices, and data-driven optimizations that have successfully generated Google first-page rankings, no digital marketer can ethically guarantee fixed #1 positions or specific traffic volumes.
+                Search Engine Optimization (SEO) involves complex third-party algorithms managed by search engines including Google. While SURIYADEVAN S employs verified white-hat methodologies, best practices, and data-driven optimizations that have successfully generated Google first-page rankings, no digital marketer can ethically guarantee fixed #1 positions or specific traffic volumes.
               </p>
               <h2 className="text-base font-bold text-slate-900 font-display">Data Transparency & Metrics</h2>
               <p>

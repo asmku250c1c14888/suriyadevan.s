@@ -176,8 +176,8 @@ export const HomeView: React.FC = () => {
         '@type': 'WebSite',
         '@id': 'https://suriyadevan.in/#website',
         url: window.location.origin,
-        name: 'SuriyaDevan S | SEO & Digital Marketing Specialist Palani',
-        description: 'Official portfolio and digital marketing consultancy website of SuriyaDevan S in Palani, Tamil Nadu.'
+        name: 'SURIYADEVAN S | SEO & Digital Marketing Specialist Palani',
+        description: 'Official portfolio and digital marketing consultancy website of SURIYADEVAN S in Palani, Tamil Nadu.'
       }
     ]
   };
@@ -204,7 +204,7 @@ export const HomeView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70">
       <SEOHead
-        title="SEO & Digital Marketing Specialist in Palani | SuriyaDevan S"
+        title="SEO & Digital Marketing Specialist in Palani | SURIYADEVAN S"
         description="Helping businesses grow their Google visibility, organic traffic, local search presence and digital brand visibility through SEO and performance-focused digital marketing in Palani, Tamil Nadu."
         schema={homeSchema}
       />
@@ -302,13 +302,13 @@ export const HomeView: React.FC = () => {
         </div>
       </section>
 
-      {/* Who is SuriyaDevan S — Entity Grounding */}
+      {/* Who is SURIYADEVAN S — Entity Grounding */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
               <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
-              <span>About SuriyaDevan S</span>
+              <span>About SURIYADEVAN S</span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-900 font-display">
@@ -611,7 +611,7 @@ export const HomeView: React.FC = () => {
             Factual Capabilities
           </div>
           <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-900 font-display">
-            Why Work With SuriyaDevan?
+            Why Work With SURIYADEVAN?
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 mt-2">
             No inflated promises or fabricated rankings. Transparent, hands-on execution backed by verified experience.

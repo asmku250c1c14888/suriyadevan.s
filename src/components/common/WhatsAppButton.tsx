@@ -19,7 +19,7 @@ export const WhatsAppButton: React.FC = () => {
       {/* Tooltip prompt */}
       {tooltipVisible && (
         <div className="mb-2 bg-slate-900 text-white text-xs py-2 px-3.5 rounded-xl shadow-xl flex items-center space-x-2 border border-slate-700 animate-in fade-in slide-in-from-bottom-2">
-          <span>Chat directly on WhatsApp with SuriyaDevan</span>
+          <span>Chat directly on WhatsApp with SURIYADEVAN</span>
           <button 
             onClick={(e) => { e.stopPropagation(); setTooltipVisible(false); }}
             className="text-slate-400 hover:text-white p-0.5 rounded"

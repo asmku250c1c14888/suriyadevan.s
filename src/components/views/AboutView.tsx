@@ -45,8 +45,8 @@ export const AboutView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title="About SuriyaDevan S — SEO & Digital Marketing Specialist | Palani"
-        description="Learn about SuriyaDevan S, an SEO & Digital Marketing Specialist in Palani, Tamil Nadu. Experience at Avanexa & Cannibals Media, certifications, and technical capabilities."
+        title="About SURIYADEVAN S — SEO & Digital Marketing Specialist | Palani"
+        description="Learn about SURIYADEVAN S, an SEO & Digital Marketing Specialist in Palani, Tamil Nadu. Experience at Avanexa & Cannibals Media, certifications, and technical capabilities."
         schema={aboutSchema}
       />
 
@@ -61,7 +61,7 @@ export const AboutView: React.FC = () => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight font-display">
-            About SuriyaDevan S — SEO & Digital Marketing Specialist
+            About SURIYADEVAN S — SEO & Digital Marketing Specialist
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">

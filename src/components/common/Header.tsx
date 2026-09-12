@@ -286,7 +286,7 @@ export const Header: React.FC = () => {
             ) : (
               <button
                 onClick={() => setIsLoginModalOpen(true)}
-                title="Owner Login (SuriyaDevan S)"
+                title="Owner Login (SURIYADEVAN S)"
                 className="px-2.5 py-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-indigo-600 hover:border-indigo-300 transition-all flex items-center space-x-1.5 text-xs shadow-2xs"
               >
                 <Lock className="w-3.5 h-3.5 text-slate-400" />
@@ -346,7 +346,7 @@ export const Header: React.FC = () => {
             onClick={() => handleNav('/about')}
             className="block w-full text-left px-3 py-2 text-sm font-semibold text-slate-800 rounded-lg hover:bg-slate-100"
           >
-            About SuriyaDevan
+            About SURIYADEVAN
           </button>
           <button
             onClick={() => handleNav('/services')}

@@ -91,14 +91,14 @@ export const ContactView: React.FC = () => {
 
   const cleanNumber = siteSettings.whatsapp.replace(/\D/g, '');
   const whatsappUrl = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(
-    `Hello SuriyaDevan, I am contacting you from your website regarding ${formData.service || 'SEO services'}.`
+    `Hello SURIYADEVAN, I am contacting you from your website regarding ${formData.service || 'SEO services'}.`
   )}`;
 
   const contactSchema = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact SuriyaDevan S — SEO & Digital Marketing Specialist',
-    description: 'Get in touch with SuriyaDevan S for freelance SEO, Local SEO, and Digital Marketing consulting in Palani, Tamil Nadu.',
+    name: 'Contact SURIYADEVAN S — SEO & Digital Marketing Specialist',
+    description: 'Get in touch with SURIYADEVAN S for freelance SEO, Local SEO, and Digital Marketing consulting in Palani, Tamil Nadu.',
     mainEntity: {
       '@type': 'Person',
       name: siteSettings.name,
@@ -116,8 +116,8 @@ export const ContactView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title="Contact SuriyaDevan — SEO & Digital Marketing Specialist | Palani"
-        description="Contact SuriyaDevan S for SEO consulting, Local SEO in Palani, technical audits, and digital marketing services. Phone: +91 9087571737, Email: suriya2993@gmail.com."
+        title="Contact SURIYADEVAN — SEO & Digital Marketing Specialist | Palani"
+        description="Contact SURIYADEVAN S for SEO consulting, Local SEO in Palani, technical audits, and digital marketing services. Phone: +91 9087571737, Email: suriya2993@gmail.com."
         schema={contactSchema}
       />
 
@@ -132,7 +132,7 @@ export const ContactView: React.FC = () => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight font-display">
-            Contact SuriyaDevan — SEO Specialist
+            Contact SURIYADEVAN — SEO Specialist
           </h1>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
@@ -263,7 +263,7 @@ export const ContactView: React.FC = () => {
                       Inquiry Dispatched Successfully!
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed max-w-md mx-auto">
-                      Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your message and requirements have been shared directly with SuriyaDevan at <strong className="text-indigo-600">suriya2993@gmail.com</strong>.
+                      Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your message and requirements have been shared directly with SURIYADEVAN at <strong className="text-indigo-600">suriya2993@gmail.com</strong>.
                     </p>
                   </div>
 
@@ -481,7 +481,7 @@ export const ContactView: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        <span>Submit Details to SuriyaDevan</span>
+                        <span>Submit Details to SURIYADEVAN</span>
                         <Send className="w-3.5 h-3.5" />
                       </>
                     )}

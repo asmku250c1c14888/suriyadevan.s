@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
@@ -295,6 +296,121 @@ app.get('/api/contact/leads', (req: Request, res: Response) => {
     targetEmail: TARGET_NOTIFICATION_EMAIL,
     leads: leadsStore
   });
+});
+
+// -------------------------------------------------------------
+// Website Content CMS Persistence Store
+// -------------------------------------------------------------
+const DATA_DIR = path.join(process.cwd(), 'data');
+const CONTENT_FILE = path.join(DATA_DIR, 'site-content.json');
+
+// Ensure data directory exists
+if (!fs.existsSync(DATA_DIR)) {
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  } catch (e) {
+    console.error('[CMS ERROR] Failed to create data directory:', e);
+  }
+}
+
+// In-memory cache of site content
+let cachedSiteContent: any = null;
+
+function loadSiteContentFromDisk() {
+  try {
+    if (fs.existsSync(CONTENT_FILE)) {
+      const raw = fs.readFileSync(CONTENT_FILE, 'utf-8');
+      cachedSiteContent = JSON.parse(raw);
+      return cachedSiteContent;
+    }
+  } catch (err: any) {
+    console.error('[CMS ERROR] Failed to load site content from disk:', err.message);
+  }
+  return null;
+}
+
+// Pre-load on startup
+loadSiteContentFromDisk();
+
+// GET /api/content - Fetch live website content for visitors & client hydration
+app.get('/api/content', (req: Request, res: Response) => {
+  try {
+    const content = cachedSiteContent || loadSiteContentFromDisk();
+    return res.status(200).json({
+      success: true,
+      hasCustomContent: Boolean(content),
+      data: content,
+      timestamp: new Date().toISOString()
+    });
+  } catch (err: any) {
+    console.error('[CMS ERROR] Error serving site content:', err);
+    return res.status(500).json({
+      success: false,
+      error: 'Failed to retrieve website content'
+    });
+  }
+});
+
+// POST /api/content - Owner publishes/updates content to the live website
+app.post('/api/content', (req: Request, res: Response) => {
+  try {
+    const payload = req.body;
+    if (!payload || typeof payload !== 'object') {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid payload: expected JSON content object'
+      });
+    }
+
+    // Merge content
+    cachedSiteContent = {
+      ...(cachedSiteContent || {}),
+      ...payload,
+      updatedAt: new Date().toISOString()
+    };
+
+    // Safely write to disk
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    const tempFile = `${CONTENT_FILE}.tmp.${Date.now()}`;
+    fs.writeFileSync(tempFile, JSON.stringify(cachedSiteContent, null, 2), 'utf-8');
+    fs.renameSync(tempFile, CONTENT_FILE);
+
+    console.log(`[CMS SYNC] ✅ Website content successfully updated and published to live website! (${new Date().toLocaleTimeString()})`);
+
+    return res.status(200).json({
+      success: true,
+      message: 'Website content updated and published live successfully.',
+      updatedAt: cachedSiteContent.updatedAt
+    });
+  } catch (err: any) {
+    console.error('[CMS ERROR] Failed to save site content to disk:', err);
+    return res.status(500).json({
+      success: false,
+      error: 'Failed to persist content on server: ' + err.message
+    });
+  }
+});
+
+// POST /api/content/reset - Owner resets content back to original defaults
+app.post('/api/content/reset', (req: Request, res: Response) => {
+  try {
+    if (fs.existsSync(CONTENT_FILE)) {
+      fs.unlinkSync(CONTENT_FILE);
+    }
+    cachedSiteContent = null;
+    console.log('[CMS SYNC] Website content reset to defaults.');
+    return res.status(200).json({
+      success: true,
+      message: 'Website content reset to defaults.'
+    });
+  } catch (err: any) {
+    return res.status(500).json({
+      success: false,
+      error: 'Failed to reset content: ' + err.message
+    });
+  }
 });
 
 // -------------------------------------------------------------

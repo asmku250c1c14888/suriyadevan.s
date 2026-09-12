@@ -1,14 +1,14 @@
 import { Project, ServiceDetail, BlogPost, FAQItem, ExperienceItem, CertificationItem, SiteSettings, SocialMediaItem, MetaAdCampaign } from '../types';
 
 export const initialSiteSettings: SiteSettings = {
-  name: 'SuriyaDevan S',
+  name: 'SURIYADEVAN S',
   roleTitle: 'SEO & Digital Marketing Specialist',
   location: 'Palani, Tamil Nadu, India',
   phone: '+91 9087571737',
   email: 'suriya2993@gmail.com',
   linkedin: 'https://www.linkedin.com/in/suriyadevan/',
   whatsapp: '919087571737',
-  whatsappMessage: 'Hello SuriyaDevan, I would like to consult with you regarding SEO and digital marketing services for my business.',
+  whatsappMessage: 'Hello SURIYADEVAN, I would like to consult with you regarding SEO and digital marketing services for my business.',
   primaryLocations: ['Palani', 'Tamil Nadu', 'India'],
   secondaryLocations: ['Dindigul', 'Oddanchatram', 'Dharapuram', 'Udumalpet', 'Pollachi', 'Coimbatore', 'Madurai'],
   googleSearchConsoleId: 'GSC-VERIFIED-INTEGRATION',
@@ -42,10 +42,10 @@ export const initialProjects: Project[] = [
     status: 'published',
     date: '2024',
     location: 'India / Global',
-    seoTitle: 'Intrax SEO Project Case Study | On-Page SEO & Strategy | SuriyaDevan S',
-    metaDescription: 'Detailed breakdown of the Intrax SEO project executed by SuriyaDevan S, focusing on strategic on-page SEO optimization, crawl efficiency, and content relevance.',
+    seoTitle: 'Intrax SEO Project Case Study | On-Page SEO & Strategy | SURIYADEVAN S',
+    metaDescription: 'Detailed breakdown of the Intrax SEO project executed by SURIYADEVAN S, focusing on strategic on-page SEO optimization, crawl efficiency, and content relevance.',
     focusKeyword: 'Intrax SEO Case Study',
-    secondaryKeywords: ['On-Page SEO Optimization', 'SEO Strategy', 'SuriyaDevan S Portfolio'],
+    secondaryKeywords: ['On-Page SEO Optimization', 'SEO Strategy', 'SURIYADEVAN S Portfolio'],
     schemaType: 'CreativeWork',
     faq: [
       {
@@ -78,8 +78,8 @@ export const initialProjects: Project[] = [
     status: 'published',
     date: '2024',
     location: 'India',
-    seoTitle: 'Insd Keyword Research & Content Optimization Project | SuriyaDevan S',
-    metaDescription: 'Discover how SuriyaDevan S executed keyword research and content optimization for INSD, matching search intent to educational program offerings.',
+    seoTitle: 'Insd Keyword Research & Content Optimization Project | SURIYADEVAN S',
+    metaDescription: 'Discover how SURIYADEVAN S executed keyword research and content optimization for INSD, matching search intent to educational program offerings.',
     focusKeyword: 'Insd Content Optimization',
     secondaryKeywords: ['Design School SEO', 'Keyword Research Case Study', 'Search Intent Strategy'],
     schemaType: 'CreativeWork',
@@ -114,8 +114,8 @@ export const initialProjects: Project[] = [
     status: 'published',
     date: '2024',
     location: 'India',
-    seoTitle: 'Triaz Technical SEO & Performance Optimization | SuriyaDevan S',
-    metaDescription: 'Case breakdown of the Triaz technical SEO project by SuriyaDevan S: optimizing site performance, crawl hygiene, and Core Web Vitals alignment.',
+    seoTitle: 'Triaz Technical SEO & Performance Optimization | SURIYADEVAN S',
+    metaDescription: 'Case breakdown of the Triaz technical SEO project by SURIYADEVAN S: optimizing site performance, crawl hygiene, and Core Web Vitals alignment.',
     focusKeyword: 'Triaz Technical SEO',
     secondaryKeywords: ['Site Performance Optimization', 'Technical SEO Audit', 'Core Web Vitals'],
     schemaType: 'CreativeWork',
@@ -150,8 +150,8 @@ export const initialProjects: Project[] = [
     status: 'published',
     date: '2024',
     location: 'Tamil Nadu, India',
-    seoTitle: 'Dream Sketch WordPress SEO & Asset Optimization | SuriyaDevan S',
-    metaDescription: 'See how SuriyaDevan S optimized Dream Sketch on WordPress with Image SEO, structured metadata, and streamlined content architecture.',
+    seoTitle: 'Dream Sketch WordPress SEO & Asset Optimization | SURIYADEVAN S',
+    metaDescription: 'See how SURIYADEVAN S optimized Dream Sketch on WordPress with Image SEO, structured metadata, and streamlined content architecture.',
     focusKeyword: 'Dream Sketch WordPress SEO',
     secondaryKeywords: ['WordPress SEO Specialist', 'Architecture Portfolio SEO', 'Image SEO'],
     schemaType: 'CreativeWork',
@@ -186,8 +186,8 @@ export const initialProjects: Project[] = [
     status: 'published',
     date: '2024',
     location: 'Tamil Nadu, India',
-    seoTitle: 'Best Precision Local SEO & Google Business Profile Case Study | SuriyaDevan S',
-    metaDescription: 'Local SEO and Google Business Profile optimization case study for Best Precision by SuriyaDevan S. Enhancing local maps presence and industrial search visibility.',
+    seoTitle: 'Best Precision Local SEO & Google Business Profile Case Study | SURIYADEVAN S',
+    metaDescription: 'Local SEO and Google Business Profile optimization case study for Best Precision by SURIYADEVAN S. Enhancing local maps presence and industrial search visibility.',
     focusKeyword: 'Best Precision Local SEO',
     secondaryKeywords: ['Google Business Profile Optimization', 'Local SEO Tamil Nadu', 'NAP Consistency'],
     schemaType: 'CreativeWork',
@@ -234,7 +234,7 @@ export const initialServices: ServiceDetail[] = [
     toolsUsed: ['SEMrush', 'Google Search Console', 'Google Analytics 4', 'Microsoft Clarity'],
     localFocus: 'Palani, Dindigul, Coimbatore, and across Tamil Nadu',
     seoTitle: 'SEO Services in Palani, Tamil Nadu | Freelance SEO Specialist',
-    metaDescription: 'Looking for professional SEO services in Palani? SuriyaDevan S provides data-driven On-Page, Technical, and Organic SEO strategies to grow your Google visibility.',
+    metaDescription: 'Looking for professional SEO services in Palani? SURIYADEVAN S provides data-driven On-Page, Technical, and Organic SEO strategies to grow your Google visibility.',
     focusKeyword: 'SEO Services in Palani',
     faqs: [
       {
@@ -282,7 +282,7 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Google Business Profile', 'Google Maps', 'Google Search Console'],
     localFocus: 'Palani, Oddanchatram, Dharapuram, Udumalpet, Dindigul',
-    seoTitle: 'Local SEO Services in Palani | Google Maps Optimization | SuriyaDevan S',
+    seoTitle: 'Local SEO Services in Palani | Google Maps Optimization | SURIYADEVAN S',
     metaDescription: 'Boost your local search visibility with Local SEO services in Palani. Expert Google Business Profile optimization, local citations, and Google Maps ranking strategies.',
     focusKeyword: 'Local SEO Services in Palani',
     faqs: [
@@ -326,8 +326,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Google Search Console', 'PageSpeed Insights', 'Microsoft Clarity', 'SEMrush'],
     localFocus: 'Palani, Tamil Nadu, and Remote Clients',
-    seoTitle: 'Technical SEO Consultant Palani | Site Speed & Indexing | SuriyaDevan S',
-    metaDescription: 'Improve website crawlability, indexation, and Core Web Vitals with technical SEO consulting by SuriyaDevan S. Serving Palani and businesses across Tamil Nadu.',
+    seoTitle: 'Technical SEO Consultant Palani | Site Speed & Indexing | SURIYADEVAN S',
+    metaDescription: 'Improve website crawlability, indexation, and Core Web Vitals with technical SEO consulting by SURIYADEVAN S. Serving Palani and businesses across Tamil Nadu.',
     focusKeyword: 'Technical SEO Consultant',
     faqs: [
       {
@@ -366,8 +366,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Adobe Express', 'Hootsuite', 'Meta Business Suite', 'Canva'],
     localFocus: 'Palani, Dindigul, Pollachi, Coimbatore, Tamil Nadu',
-    seoTitle: 'Social Media Management in Palani | Posters & Reels | SuriyaDevan S',
-    metaDescription: 'Elevate your brand on Instagram & Facebook. Professional social media management, creative poster design, and Reels strategy by SuriyaDevan S in Palani.',
+    seoTitle: 'Social Media Management in Palani | Posters & Reels | SURIYADEVAN S',
+    metaDescription: 'Elevate your brand on Instagram & Facebook. Professional social media management, creative poster design, and Reels strategy by SURIYADEVAN S in Palani.',
     focusKeyword: 'Social Media Management Palani',
     faqs: [
       {
@@ -406,8 +406,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Meta Ads Manager', 'Meta Business Suite', 'Google Analytics 4'],
     localFocus: 'Palani, Tamil Nadu, and All-India Campaigns',
-    seoTitle: 'Meta Ads Management Palani | Facebook & Instagram Ads | SuriyaDevan S',
-    metaDescription: 'Targeted Meta Ads management by SuriyaDevan S. Reach real buyers in Palani and Tamil Nadu with high-performing Facebook & Instagram ad campaigns.',
+    seoTitle: 'Meta Ads Management Palani | Facebook & Instagram Ads | SURIYADEVAN S',
+    metaDescription: 'Targeted Meta Ads management by SURIYADEVAN S. Reach real buyers in Palani and Tamil Nadu with high-performing Facebook & Instagram ad campaigns.',
     focusKeyword: 'Meta Ads Specialist Palani',
     faqs: [
       {
@@ -445,7 +445,7 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Google Business Profile', 'Google Maps'],
     localFocus: 'Palani and Tamil Nadu',
-    seoTitle: 'Google Business Profile Optimization in Palani | SuriyaDevan S',
+    seoTitle: 'Google Business Profile Optimization in Palani | SURIYADEVAN S',
     metaDescription: 'Optimize your Google Business Profile in Palani. Gain more calls, store visits, and Google Maps visibility with expert profile setup and management.',
     focusKeyword: 'Google Business Profile Optimization in Palani',
     faqs: [
@@ -467,11 +467,11 @@ export const initialBlogPosts: BlogPost[] = [
     publishDate: '2025-01-15',
     modifiedDate: '2025-02-10',
     readingTime: '6 min read',
-    author: 'SuriyaDevan S',
+    author: 'SURIYADEVAN S',
     focusKeyword: 'Local SEO Palani',
     secondaryKeywords: ['Google Maps Ranking Palani', 'Google Business Profile Palani', 'Local Business SEO Tamil Nadu'],
     searchIntent: 'Informational',
-    metaTitle: 'How Local Businesses in Palani Can Rank on Google Maps | SuriyaDevan S',
+    metaTitle: 'How Local Businesses in Palani Can Rank on Google Maps | SURIYADEVAN S',
     metaDescription: 'Learn actionable Local SEO strategies tailored for businesses in Palani, Tamil Nadu. Optimize your Google Business Profile and win local customer searches.',
     status: 'published',
     content: `
@@ -511,11 +511,11 @@ If you have a website, ensure you have dedicated service pages addressing your l
     publishDate: '2025-01-28',
     modifiedDate: '2025-02-14',
     readingTime: '5 min read',
-    author: 'SuriyaDevan S',
+    author: 'SURIYADEVAN S',
     focusKeyword: 'WordPress Technical SEO',
     secondaryKeywords: ['WordPress SEO Checklist', 'Core Web Vitals WordPress', 'Site Speed SEO'],
     searchIntent: 'Informational',
-    metaTitle: 'Technical SEO Essentials for WordPress | SuriyaDevan S',
+    metaTitle: 'Technical SEO Essentials for WordPress | SURIYADEVAN S',
     metaDescription: 'Essential WordPress technical SEO checklist. How to resolve crawl bottlenecks, streamline permalinks, and improve search indexation.',
     status: 'published',
     content: `
@@ -550,11 +550,11 @@ WordPress often generates multiple paths to the same article (e.g., category arc
     publishDate: '2025-02-05',
     modifiedDate: '2025-02-20',
     readingTime: '7 min read',
-    author: 'SuriyaDevan S',
+    author: 'SURIYADEVAN S',
     focusKeyword: 'Search Intent SEO',
     secondaryKeywords: ['Keyword Research Strategy', 'On Page SEO Techniques', 'Content Optimization Guide'],
     searchIntent: 'Informational',
-    metaTitle: 'Why Search Intent Matters More Than Keyword Density | SuriyaDevan S',
+    metaTitle: 'Why Search Intent Matters More Than Keyword Density | SURIYADEVAN S',
     metaDescription: 'Discover why search intent is the foundation of modern SEO. Learn how to align content with user problems rather than outdated keyword stuffing.',
     status: 'published',
     content: `
@@ -563,7 +563,7 @@ Years ago, search engine optimization often involved calculating a "keyword dens
 ### Understanding the 4 Search Intent Types
 Every Google query stems from an underlying user objective:
 1. **Informational Intent**: The searcher wants to learn something (e.g., *"what is local SEO"*).
-2. **Navigational Intent**: The searcher wants to find a specific brand or website (e.g., *"SuriyaDevan LinkedIn"*).
+2. **Navigational Intent**: The searcher wants to find a specific brand or website (e.g., *"SURIYADEVAN LinkedIn"*).
 3. **Commercial Investigation**: The searcher is comparing options or looking for reviews before making a purchase decision (e.g., *"best SEO specialist in Palani"*).
 4. **Transactional Intent**: The searcher is ready to hire or purchase (e.g., *"hire freelance SEO consultant"*).
 
@@ -587,22 +587,22 @@ When search engines see users finding exactly what they need on your page withou
 export const initialFAQs: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'Who is SuriyaDevan S?',
-    answer: 'SuriyaDevan S is an SEO and Digital Marketing Executive based in Palani, Tamil Nadu, India. He specializes in end-to-end SEO, Local SEO, Technical SEO, Social Media Marketing, Meta Ads, and Google Business Profile optimization for growing businesses.',
+    question: 'Who is SURIYADEVAN S?',
+    answer: 'SURIYADEVAN S is an SEO and Digital Marketing Executive based in Palani, Tamil Nadu, India. He specializes in end-to-end SEO, Local SEO, Technical SEO, Social Media Marketing, Meta Ads, and Google Business Profile optimization for growing businesses.',
     category: 'General',
     featured: true
   },
   {
     id: 'faq-2',
-    question: 'What SEO services does SuriyaDevan provide?',
+    question: 'What SEO services does SURIYADEVAN provide?',
     answer: 'Services include On-Page SEO, Off-Page SEO & link building, Technical SEO audits, Local SEO and Google Business Profile optimization, Keyword Research, Content Optimization, and Analytics integration (GA4, GSC, GTM, Microsoft Clarity).',
     category: 'SEO',
     featured: true
   },
   {
     id: 'faq-3',
-    question: 'Does SuriyaDevan provide SEO services in Palani and nearby areas?',
-    answer: 'Yes. SuriyaDevan is located in Palani, Tamil Nadu, and actively works with businesses in Palani, Dindigul, Oddanchatram, Dharapuram, Udumalpet, Pollachi, Coimbatore, Madurai, across Tamil Nadu, and nationwide.',
+    question: 'Does SURIYADEVAN provide SEO services in Palani and nearby areas?',
+    answer: 'Yes. SURIYADEVAN is located in Palani, Tamil Nadu, and actively works with businesses in Palani, Dindigul, Oddanchatram, Dharapuram, Udumalpet, Pollachi, Coimbatore, Madurai, across Tamil Nadu, and nationwide.',
     category: 'Local SEO',
     featured: true
   },
@@ -743,7 +743,7 @@ export const initialSocialMediaItems: SocialMediaItem[] = [
     type: 'carousel',
     title: '5 Costly Mistakes Palani Small Businesses Make with Local Google Maps',
     platform: 'LinkedIn',
-    clientName: 'SuriyaDevan S Digital Advisory',
+    clientName: 'SURIYADEVAN S Digital Advisory',
     caption: 'Educational 7-slide carousel breaking down Google Business Profile audit secrets for retail owners in Dindigul and Palani districts.',
     metrics: {
       views: '12.4K',
@@ -800,7 +800,7 @@ export const initialSocialMediaItems: SocialMediaItem[] = [
     type: 'reel',
     title: 'Behind The Scenes: How We Optimised A Website In 48 Hours',
     platform: 'YouTube Shorts',
-    clientName: 'SuriyaDevan S SEO',
+    clientName: 'SURIYADEVAN S SEO',
     caption: 'Fast-paced screen recording walkthrough breaking down Core Web Vitals fixes and PageSpeed optimization from 42 to 94 on mobile.',
     metrics: {
       views: '24.8K',

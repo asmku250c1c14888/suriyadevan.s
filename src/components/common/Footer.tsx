@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
               Entity & Location Authority
             </span>
             <p className="text-white text-sm sm:text-base font-semibold font-display">
-              SuriyaDevan S — SEO & Digital Marketing Specialist based in Palani, Tamil Nadu, India
+              SURIYADEVAN S — SEO & Digital Marketing Specialist based in Palani, Tamil Nadu, India
             </p>
             <p className="text-slate-400 text-xs mt-1">
               Providing localized SEO, Google Business Profile optimization, and performance digital marketing across Palani, Dindigul, Oddanchatram, Dharapuram, Udumalpet, Pollachi, Coimbatore, and Tamil Nadu.
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
               onClick={() => handleNav('/contact')}
               className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2.5 rounded-lg font-semibold text-xs transition-colors flex items-center space-x-1.5 shadow-sm"
             >
-              <span>Work With SuriyaDevan</span>
+              <span>Work With SURIYADEVAN</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
             <a
@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button onClick={() => handleNav('/about')} className="hover:text-white transition-colors">
-                  About SuriyaDevan
+                  About SURIYADEVAN
                 </button>
               </li>
               <li>
@@ -253,7 +253,7 @@ export const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="border-t border-slate-800/80 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 gap-3">
           <div>
-            © {new Date().getFullYear()} SuriyaDevan S. All rights reserved. Palani, Tamil Nadu, India.
+            © {new Date().getFullYear()} SURIYADEVAN S. All rights reserved. Palani, Tamil Nadu, India.
           </div>
           <div className="flex items-center space-x-4">
             <span className="text-slate-400">Entity-First Architecture</span>

@@ -73,7 +73,7 @@ export const SocialMediaPortfolio: React.FC = () => {
       featured: formData.featured
     });
 
-    setFormSuccess('Social Media Reel / Post added successfully!');
+    setFormSuccess('Social Media Reel / Post added & updated live on website!');
     setTimeout(() => {
       setIsAddModalOpen(false);
       setFormSuccess('');

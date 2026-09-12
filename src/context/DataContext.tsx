@@ -69,6 +69,11 @@ interface DataContextType {
   updateAdminPasscode: (newPasscode: string) => void;
   isLoginModalOpen: boolean;
   setIsLoginModalOpen: (open: boolean) => void;
+  isSyncing: boolean;
+  lastSyncedAt: string | null;
+  syncStatus: 'idle' | 'syncing' | 'synced' | 'error';
+  syncToServer: (customPayload?: any) => Promise<boolean>;
+  refreshFromServer: () => Promise<void>;
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -76,7 +81,19 @@ const DataContext = createContext<DataContextType | undefined>(undefined);
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [siteSettings, setSiteSettings] = useState<SiteSettings>(() => {
     const saved = localStorage.getItem('suriyadevan_settings');
-    return saved ? JSON.parse(saved) : initialSiteSettings;
+    if (!saved) return initialSiteSettings;
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed.name && /suriyadevan/i.test(parsed.name)) {
+        parsed.name = parsed.name.replace(/suriyadevan/gi, 'SURIYADEVAN');
+      }
+      if (parsed.whatsappMessage && /suriyadevan/i.test(parsed.whatsappMessage)) {
+        parsed.whatsappMessage = parsed.whatsappMessage.replace(/suriyadevan/gi, 'SURIYADEVAN');
+      }
+      return parsed;
+    } catch {
+      return initialSiteSettings;
+    }
   });
 
   const [projects, setProjects] = useState<Project[]>(() => {
@@ -132,6 +149,116 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   });
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
+
+  // Server persistence & synchronization state
+  const [isSyncing, setIsSyncing] = useState<boolean>(false);
+  const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(null);
+  const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('idle');
+  const [isInitialHydrated, setIsInitialHydrated] = useState<boolean>(false);
+
+  // Fetch live published content from server on startup
+  const refreshFromServer = async () => {
+    try {
+      const res = await fetch('/api/content');
+      if (res.ok) {
+        const json = await res.json();
+        if (json.success && json.data) {
+          const d = json.data;
+          if (d.siteSettings) {
+            if (d.siteSettings.name && /suriyadevan/i.test(d.siteSettings.name)) {
+              d.siteSettings.name = d.siteSettings.name.replace(/suriyadevan/gi, 'SURIYADEVAN');
+            }
+            setSiteSettings(d.siteSettings);
+          }
+          if (Array.isArray(d.projects) && d.projects.length > 0) setProjects(d.projects);
+          if (Array.isArray(d.services) && d.services.length > 0) setServices(d.services);
+          if (Array.isArray(d.blogPosts) && d.blogPosts.length > 0) setBlogPosts(d.blogPosts);
+          if (Array.isArray(d.faqs) && d.faqs.length > 0) setFaqs(d.faqs);
+          if (Array.isArray(d.experience) && d.experience.length > 0) setExperience(d.experience);
+          if (Array.isArray(d.socialMediaItems) && d.socialMediaItems.length > 0) setSocialMediaItems(d.socialMediaItems);
+          if (Array.isArray(d.metaCampaigns) && d.metaCampaigns.length > 0) setMetaCampaigns(d.metaCampaigns);
+          if (d.updatedAt) setLastSyncedAt(d.updatedAt);
+          setSyncStatus('synced');
+        }
+      }
+    } catch (err) {
+      console.warn('[CMS Sync] Server synchronization check completed:', err);
+    } finally {
+      setIsInitialHydrated(true);
+    }
+  };
+
+  useEffect(() => {
+    refreshFromServer();
+  }, []);
+
+  // Sync content payload to the server
+  const syncToServer = async (customPayload?: any): Promise<boolean> => {
+    setIsSyncing(true);
+    setSyncStatus('syncing');
+    try {
+      const payload = customPayload || {
+        siteSettings,
+        projects,
+        services,
+        blogPosts,
+        faqs,
+        experience,
+        socialMediaItems,
+        metaCampaigns
+      };
+
+      const res = await fetch('/api/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        setLastSyncedAt(json.updatedAt || new Date().toISOString());
+        setSyncStatus('synced');
+        return true;
+      } else {
+        setSyncStatus('error');
+        return false;
+      }
+    } catch (err) {
+      console.error('[CMS Sync] Failed to sync content to server:', err);
+      setSyncStatus('error');
+      return false;
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  // Automatically sync to server whenever the owner updates content
+  useEffect(() => {
+    if (!isInitialHydrated) return;
+    const timer = setTimeout(() => {
+      syncToServer({
+        siteSettings,
+        projects,
+        services,
+        blogPosts,
+        faqs,
+        experience,
+        socialMediaItems,
+        metaCampaigns
+      });
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [
+    isInitialHydrated,
+    siteSettings,
+    projects,
+    services,
+    blogPosts,
+    faqs,
+    experience,
+    socialMediaItems,
+    metaCampaigns
+  ]);
 
   const adminLogin = (passcode: string): boolean => {
     const cleaned = passcode.trim();
@@ -343,7 +470,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setMetaCampaigns(prev => prev.filter(c => c.id !== id));
   };
 
-  const resetToDefaults = () => {
+  const resetToDefaults = async () => {
     setSiteSettings(initialSiteSettings);
     setProjects(initialProjects);
     setServices(initialServices);
@@ -353,6 +480,13 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setSocialMediaItems(initialSocialMediaItems);
     setMetaCampaigns(initialMetaCampaigns);
     localStorage.clear();
+    try {
+      await fetch('/api/content/reset', { method: 'POST' });
+      setLastSyncedAt(null);
+      setSyncStatus('synced');
+    } catch (e) {
+      console.error('Failed to reset content on server:', e);
+    }
   };
 
   const exportJSON = () => {
@@ -380,6 +514,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (data.experience) setExperience(data.experience);
       if (data.socialMediaItems) setSocialMediaItems(data.socialMediaItems);
       if (data.metaCampaigns) setMetaCampaigns(data.metaCampaigns);
+      syncToServer(data);
       return true;
     } catch (e) {
       console.error('Failed to import JSON data:', e);
@@ -433,7 +568,12 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
         adminLogout,
         updateAdminPasscode,
         isLoginModalOpen,
-        setIsLoginModalOpen
+        setIsLoginModalOpen,
+        isSyncing,
+        lastSyncedAt,
+        syncStatus,
+        syncToServer,
+        refreshFromServer
       }}
     >
       {children}

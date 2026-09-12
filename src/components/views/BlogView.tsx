@@ -37,7 +37,7 @@ export const BlogView: React.FC = () => {
     excerpt: '',
     content: '',
     readingTime: '4 min read',
-    author: siteSettings.name || 'SuriyaDevan S',
+    author: siteSettings.name || 'SURIYADEVAN S',
     focusKeyword: '',
     searchIntent: 'Informational' as BlogPost['searchIntent'],
     metaTitle: '',
@@ -58,7 +58,7 @@ export const BlogView: React.FC = () => {
       excerpt: '',
       content: '## Introduction\n\nExplain the context and relevance for businesses...\n\n## Actionable Strategy\n\nDetail the exact steps and best practices.\n\n## Key Takeaways\n\n- Summary point 1\n- Summary point 2',
       readingTime: '5 min read',
-      author: siteSettings.name || 'SuriyaDevan S',
+      author: siteSettings.name || 'SURIYADEVAN S',
       focusKeyword: '',
       searchIntent: 'Informational',
       metaTitle: '',
@@ -277,7 +277,7 @@ export const BlogView: React.FC = () => {
             <div className="p-6 bg-white rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
               <div>
                 <div className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">
-                  Written by SuriyaDevan S
+                  Written by SURIYADEVAN S
                 </div>
                 <h4 className="text-sm font-bold text-slate-900">SEO Specialist in Palani</h4>
                 <p className="text-xs text-slate-500 mt-1 max-w-md">
@@ -335,7 +335,7 @@ export const BlogView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title="SEO & Digital Marketing Blog | SuriyaDevan S | Palani"
+        title="SEO & Digital Marketing Blog | SURIYADEVAN S | Palani"
         description="Read articles on Local SEO in Palani, Google Business Profile ranking tactics, technical SEO audits, and WordPress performance."
       />
 

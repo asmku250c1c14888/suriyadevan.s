@@ -141,7 +141,7 @@ export const ServicesView: React.FC = () => {
       status: 'published',
       date: newProject.date,
       location: newProject.location,
-      seoTitle: `${newProject.name} Case Study | ${newProject.category} | SuriyaDevan S`,
+      seoTitle: `${newProject.name} Case Study | ${newProject.category} | SURIYADEVAN S`,
       metaDescription: newProject.overview.slice(0, 160),
       focusKeyword: `${newProject.name} SEO`,
       secondaryKeywords: [newProject.category, 'SEO Case Study'],
@@ -500,7 +500,7 @@ export const ServicesView: React.FC = () => {
               Ready to grow your search visibility with {currentService.name}?
             </h3>
             <p className="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto leading-relaxed">
-              Get in touch directly with SuriyaDevan for a thorough inspection of your website, search indexing, and organic opportunity roadmap.
+              Get in touch directly with SURIYADEVAN for a thorough inspection of your website, search indexing, and organic opportunity roadmap.
             </p>
             <div className="pt-2 flex justify-center items-center gap-3">
               <button
@@ -833,7 +833,7 @@ export const ServicesView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/60 pb-20">
       <SEOHead
-        title="SEO & Digital Marketing Services in Palani, Tamil Nadu | SuriyaDevan S"
+        title="SEO & Digital Marketing Services in Palani, Tamil Nadu | SURIYADEVAN S"
         description="Explore end-to-end SEO, Local SEO, Technical SEO, Meta Ads, Social Media, and Google Business Profile optimization services in Palani with verified client project case studies."
       />
 

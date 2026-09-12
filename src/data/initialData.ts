@@ -273,8 +273,8 @@ export const initialProjects: Project[] = [
     "status": "published",
     "date": "2026",
     "location": "Palani, Tamil Nadu",
-    "seoTitle": "ILAN HOME STORE PALANI Case Study | Local SEO | SURIYADEVAN S",
-    "metaDescription": "Local SEO campaign and Google Business Profile positioning for ILAN HOME STORE in Palani, driving higher local 3-pack map visibility, phone calls, and show",
+    "seoTitle": "ILAN HOME STORE Local SEO Case Study | SURIYADEVAN S",
+    "metaDescription": "Local SEO & Google Business Profile case study for ILAN HOME STORE in Palani by SURIYADEVAN S. Driving Google Maps 3-pack visibility, calls & store visits.",
     "focusKeyword": "ILAN HOME STORE PALANI SEO",
     "secondaryKeywords": [
       "Local SEO",
@@ -318,8 +318,8 @@ export const initialProjects: Project[] = [
     "status": "published",
     "date": "2024",
     "location": "India / Global",
-    "seoTitle": "Intrax SEO Project Case Study | On-Page SEO & Strategy | SURIYADEVAN S",
-    "metaDescription": "Detailed breakdown of the Intrax SEO project executed by SURIYADEVAN S, focusing on strategic on-page SEO optimization, crawl efficiency, and content relevance.",
+    "seoTitle": "Intrax On-Page SEO Case Study | SURIYADEVAN S",
+    "metaDescription": "On-Page SEO and technical optimization case study for Intrax by SURIYADEVAN S. Improved Google crawl efficiency, organic search rankings, and targeted traffic.",
     "focusKeyword": "Intrax SEO Case Study",
     "secondaryKeywords": [
       "On-Page SEO Optimization",
@@ -369,8 +369,8 @@ export const initialProjects: Project[] = [
     "status": "published",
     "date": "2024",
     "location": "India",
-    "seoTitle": "Insd Keyword Research & Content Optimization Project | SURIYADEVAN S",
-    "metaDescription": "Discover how SURIYADEVAN S executed keyword research and content optimization for INSD, matching search intent to educational program offerings.",
+    "seoTitle": "INSD Keyword Research & SEO Case Study | SURIYADEVAN S",
+    "metaDescription": "Keyword research and search-intent content optimization case study for INSD by SURIYADEVAN S. Ranking interior and fashion design queries on Google page 1.",
     "focusKeyword": "Insd Content Optimization",
     "secondaryKeywords": [
       "Design School SEO",
@@ -423,8 +423,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['SEMrush', 'Google Search Console', 'Google Analytics 4', 'Microsoft Clarity'],
     localFocus: 'Palani, Dindigul, Coimbatore, and across Tamil Nadu',
-    seoTitle: 'SEO Services in Palani, Tamil Nadu | Freelance SEO Specialist',
-    metaDescription: 'Looking for professional SEO services in Palani? SURIYADEVAN S provides data-driven On-Page, Technical, and Organic SEO strategies to grow your Google visibility.',
+    seoTitle: 'SEO Services in Palani | Freelance SEO | SURIYADEVAN S',
+    metaDescription: 'Data-driven On-Page, Off-Page & Organic SEO services in Palani by SURIYADEVAN S. Boost keyword rankings, organic traffic & Google visibility. Hire today!',
     focusKeyword: 'SEO Services in Palani',
     faqs: [
       {
@@ -472,8 +472,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Google Business Profile', 'Google Maps', 'Google Search Console'],
     localFocus: 'Palani, Oddanchatram, Dharapuram, Udumalpet, Dindigul',
-    seoTitle: 'Local SEO Services in Palani | Google Maps Optimization | SURIYADEVAN S',
-    metaDescription: 'Boost your local search visibility with Local SEO services in Palani. Expert Google Business Profile optimization, local citations, and Google Maps ranking strategies.',
+    seoTitle: 'Local SEO Services in Palani | Google Maps | SURIYADEVAN S',
+    metaDescription: 'Rank #1 on Google Maps in Palani. Expert Local SEO, Google Business Profile optimization, local citations & review strategy by SURIYADEVAN S. Call today!',
     focusKeyword: 'Local SEO Services in Palani',
     faqs: [
       {
@@ -516,8 +516,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Google Search Console', 'PageSpeed Insights', 'Microsoft Clarity', 'SEMrush'],
     localFocus: 'Palani, Tamil Nadu, and Remote Clients',
-    seoTitle: 'Technical SEO Consultant Palani | Site Speed & Indexing | SURIYADEVAN S',
-    metaDescription: 'Improve website crawlability, indexation, and Core Web Vitals with technical SEO consulting by SURIYADEVAN S. Serving Palani and businesses across Tamil Nadu.',
+    seoTitle: 'Technical SEO Consultant in Palani | SURIYADEVAN S',
+    metaDescription: 'Resolve crawl errors, improve Core Web Vitals, site speed & indexation with technical SEO in Palani by SURIYADEVAN S. Audit your website for Google ranking!',
     focusKeyword: 'Technical SEO Consultant',
     faqs: [
       {
@@ -556,8 +556,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Adobe Express', 'Hootsuite', 'Meta Business Suite', 'Canva'],
     localFocus: 'Palani, Dindigul, Pollachi, Coimbatore, Tamil Nadu',
-    seoTitle: 'Social Media Management in Palani | Posters & Reels | SURIYADEVAN S',
-    metaDescription: 'Elevate your brand on Instagram & Facebook. Professional social media management, creative poster design, and Reels strategy by SURIYADEVAN S in Palani.',
+    seoTitle: 'Social Media Management in Palani | SURIYADEVAN S',
+    metaDescription: 'Grow your brand on Instagram & Facebook in Palani. Custom poster design, viral Reels strategy & engagement management by SURIYADEVAN S. Boost your reach!',
     focusKeyword: 'Social Media Management Palani',
     faqs: [
       {
@@ -596,8 +596,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Meta Ads Manager', 'Meta Business Suite', 'Google Analytics 4'],
     localFocus: 'Palani, Tamil Nadu, and All-India Campaigns',
-    seoTitle: 'Meta Ads Management Palani | Facebook & Instagram Ads | SURIYADEVAN S',
-    metaDescription: 'Targeted Meta Ads management by SURIYADEVAN S. Reach real buyers in Palani and Tamil Nadu with high-performing Facebook & Instagram ad campaigns.',
+    seoTitle: 'Meta Ads Specialist in Palani | Facebook & Instagram Ads',
+    metaDescription: 'High-ROAS Meta Ads management in Palani by SURIYADEVAN S. Targeted Facebook & Instagram ad campaigns that drive qualified local leads, sales & conversions.',
     focusKeyword: 'Meta Ads Specialist Palani',
     faqs: [
       {
@@ -635,8 +635,8 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Google Business Profile', 'Google Maps'],
     localFocus: 'Palani and Tamil Nadu',
-    seoTitle: 'Google Business Profile Optimization in Palani | SURIYADEVAN S',
-    metaDescription: 'Optimize your Google Business Profile in Palani. Gain more calls, store visits, and Google Maps visibility with expert profile setup and management.',
+    seoTitle: 'Google Business Profile in Palani | SURIYADEVAN S',
+    metaDescription: 'Optimize your Google Business Profile in Palani. Get more phone calls, foot traffic & store directions on Google Maps with expert setup by SURIYADEVAN S.',
     focusKeyword: 'Google Business Profile Optimization in Palani',
     faqs: [
       {
@@ -661,8 +661,8 @@ export const initialBlogPosts: BlogPost[] = [
     focusKeyword: 'Local SEO Palani',
     secondaryKeywords: ['Google Maps Ranking Palani', 'Google Business Profile Palani', 'Local Business SEO Tamil Nadu'],
     searchIntent: 'Informational',
-    metaTitle: 'How Local Businesses in Palani Can Rank on Google Maps | SURIYADEVAN S',
-    metaDescription: 'Learn actionable Local SEO strategies tailored for businesses in Palani, Tamil Nadu. Optimize your Google Business Profile and win local customer searches.',
+    metaTitle: 'How Palani Businesses Rank #1 on Google Maps | SEO Guide',
+    metaDescription: 'Step-by-step Local SEO guide for businesses in Palani, Tamil Nadu. Learn Google Business Profile optimization, local citations & ranking in the Local 3-Pack.',
     status: 'published',
     content: `
 When potential customers in Palani need a service, a clinic, or a showroom, the first thing they do is pick up their smartphone and search Google for queries like *"best furniture store near me"* or *"top clinic in Palani"*.
@@ -705,8 +705,8 @@ If you have a website, ensure you have dedicated service pages addressing your l
     focusKeyword: 'WordPress Technical SEO',
     secondaryKeywords: ['WordPress SEO Checklist', 'Core Web Vitals WordPress', 'Site Speed SEO'],
     searchIntent: 'Informational',
-    metaTitle: 'Technical SEO Essentials for WordPress | SURIYADEVAN S',
-    metaDescription: 'Essential WordPress technical SEO checklist. How to resolve crawl bottlenecks, streamline permalinks, and improve search indexation.',
+    metaTitle: 'WordPress Technical SEO Checklist | SURIYADEVAN S',
+    metaDescription: 'Complete WordPress technical SEO checklist: fix crawl errors, optimize permalinks, speed up Core Web Vitals, and boost Google indexation for higher rankings.',
     status: 'published',
     content: `
 WordPress powers over 40% of the web, making it one of the most popular content management systems for businesses in India. However, an out-of-the-box WordPress installation often suffers from bloat, duplicate category pages, and crawl inefficiencies.
@@ -744,8 +744,8 @@ WordPress often generates multiple paths to the same article (e.g., category arc
     focusKeyword: 'Search Intent SEO',
     secondaryKeywords: ['Keyword Research Strategy', 'On Page SEO Techniques', 'Content Optimization Guide'],
     searchIntent: 'Informational',
-    metaTitle: 'Why Search Intent Matters More Than Keyword Density | SURIYADEVAN S',
-    metaDescription: 'Discover why search intent is the foundation of modern SEO. Learn how to align content with user problems rather than outdated keyword stuffing.',
+    metaTitle: 'Search Intent vs Keyword Density in SEO | SURIYADEVAN S',
+    metaDescription: 'Why search intent beats keyword density in modern SEO. Learn how to align content with user problems to achieve sustainable #1 rankings on Google search.',
     status: 'published',
     content: `
 Years ago, search engine optimization often involved calculating a "keyword density percentage" and repeating target terms multiple times across a page. In modern search environments powered by natural language processing and AI, this approach is not only ineffective—it actively harms user experience.

@@ -335,8 +335,8 @@ export const BlogView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title="SEO & Digital Marketing Blog | SURIYADEVAN S | Palani"
-        description="Read articles on Local SEO in Palani, Google Business Profile ranking tactics, technical SEO audits, and WordPress performance."
+        title="SEO & Digital Marketing Blog Palani | SURIYADEVAN S"
+        description="Actionable SEO, Local SEO & digital marketing guides by SURIYADEVAN S in Palani, Tamil Nadu. Learn Google ranking tactics, Google Maps growth & technical tips."
       />
 
       {/* Toast notification */}

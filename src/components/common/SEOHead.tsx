@@ -10,8 +10,15 @@ interface SEOHeadProps {
 
 export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical, keywords, schema }) => {
   useEffect(() => {
+    // Strict SEO bounds: Max 60 chars for Meta Title, Max 160 chars for Meta Description
+    const trimmedTitle = title.trim();
+    const finalTitle = trimmedTitle.length > 60 ? trimmedTitle.slice(0, 60).trim() : trimmedTitle;
+
+    const trimmedDesc = description.trim();
+    const finalDesc = trimmedDesc.length > 160 ? trimmedDesc.slice(0, 160).trim() : trimmedDesc;
+
     // Update document title
-    document.title = title;
+    document.title = finalTitle;
 
     // Update meta description
     let metaDesc = document.querySelector('meta[name="description"]');
@@ -20,7 +27,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
       metaDesc.setAttribute('name', 'description');
       document.head.appendChild(metaDesc);
     }
-    metaDesc.setAttribute('content', description);
+    metaDesc.setAttribute('content', finalDesc);
 
     // Update meta keywords if provided
     if (keywords) {
@@ -35,10 +42,26 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
 
     // Update Open Graph tags
     let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title);
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute('content', finalTitle);
 
     let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', description);
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute('content', finalDesc);
+
+    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.setAttribute('content', finalTitle);
+
+    let twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.setAttribute('content', finalDesc);
 
     let ogUrl = document.querySelector('meta[property="og:url"]');
     const targetUrl = canonical || (window.location.origin + window.location.pathname + window.location.hash);

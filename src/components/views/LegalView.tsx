@@ -12,11 +12,28 @@ export const LegalView: React.FC<{ type: 'privacy' | 'terms' | 'disclaimer' }> =
     disclaimer: 'Disclaimer & Factual Representation Policy'
   };
 
+  const seoData = {
+    privacy: {
+      title: 'Privacy Policy | SURIYADEVAN S SEO Specialist',
+      desc: 'Privacy policy and client data protection practices for SURIYADEVAN S, freelance SEO and digital marketing specialist in Palani, Tamil Nadu. Reviewed annually.'
+    },
+    terms: {
+      title: 'Terms of Service | SURIYADEVAN S SEO Specialist',
+      desc: 'Terms of service and engagement agreements for SEO, Local SEO, Meta Ads & digital marketing services provided by SURIYADEVAN S in Palani, Tamil Nadu.'
+    },
+    disclaimer: {
+      title: 'Disclaimer Policy | SURIYADEVAN S SEO Specialist',
+      desc: 'Disclaimer and performance representations policy for SEO consulting, digital marketing results, and client case studies presented by SURIYADEVAN S in Palani.'
+    }
+  };
+
+  const currentSeo = seoData[type] || seoData.privacy;
+
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title={`${titles[type]} | SURIYADEVAN S`}
-        description={`Legal information and ${titles[type]} for SURIYADEVAN S's website.`}
+        title={currentSeo.title}
+        description={currentSeo.desc}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">

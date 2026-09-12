@@ -116,8 +116,8 @@ export const ContactView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title="Contact SURIYADEVAN — SEO & Digital Marketing Specialist | Palani"
-        description="Contact SURIYADEVAN S for SEO consulting, Local SEO in Palani, technical audits, and digital marketing services. Phone: +91 9087571737, Email: suriya2993@gmail.com."
+        title="Contact SURIYADEVAN S | SEO Specialist in Palani"
+        description="Contact SURIYADEVAN S for freelance SEO & digital marketing in Palani, Tamil Nadu. Call +91 9087571737 or email suriya2993@gmail.com for a free consultation!"
         schema={contactSchema}
       />
 

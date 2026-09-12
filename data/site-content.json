@@ -26,7 +26,9 @@
     "googleAnalyticsId": "G-XXXXXXXXXX",
     "googleTagManagerId": "GTM-XXXXXXX",
     "microsoftClarityId": "clarity-project-id",
-    "enableTracking": true
+    "enableTracking": true,
+    "siteTitle": "SEO & Digital Marketing Specialist Palani | SURIYADEVAN S",
+    "metaDescription": "Rank #1 on Google with SURIYADEVAN S. Expert SEO, Local SEO, Meta Ads & social media management for businesses in Palani, Tamil Nadu. Get a free audit!"
   },
   "projects": [
     {
@@ -55,7 +57,7 @@
       "date": "2026",
       "location": "Palani, Tamil Nadu",
       "seoTitle": "Ilan Home Store Case Study | Meta Ads | SURIYADEVAN S",
-      "metaDescription": "Comprehensive Meta Ads Management project deployed to improve organic search authority and visibility.",
+      "metaDescription": "Meta Ads campaign case study for Ilan Home Store in Palani by SURIYADEVAN S. Targeted Facebook & Instagram ads driving verified store footfalls and sales.",
       "focusKeyword": "Ilan Home Store SEO",
       "secondaryKeywords": [
         "Meta Ads",
@@ -93,8 +95,8 @@
       "status": "published",
       "date": "2026",
       "location": "Palani, Tamil Nadu",
-      "seoTitle": "ilan homes tore Case Study | Social Media | SURIYADEVAN S",
-      "metaDescription": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+      "seoTitle": "Ilan Home Store Social Media Case Study | SURIYADEVAN S",
+      "metaDescription": "Social media management case study for Ilan Home Store Palani. Creative poster designs and Instagram Reels executed by SURIYADEVAN S to grow local reach.",
       "focusKeyword": "ilan homes tore SEO",
       "secondaryKeywords": [
         "Social Media",
@@ -132,8 +134,8 @@
       "status": "published",
       "date": "2026",
       "location": "Palani, Tamil Nadu",
-      "seoTitle": "Triaz Case Study | Social Media | SURIYADEVAN S",
-      "metaDescription": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+      "seoTitle": "Triaz Travel Social Media Case Study | SURIYADEVAN S",
+      "metaDescription": "Social media marketing case study for Triaz Travel & Tours by SURIYADEVAN S. High-engagement travel reels and promotional posters driving tour bookings.",
       "focusKeyword": "Triaz SEO",
       "secondaryKeywords": [
         "Social Media",
@@ -171,8 +173,8 @@
       "status": "published",
       "date": "2026",
       "location": "Palani, Tamil Nadu",
-      "seoTitle": "indtrax_industries Case Study | Social Media | SURIYADEVAN S",
-      "metaDescription": "Comprehensive Social Media Management project deployed to improve organic search authority and visibility.",
+      "seoTitle": "Indtrax Industries Social Media Case Study | SURIYADEVAN",
+      "metaDescription": "B2B social media marketing case study for Indtrax Industries by SURIYADEVAN S. Professional posters, brand storytelling, and targeted industrial reach.",
       "focusKeyword": "indtrax_industries SEO",
       "secondaryKeywords": [
         "Social Media",
@@ -209,8 +211,8 @@
       "status": "published",
       "date": "2026",
       "location": "Palani, Tamil Nadu",
-      "seoTitle": "Best Precision Tools Case Study | Local SEO | SURIYADEVAN S",
-      "metaDescription": "Comprehensive Local SEO Services project deployed to improve organic search authority and visibility.",
+      "seoTitle": "Best Precision Tools Local SEO Case Study | SURIYADEVAN",
+      "metaDescription": "Local SEO and Google Business Profile case study for Best Precision Tools by SURIYADEVAN S. Dominating local Google search and generating B2B tool leads.",
       "focusKeyword": "Best Precision Tools SEO",
       "secondaryKeywords": [
         "Local SEO",
@@ -246,8 +248,8 @@
       "status": "published",
       "date": "2026",
       "location": "Palani, Tamil Nadu",
-      "seoTitle": "Dream Sketch Case Study | Local SEO | SURIYADEVAN S",
-      "metaDescription": "Comprehensive Local SEO Services project deployed to improve organic search authority and visibility.",
+      "seoTitle": "Dream Sketch Local SEO Case Study | SURIYADEVAN S",
+      "metaDescription": "Local SEO case study for Dream Sketch Interiors by SURIYADEVAN S. Gaining top Google Maps 3-pack rankings and inquiries for interior designers in Coimbatore.",
       "focusKeyword": "Dream Sketch SEO",
       "secondaryKeywords": [
         "Local SEO",
@@ -283,8 +285,8 @@
       "status": "published",
       "date": "2026",
       "location": "Palani, Tamil Nadu",
-      "seoTitle": "ILAN HOME STORE PALANI Case Study | Local SEO | SURIYADEVAN S",
-      "metaDescription": "Local SEO campaign and Google Business Profile positioning for ILAN HOME STORE in Palani, driving higher local 3-pack map visibility, phone calls, and show",
+      "seoTitle": "ILAN HOME STORE Local SEO Case Study | SURIYADEVAN S",
+      "metaDescription": "Local SEO & Google Business Profile case study for ILAN HOME STORE in Palani by SURIYADEVAN S. Driving Google Maps 3-pack visibility, calls & store visits.",
       "focusKeyword": "ILAN HOME STORE PALANI SEO",
       "secondaryKeywords": [
         "Local SEO",
@@ -328,8 +330,8 @@
       "status": "published",
       "date": "2024",
       "location": "India / Global",
-      "seoTitle": "Intrax SEO Project Case Study | On-Page SEO & Strategy | SURIYADEVAN S",
-      "metaDescription": "Detailed breakdown of the Intrax SEO project executed by SURIYADEVAN S, focusing on strategic on-page SEO optimization, crawl efficiency, and content relevance.",
+      "seoTitle": "Intrax On-Page SEO Case Study | SURIYADEVAN S",
+      "metaDescription": "On-Page SEO and technical optimization case study for Intrax by SURIYADEVAN S. Improved Google crawl efficiency, organic search rankings, and targeted traffic.",
       "focusKeyword": "Intrax SEO Case Study",
       "secondaryKeywords": [
         "On-Page SEO Optimization",
@@ -379,8 +381,8 @@
       "status": "published",
       "date": "2024",
       "location": "India",
-      "seoTitle": "Insd Keyword Research & Content Optimization Project | SURIYADEVAN S",
-      "metaDescription": "Discover how SURIYADEVAN S executed keyword research and content optimization for INSD, matching search intent to educational program offerings.",
+      "seoTitle": "INSD Keyword Research & SEO Case Study | SURIYADEVAN S",
+      "metaDescription": "Keyword research and search-intent content optimization case study for INSD by SURIYADEVAN S. Ranking interior and fashion design queries on Google page 1.",
       "focusKeyword": "Insd Content Optimization",
       "secondaryKeywords": [
         "Design School SEO",
@@ -452,8 +454,8 @@
         "Microsoft Clarity"
       ],
       "localFocus": "Palani, Dindigul, Coimbatore, and across Tamil Nadu",
-      "seoTitle": "SEO Services in Palani, Tamil Nadu | Freelance SEO Specialist",
-      "metaDescription": "Looking for professional SEO services in Palani? SURIYADEVAN S provides data-driven On-Page, Technical, and Organic SEO strategies to grow your Google visibility.",
+      "seoTitle": "SEO Services in Palani | Freelance SEO | SURIYADEVAN S",
+      "metaDescription": "Data-driven On-Page, Off-Page & Organic SEO services in Palani by SURIYADEVAN S. Boost keyword rankings, organic traffic & Google visibility. Hire today!",
       "focusKeyword": "SEO Services in Palani",
       "faqs": [
         {
@@ -520,8 +522,8 @@
         "Google Search Console"
       ],
       "localFocus": "Palani, Oddanchatram, Dharapuram, Udumalpet, Dindigul",
-      "seoTitle": "Local SEO Services in Palani | Google Maps Optimization | SURIYADEVAN S",
-      "metaDescription": "Boost your local search visibility with Local SEO services in Palani. Expert Google Business Profile optimization, local citations, and Google Maps ranking strategies.",
+      "seoTitle": "Local SEO Services in Palani | Google Maps | SURIYADEVAN S",
+      "metaDescription": "Rank #1 on Google Maps in Palani. Expert Local SEO, Google Business Profile optimization, local citations & review strategy by SURIYADEVAN S. Call today!",
       "focusKeyword": "Local SEO Services in Palani",
       "faqs": [
         {
@@ -581,8 +583,8 @@
         "SEMrush"
       ],
       "localFocus": "Palani, Tamil Nadu, and Remote Clients",
-      "seoTitle": "Technical SEO Consultant Palani | Site Speed & Indexing | SURIYADEVAN S",
-      "metaDescription": "Improve website crawlability, indexation, and Core Web Vitals with technical SEO consulting by SURIYADEVAN S. Serving Palani and businesses across Tamil Nadu.",
+      "seoTitle": "Technical SEO Consultant in Palani | SURIYADEVAN S",
+      "metaDescription": "Resolve crawl errors, improve Core Web Vitals, site speed & indexation with technical SEO in Palani by SURIYADEVAN S. Audit your website for Google ranking!",
       "focusKeyword": "Technical SEO Consultant",
       "faqs": [
         {
@@ -638,8 +640,8 @@
         "Canva"
       ],
       "localFocus": "Palani, Dindigul, Pollachi, Coimbatore, Tamil Nadu",
-      "seoTitle": "Social Media Management in Palani | Posters & Reels | SURIYADEVAN S",
-      "metaDescription": "Elevate your brand on Instagram & Facebook. Professional social media management, creative poster design, and Reels strategy by SURIYADEVAN S in Palani.",
+      "seoTitle": "Social Media Management in Palani | SURIYADEVAN S",
+      "metaDescription": "Grow your brand on Instagram & Facebook in Palani. Custom poster design, viral Reels strategy & engagement management by SURIYADEVAN S. Boost your reach!",
       "focusKeyword": "Social Media Management Palani",
       "faqs": [
         {
@@ -694,8 +696,8 @@
         "Google Analytics 4"
       ],
       "localFocus": "Palani, Tamil Nadu, and All-India Campaigns",
-      "seoTitle": "Meta Ads Management Palani | Facebook & Instagram Ads | SURIYADEVAN S",
-      "metaDescription": "Targeted Meta Ads management by SURIYADEVAN S. Reach real buyers in Palani and Tamil Nadu with high-performing Facebook & Instagram ad campaigns.",
+      "seoTitle": "Meta Ads Specialist in Palani | Facebook & Instagram Ads",
+      "metaDescription": "High-ROAS Meta Ads management in Palani by SURIYADEVAN S. Targeted Facebook & Instagram ad campaigns that drive qualified local leads, sales & conversions.",
       "focusKeyword": "Meta Ads Specialist Palani",
       "faqs": [
         {
@@ -748,8 +750,8 @@
         "Google Maps"
       ],
       "localFocus": "Palani and Tamil Nadu",
-      "seoTitle": "Google Business Profile Optimization in Palani | SURIYADEVAN S",
-      "metaDescription": "Optimize your Google Business Profile in Palani. Gain more calls, store visits, and Google Maps visibility with expert profile setup and management.",
+      "seoTitle": "Google Business Profile in Palani | SURIYADEVAN S",
+      "metaDescription": "Optimize your Google Business Profile in Palani. Get more phone calls, foot traffic & store directions on Google Maps with expert setup by SURIYADEVAN S.",
       "focusKeyword": "Google Business Profile Optimization in Palani",
       "faqs": [
         {
@@ -1060,5 +1062,5 @@
       "reportSummary": "Achieved a stellar 6.4x ROAS with 112 confirmed weekend cottage bookings and 285 total inquiries."
     }
   ],
-  "updatedAt": "2026-09-12T07:21:21.670Z"
+  "updatedAt": "2026-09-12T09:39:37.000Z"
 }

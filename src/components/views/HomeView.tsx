@@ -223,8 +223,8 @@ export const HomeView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70">
       <SEOHead
-        title="SEO & Digital Marketing Specialist in Palani | SURIYADEVAN S"
-        description="Helping businesses grow their Google visibility, organic traffic, local search presence and digital brand visibility through SEO and performance-focused digital marketing in Palani, Tamil Nadu."
+        title="SEO & Digital Marketing Specialist Palani | SURIYADEVAN S"
+        description="Rank #1 on Google with SURIYADEVAN S. Expert SEO, Local SEO, Meta Ads & social media management for businesses in Palani, Tamil Nadu. Get a free audit!"
         schema={homeSchema}
       />
 

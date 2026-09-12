@@ -9,8 +9,8 @@ export const NotFoundView: React.FC = () => {
   return (
     <div className="min-h-[70vh] flex items-center justify-center bg-slate-50/70 px-4 py-16">
       <SEOHead
-        title="Page Not Found (404) | SURIYADEVAN S"
-        description="The requested page could not be located. Explore SEO services, case studies, or contact SURIYADEVAN S in Palani, Tamil Nadu."
+        title="Page Not Found (404) | SURIYADEVAN S Palani"
+        description="The requested page could not be found. Return to SURIYADEVAN S homepage to explore SEO services, client case studies, or request a free consultation."
       />
 
       <div className="max-w-md w-full text-center space-y-6 bg-white p-8 rounded-2xl border border-slate-200 shadow-xs">

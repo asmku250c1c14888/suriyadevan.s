@@ -313,8 +313,8 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
         <SEOHead
-          title="Owner Access Verification | SURIYADEVAN S"
-          description="Owner authentication required to access the CMS Dashboard."
+          title="Owner CMS Login | SURIYADEVAN S Palani"
+          description="Owner authentication portal to access CMS management, live SEO audits, sitemap tools, and client inquiries for SURIYADEVAN S in Palani."
         />
         <div className="max-w-md w-full bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
           <div className="bg-slate-900 px-6 py-5 text-white flex items-center space-x-3">
@@ -388,8 +388,8 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
   return (
     <div className="min-h-screen bg-[#FAF9F6]">
       <SEOHead
-        title="Admin CMS & Live SEO Health Dashboard | SURIYADEVAN S"
-        description="Private content management system and technical SEO health auditor for SURIYADEVAN S's personal digital marketing portfolio."
+        title="Admin CMS & SEO Dashboard | SURIYADEVAN S Palani"
+        description="Private CMS dashboard and technical SEO auditor for SURIYADEVAN S. Manage projects, SEO meta tags, blog articles, and client leads in Palani."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">

@@ -47,8 +47,8 @@ export const ResumeView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title="Resume — SURIYADEVAN S | SEO & Digital Marketing Executive Palani"
-        description="Official professional resume of SURIYADEVAN S: SEO & Digital Marketing Executive with experience managing 5 end-to-end SEO projects at Avanexa, certifications, and tools."
+        title="SURIYADEVAN S Resume | SEO & Digital Marketing Executive"
+        description="View the professional resume of SURIYADEVAN S: SEO specialist in Palani with 9 delivered client projects, Google & SEMrush credentials, and technical tools."
         schema={resumeSchema}
       />
 

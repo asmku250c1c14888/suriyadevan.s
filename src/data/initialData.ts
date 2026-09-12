@@ -1,4 +1,4 @@
-import { Project, ServiceDetail, BlogPost, FAQItem, ExperienceItem, CertificationItem, SiteSettings, SocialMediaItem } from '../types';
+import { Project, ServiceDetail, BlogPost, FAQItem, ExperienceItem, CertificationItem, SiteSettings, SocialMediaItem, MetaAdCampaign } from '../types';
 
 export const initialSiteSettings: SiteSettings = {
   name: 'SuriyaDevan S',
@@ -813,5 +813,125 @@ export const initialSocialMediaItems: SocialMediaItem[] = [
     publishDate: '2024-11-10',
     tags: ['YouTube Shorts', 'Tech SEO', 'Behind the Scenes'],
     featured: false
+  }
+];
+
+export const initialMetaCampaigns: MetaAdCampaign[] = [
+  {
+    id: 'meta-1',
+    clientName: 'Sri Amman Silks & Sarees',
+    campaignName: 'Diwali Festive Sarees Direct WhatsApp Lead Gen',
+    objective: 'Lead Generation',
+    status: 'Completed',
+    dateRange: 'Oct 10 - Oct 31, 2024',
+    location: 'Palani, Udumalpet, Dharapuram (Radius 35 km)',
+    budgetSpent: '₹14,500',
+    results: {
+      leadsGenerated: 342,
+      purchases: 89,
+      roas: '5.8x',
+      costPerResult: '₹42.39 / lead',
+      impressions: '184,000',
+      reach: '98,500',
+      clicks: '5,210',
+      ctr: '2.83%'
+    },
+    creatives: [
+      {
+        id: 'c-1',
+        type: 'reel',
+        title: 'Diwali Silk Saree Draping Hook Reel (Tamil Audio)',
+        headline: 'Exclusive Pure Kanchipuram Soft Silks from ₹1,999/-',
+        description: 'Instant WhatsApp catalog link with free home delivery across Palani & Dindigul.',
+        mediaUrl: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80',
+        platform: 'Both'
+      },
+      {
+        id: 'c-2',
+        type: 'post',
+        title: 'Festival Offer Carousel & Price Tag Grid',
+        headline: 'Diwali Mega Dhamaka - Flat 25% Off',
+        description: 'Single-click WhatsApp direct chat with showroom stylist.',
+        mediaUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&auto=format&fit=crop&q=80',
+        platform: 'Facebook'
+      }
+    ],
+    notes: 'Optimized via Advantage+ placements with localized Tamil ad copy and high-intent women demographic targeting (24-55).',
+    reportSummary: 'Generated 342 validated WhatsApp buyer leads resulting in 89 direct showroom retail transactions and a 5.8x Return on Ad Spend (ROAS).'
+  },
+  {
+    id: 'meta-2',
+    clientName: 'Palani Health & Ortho Speciality Clinic',
+    campaignName: 'Joint Pain & Arthritis Free Health Camp Registration',
+    objective: 'Lead Generation',
+    status: 'Completed',
+    dateRange: 'Jan 05 - Jan 22, 2025',
+    location: 'Palani & Surrounding Taluks (Radius 25 km)',
+    budgetSpent: '₹9,800',
+    results: {
+      leadsGenerated: 218,
+      purchases: 145,
+      roas: '4.2x',
+      costPerResult: '₹44.95 / booking',
+      impressions: '112,000',
+      reach: '64,200',
+      clicks: '3,890',
+      ctr: '3.47%'
+    },
+    creatives: [
+      {
+        id: 'c-3',
+        type: 'reel',
+        title: 'Doctor Explains 3 Morning Knee Pain Warning Signs (Reel)',
+        headline: 'Book Consultation with Senior Ortho Surgeon in Palani',
+        description: 'Instant registration form with automated SMS & WhatsApp appointment confirmation.',
+        mediaUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80',
+        platform: 'Both'
+      },
+      {
+        id: 'c-4',
+        type: 'post',
+        title: 'Free Camp Date, Time & Doctor Credentials Flyer Post',
+        headline: 'Limited 50 Slots Daily - Reserve Your Token',
+        description: 'Palani Bus Stand Road Clinic, Tamil Nadu.',
+        mediaUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop&q=80',
+        platform: 'Facebook'
+      }
+    ],
+    notes: 'Zero friction native Meta Instant Forms with automated webhook trigger to clinic staff desk.',
+    reportSummary: 'Generated 218 verified patient appointments within 17 days, maintaining a low ₹44.95 cost per appointment.'
+  },
+  {
+    id: 'meta-3',
+    clientName: 'GreenPalani Temple Stays & Cottages',
+    campaignName: 'Weekend Temple Visit Room Bookings Campaign',
+    objective: 'Conversions',
+    status: 'Active',
+    dateRange: 'Feb 01 - Ongoing',
+    location: 'Coimbatore, Madurai, Tiruppur, Bangalore, Chennai',
+    budgetSpent: '₹18,200',
+    results: {
+      leadsGenerated: 285,
+      purchases: 112,
+      roas: '6.4x',
+      costPerResult: '₹63.85 / booking',
+      impressions: '240,000',
+      reach: '142,000',
+      clicks: '7,450',
+      ctr: '3.10%'
+    },
+    creatives: [
+      {
+        id: 'c-5',
+        type: 'reel',
+        title: '30-sec Aesthetic Room Tour with Temple Hill View (Reel)',
+        headline: '5 Mins from Palani Murugan Temple - Family AC Suites',
+        description: 'Book direct and save 20% on weekend tariff with pure vegetarian breakfast included.',
+        mediaUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop&q=80',
+        platform: 'Instagram'
+      }
+    ],
+    notes: 'Targeting travelers with interests in Murugan temples, devotional tourism, and weekend getaways in Tamil Nadu & Karnataka.',
+    reportSummary: 'Achieved a stellar 6.4x ROAS with 112 confirmed weekend cottage bookings and 285 total inquiries.'
   }
 ];

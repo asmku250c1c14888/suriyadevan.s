@@ -140,3 +140,38 @@ export interface SocialMediaItem {
   tags: string[];
   featured?: boolean;
 }
+
+export interface MetaAdCreative {
+  id: string;
+  type: 'reel' | 'post' | 'carousel';
+  title: string;
+  headline?: string;
+  description?: string;
+  mediaUrl?: string;
+  adPreviewUrl?: string;
+  platform: 'Instagram' | 'Facebook' | 'Both';
+}
+
+export interface MetaAdCampaign {
+  id: string;
+  clientName: string;
+  campaignName: string;
+  objective: 'Lead Generation' | 'Conversions' | 'Traffic' | 'Brand Awareness' | 'Sales' | 'Engagement';
+  status: 'Active' | 'Completed' | 'Optimizing';
+  dateRange: string;
+  location: string;
+  budgetSpent: string;
+  results: {
+    leadsGenerated?: number;
+    purchases?: number;
+    roas?: string;
+    costPerResult?: string;
+    impressions?: string;
+    reach?: string;
+    clicks?: string;
+    ctr?: string;
+  };
+  creatives: MetaAdCreative[];
+  notes?: string;
+  reportSummary: string;
+}

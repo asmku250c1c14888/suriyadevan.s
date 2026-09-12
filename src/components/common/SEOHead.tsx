@@ -4,10 +4,11 @@ interface SEOHeadProps {
   title: string;
   description: string;
   canonical?: string;
+  keywords?: string;
   schema?: Record<string, any>;
 }
 
-export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical, schema }) => {
+export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical, keywords, schema }) => {
   useEffect(() => {
     // Update document title
     document.title = title;
@@ -21,12 +22,27 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
     }
     metaDesc.setAttribute('content', description);
 
+    // Update meta keywords if provided
+    if (keywords) {
+      let metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (!metaKeywords) {
+        metaKeywords = document.createElement('meta');
+        metaKeywords.setAttribute('name', 'keywords');
+        document.head.appendChild(metaKeywords);
+      }
+      metaKeywords.setAttribute('content', keywords);
+    }
+
     // Update Open Graph tags
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute('content', title);
 
     let ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute('content', description);
+
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    const targetUrl = canonical || (window.location.origin + window.location.pathname + window.location.hash);
+    if (ogUrl) ogUrl.setAttribute('content', targetUrl);
 
     // Update canonical tag
     let linkCanonical = document.querySelector('link[rel="canonical"]');
@@ -35,8 +51,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
       linkCanonical.setAttribute('rel', 'canonical');
       document.head.appendChild(linkCanonical);
     }
-    const currentUrl = canonical || window.location.href;
-    linkCanonical.setAttribute('href', currentUrl);
+    linkCanonical.setAttribute('href', canonical || 'https://suriyadevan-s.vercel.app/');
 
     // Update or inject JSON-LD script
     const existingScript = document.getElementById('page-json-ld');
@@ -56,7 +71,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
       const scriptToRemove = document.getElementById('page-json-ld');
       if (scriptToRemove) scriptToRemove.remove();
     };
-  }, [title, description, canonical, schema]);
+  }, [title, description, canonical, keywords, schema]);
 
   return null;
 };

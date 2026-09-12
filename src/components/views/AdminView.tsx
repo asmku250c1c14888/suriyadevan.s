@@ -27,9 +27,12 @@ import {
   Shield,
   LogOut,
   Mail,
-  Inbox
+  Inbox,
+  Instagram
 } from 'lucide-react';
 import { Project, BlogPost, FAQItem } from '../../types';
+import { SocialMediaPortfolio } from '../services/SocialMediaPortfolio';
+import { MetaAdsCampaigns } from '../services/MetaAdsCampaigns';
 
 export const AdminView: React.FC = () => {
   const { 
@@ -40,6 +43,8 @@ export const AdminView: React.FC = () => {
     updateProject, 
     deleteProject, 
     duplicateProject,
+    socialMediaItems,
+    metaCampaigns,
     blogPosts, 
     addBlogPost, 
     updateBlogPost, 
@@ -59,7 +64,7 @@ export const AdminView: React.FC = () => {
     updateAdminPasscode
   } = useData();
 
-  const [activeTab, setActiveTab] = useState<'seoAudit' | 'projects' | 'blogs' | 'faqs' | 'settings' | 'machineFiles' | 'conversions' | 'aiAssistant'>('seoAudit');
+  const [activeTab, setActiveTab] = useState<'seoAudit' | 'projects' | 'socialMedia' | 'metaAds' | 'blogs' | 'faqs' | 'settings' | 'machineFiles' | 'conversions' | 'aiAssistant'>('seoAudit');
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [isNewProject, setIsNewProject] = useState(false);
   const [editingBlog, setEditingBlog] = useState<BlogPost | null>(null);
@@ -481,6 +486,26 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
           </button>
 
           <button
+            onClick={() => setActiveTab('socialMedia')}
+            className={`px-3.5 py-2 rounded-md font-medium transition-colors flex items-center space-x-1.5 ${
+              activeTab === 'socialMedia' ? 'bg-[#1C1917] text-white' : 'bg-white text-[#57534E] border border-[#E7E2D8] hover:bg-[#F2EFE8]'
+            }`}
+          >
+            <Instagram className="w-3.5 h-3.5 text-pink-500" />
+            <span>Social Media (Posts/Reels) ({socialMediaItems.length})</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('metaAds')}
+            className={`px-3.5 py-2 rounded-md font-medium transition-colors flex items-center space-x-1.5 ${
+              activeTab === 'metaAds' ? 'bg-[#1C1917] text-white' : 'bg-white text-[#57534E] border border-[#E7E2D8] hover:bg-[#F2EFE8]'
+            }`}
+          >
+            <BarChart className="w-3.5 h-3.5 text-blue-500" />
+            <span>Meta Ads Reports ({metaCampaigns.length})</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('blogs')}
             className={`px-3.5 py-2 rounded-md font-medium transition-colors flex items-center space-x-1.5 ${
               activeTab === 'blogs' ? 'bg-[#1C1917] text-white' : 'bg-white text-[#57534E] border border-[#E7E2D8] hover:bg-[#F2EFE8]'
@@ -891,6 +916,20 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Tab: Social Media Posts & Reels */}
+        {activeTab === 'socialMedia' && (
+          <div className="py-8">
+            <SocialMediaPortfolio />
+          </div>
+        )}
+
+        {/* Tab: Meta Ads Campaign Reports */}
+        {activeTab === 'metaAds' && (
+          <div className="py-8">
+            <MetaAdsCampaigns />
           </div>
         )}
 

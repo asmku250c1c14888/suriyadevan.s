@@ -3,6 +3,8 @@ import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { Breadcrumbs } from '../common/Breadcrumbs';
 import { Project } from '../../types';
+import { SocialMediaPortfolio } from '../services/SocialMediaPortfolio';
+import { MetaAdsCampaigns } from '../services/MetaAdsCampaigns';
 import { 
   Search, 
   MapPin, 
@@ -61,7 +63,7 @@ export const ServicesView: React.FC = () => {
   // Determine if viewing a specific service subpage (e.g. /services/seo or /services/local-seo)
   const pathParts = activePath.split('?')[0].split('/');
   const subSlug = pathParts[2] || '';
-  const currentService = services.find(s => s.slug === subSlug);
+  const currentService = services.find(s => s.slug === subSlug || (subSlug === 'meta-ads-management' && s.slug === 'meta-ads'));
 
   // Helper to test if a project belongs to a service
   const isProjectMatchingService = (proj: Project, serviceSlug: string) => {
@@ -268,6 +270,16 @@ export const ServicesView: React.FC = () => {
               </ul>
             </div>
           </div>
+
+          {/* Dedicated Social Media Portfolio (Instagram Posts & Reels) */}
+          {currentService.slug === 'social-media-management' && (
+            <SocialMediaPortfolio />
+          )}
+
+          {/* Dedicated Meta Ads Campaigns (Live Reports & Creatives) */}
+          {(currentService.slug === 'meta-ads' || currentService.slug === 'meta-ads-management') && (
+            <MetaAdsCampaigns />
+          )}
 
           {/* ============================================================ */}
           {/* INTEGRATED SERVICE PROJECTS & CASE STUDIES (USER DIRECTIVE) */}
@@ -948,7 +960,7 @@ export const ServicesView: React.FC = () => {
 
               {/* Category Filter Pills */}
               <div className="flex flex-wrap gap-1.5">
-                {['All', 'SEO', 'Local SEO', 'Technical SEO'].map((cat) => (
+                {['All', 'SEO', 'Local SEO', 'Technical SEO', 'Social Media', 'Meta Ads'].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setCategoryFilter(cat)}
@@ -1030,6 +1042,16 @@ export const ServicesView: React.FC = () => {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Social Media Creatives & Reels Showcase */}
+        <div className="py-8 border-t border-slate-200/80">
+          <SocialMediaPortfolio />
+        </div>
+
+        {/* Meta Ads Campaign Reports & Performance Analytics */}
+        <div className="py-8 border-t border-slate-200/80">
+          <MetaAdsCampaigns />
         </div>
 
         {/* 19 Service Capabilities Grid */}

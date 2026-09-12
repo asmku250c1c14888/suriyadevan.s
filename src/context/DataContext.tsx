@@ -8,7 +8,8 @@ import {
   CertificationItem,
   SiteSettings,
   ConversionEvent,
-  SocialMediaItem
+  SocialMediaItem,
+  MetaAdCampaign
 } from '../types';
 import {
   initialSiteSettings,
@@ -19,7 +20,8 @@ import {
   initialExperience,
   initialCertifications,
   initialEducation,
-  initialSocialMediaItems
+  initialSocialMediaItems,
+  initialMetaCampaigns
 } from '../data/initialData';
 
 interface DataContextType {
@@ -46,6 +48,10 @@ interface DataContextType {
   addSocialMediaItem: (item: Omit<SocialMediaItem, 'id'>) => void;
   updateSocialMediaItem: (id: string, updated: Partial<SocialMediaItem>) => void;
   deleteSocialMediaItem: (id: string) => void;
+  metaCampaigns: MetaAdCampaign[];
+  addMetaCampaign: (campaign: Omit<MetaAdCampaign, 'id'>) => void;
+  updateMetaCampaign: (id: string, updated: Partial<MetaAdCampaign>) => void;
+  deleteMetaCampaign: (id: string) => void;
   experience: ExperienceItem[];
   updateExperience: (exp: ExperienceItem[]) => void;
   certifications: CertificationItem[];
@@ -104,6 +110,16 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [conversionEvents, setConversionEvents] = useState<ConversionEvent[]>(() => {
     const saved = localStorage.getItem('suriyadevan_events');
     return saved ? JSON.parse(saved) : [];
+  });
+
+  const [socialMediaItems, setSocialMediaItems] = useState<SocialMediaItem[]>(() => {
+    const saved = localStorage.getItem('suriyadevan_social_media');
+    return saved ? JSON.parse(saved) : initialSocialMediaItems;
+  });
+
+  const [metaCampaigns, setMetaCampaigns] = useState<MetaAdCampaign[]>(() => {
+    const saved = localStorage.getItem('suriyadevan_meta_campaigns');
+    return saved ? JSON.parse(saved) : initialMetaCampaigns;
   });
 
   // Admin authentication state
@@ -191,6 +207,14 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     localStorage.setItem('suriyadevan_events', JSON.stringify(conversionEvents));
   }, [conversionEvents]);
+
+  useEffect(() => {
+    localStorage.setItem('suriyadevan_social_media', JSON.stringify(socialMediaItems));
+  }, [socialMediaItems]);
+
+  useEffect(() => {
+    localStorage.setItem('suriyadevan_meta_campaigns', JSON.stringify(metaCampaigns));
+  }, [metaCampaigns]);
 
   const trackEvent = (eventType: ConversionEvent['eventType'], details?: string) => {
     const newEvent: ConversionEvent = {
@@ -287,6 +311,38 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setExperience(newExp);
   };
 
+  const addSocialMediaItem = (itemData: Omit<SocialMediaItem, 'id'>) => {
+    const newItem: SocialMediaItem = {
+      ...itemData,
+      id: 'sm-' + Date.now()
+    };
+    setSocialMediaItems(prev => [newItem, ...prev]);
+  };
+
+  const updateSocialMediaItem = (id: string, updated: Partial<SocialMediaItem>) => {
+    setSocialMediaItems(prev => prev.map(item => item.id === id ? { ...item, ...updated } : item));
+  };
+
+  const deleteSocialMediaItem = (id: string) => {
+    setSocialMediaItems(prev => prev.filter(item => item.id !== id));
+  };
+
+  const addMetaCampaign = (campData: Omit<MetaAdCampaign, 'id'>) => {
+    const newCamp: MetaAdCampaign = {
+      ...campData,
+      id: 'meta-' + Date.now()
+    };
+    setMetaCampaigns(prev => [newCamp, ...prev]);
+  };
+
+  const updateMetaCampaign = (id: string, updated: Partial<MetaAdCampaign>) => {
+    setMetaCampaigns(prev => prev.map(c => c.id === id ? { ...c, ...updated } : c));
+  };
+
+  const deleteMetaCampaign = (id: string) => {
+    setMetaCampaigns(prev => prev.filter(c => c.id !== id));
+  };
+
   const resetToDefaults = () => {
     setSiteSettings(initialSiteSettings);
     setProjects(initialProjects);
@@ -294,6 +350,8 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setBlogPosts(initialBlogPosts);
     setFaqs(initialFAQs);
     setExperience(initialExperience);
+    setSocialMediaItems(initialSocialMediaItems);
+    setMetaCampaigns(initialMetaCampaigns);
     localStorage.clear();
   };
 
@@ -304,7 +362,9 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       services,
       blogPosts,
       faqs,
-      experience
+      experience,
+      socialMediaItems,
+      metaCampaigns
     };
     return JSON.stringify(exportData, null, 2);
   };
@@ -318,6 +378,8 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (data.blogPosts) setBlogPosts(data.blogPosts);
       if (data.faqs) setFaqs(data.faqs);
       if (data.experience) setExperience(data.experience);
+      if (data.socialMediaItems) setSocialMediaItems(data.socialMediaItems);
+      if (data.metaCampaigns) setMetaCampaigns(data.metaCampaigns);
       return true;
     } catch (e) {
       console.error('Failed to import JSON data:', e);
@@ -347,6 +409,14 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
         addFAQ,
         updateFAQ,
         deleteFAQ,
+        socialMediaItems,
+        addSocialMediaItem,
+        updateSocialMediaItem,
+        deleteSocialMediaItem,
+        metaCampaigns,
+        addMetaCampaign,
+        updateMetaCampaign,
+        deleteMetaCampaign,
         experience,
         updateExperience,
         certifications,

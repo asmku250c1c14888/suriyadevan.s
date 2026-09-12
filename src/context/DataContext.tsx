@@ -352,6 +352,19 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
     setConversionEvents(prev => [newEvent, ...prev].slice(0, 100));
     console.log(`[Event Tracked] ${eventType}:`, details);
+
+    // Send event to Google Analytics 4 (gtag.js)
+    if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+      try {
+        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', eventType, {
+          event_category: 'engagement',
+          event_label: details || '',
+          value: 1
+        });
+      } catch (err) {
+        console.warn('GA4 gtag event error:', err);
+      }
+    }
   };
 
   const updateSiteSettings = (newSettings: Partial<SiteSettings>) => {

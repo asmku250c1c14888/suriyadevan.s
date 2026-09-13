@@ -96,15 +96,33 @@ export function buildLocalBusinessSchema(origin = DOMAIN_URL) {
   return {
     '@type': 'ProfessionalService',
     '@id': `${origin}/#service-business`,
-    name: 'SURIYADEVAN S — SEO & Digital Marketing Specialist Palani',
+    name: 'SURIYADEVAN S — Digital Marketing Agency in Palani | SEO Services & Company',
     alternateName: [
-      'Suriyadevan SEO Consultant Palani',
-      'Suriyadevan S Digital Marketing',
-      'Suriyadevan Local SEO Services Palani',
-      'Best SEO Specialist in Palani'
+      'Digital Marketing Agency in Palani',
+      'Digital Marketing Company in Palani',
+      'Digital Marketing Services in Palani',
+      'Digital Marketing Consultant Palani',
+      'Digital Marketing Expert Palani',
+      'Online Marketing Agency Palani',
+      'Internet Marketing Agency Palani',
+      'Digital Advertising Agency Palani',
+      'Marketing Agency Palani',
+      'SEO Services in Palani',
+      'Local SEO Services Palani',
+      'Google Maps SEO Palani',
+      'Google Business Profile Optimization Palani',
+      'Google Ads Agency Palani',
+      'Social Media Marketing Agency Palani',
+      'Instagram Marketing Agency Palani',
+      'Website Development Company Palani',
+      'Digital Marketing for Small Businesses Palani',
+      'Affordable Digital Marketing Services Palani',
+      'Palani Digital Marketing Company',
+      'Palani Digital Marketing Agency',
+      'Suriyadevan SEO Consultant Palani'
     ],
-    disambiguatingDescription: 'Premier SEO and digital marketing consultancy in Palani, Tamil Nadu, run by Suriyadevan S. Delivering top Google keyword rankings, Google Maps 3-pack visibility, high-ROAS Meta Ads, and social media growth.',
-    description: 'Premier SEO and digital marketing consultancy in Palani, Tamil Nadu. Delivering top Google keyword rankings, Google Maps 3-pack visibility, high-ROAS Meta Ads, and social media growth.',
+    disambiguatingDescription: 'Premier digital marketing agency and SEO company in Palani, Tamil Nadu, run by Suriyadevan S. Delivering Google 1st-page rankings, Google Maps 3-pack visibility, high-ROAS Meta Ads, Google Ads PPC management, social media growth, and website development for small businesses and shops in Palani, Oddanchatram, Dharapuram, Udumalpet, and Dindigul.',
+    description: 'Premier digital marketing agency and SEO company in Palani, Tamil Nadu. Delivering top Google keyword rankings, Google Maps 3-pack visibility, high-ROAS Meta Ads, Google Ads PPC, and website development for local businesses.',
     url: origin,
     logo: `${origin}/favicon.svg`,
     image: `${origin}/og-image.svg`,
@@ -113,7 +131,7 @@ export function buildLocalBusinessSchema(origin = DOMAIN_URL) {
     priceRange: '₹₹',
     currenciesAccepted: 'INR, USD',
     paymentAccepted: 'Cash, Credit Card, UPI, Net Banking',
-    keywords: 'Suriyadevan, Suriyadevan S, SEO Services in Palani, Local SEO Specialist Tamil Nadu, Digital Marketing Freelancer Palani, Meta Ads Palani, Technical SEO Audit, Google Business Profile Ranking',
+    keywords: 'digital marketing agency in Palani, digital marketing company in Palani, digital marketing services in Palani, digital marketing consultant Palani, digital marketing expert Palani, online marketing agency Palani, internet marketing agency Palani, digital advertising agency Palani, marketing agency Palani, digital marketing services near me, SEO services in Palani, local SEO services Palani, Google Maps SEO Palani, Google Business Profile optimization Palani, Google ranking service Palani, website SEO service Palani, Instagram marketing agency Palani, social media marketing agency Palani, Facebook advertising agency Palani, Google Ads agency Palani, PPC agency Palani, WhatsApp marketing services Palani, content marketing agency Palani, reputation management Palani, website development company Palani, ecommerce website development Palani, affordable digital marketing services Palani, digital marketing for small business Palani, digital marketing for shops Palani, digital marketing for restaurants Palani, digital marketing for hotels Palani, digital marketing for textile shops Palani, digital marketing agency near Palani, digital marketing agency Oddanchatram, digital marketing agency Dharapuram, digital marketing agency Udumalpet, digital marketing agency Dindigul, SEO services Palani, SEO services Dindigul, digital marketing agency Palani Tamil, Palani digital marketing company, Suriyadevan S',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Palani Town',
@@ -149,60 +167,87 @@ export function buildLocalBusinessSchema(origin = DOMAIN_URL) {
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'SEO and Digital Marketing Services',
+      name: 'Digital Marketing & SEO Services in Palani',
       itemListElement: [
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'SEO Services',
+            name: 'Digital Marketing Services in Palani',
+            url: `${origin}/services`,
+            description: 'Full-funnel digital marketing services, online advertising, and organic growth consulting in Palani.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'SEO Services in Palani',
             url: `${origin}/services/seo`,
-            description: 'Comprehensive keyword research, on-page optimization, and technical search growth.'
+            description: 'Google ranking service, website SEO service, high-intent keyword mapping, and organic traffic growth.'
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Local SEO Services',
+            name: 'Local SEO Services & Google Maps SEO Palani',
             url: `${origin}/services/local-seo`,
-            description: 'Google Maps 3-pack optimization, NAP citations, and geo-targeted traffic.'
+            description: 'Google Maps 3-pack optimization, NAP citations, and geo-targeted customer foot-traffic.'
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Technical SEO Audit',
-            url: `${origin}/services/technical-seo`,
-            description: 'Crawl error fixes, Core Web Vitals acceleration, and schema markup implementation.'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Social Media Management',
-            url: `${origin}/services/social-media-management`,
-            description: 'Content calendar planning, custom promotional posters, and viral Reels concepts.'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Meta Ads Management',
-            url: `${origin}/services/meta-ads`,
-            description: 'High-conversion Facebook and Instagram ad campaigns for leads and sales.'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Google Business Profile Optimization',
+            name: 'Google Business Profile Optimization Palani',
             url: `${origin}/services/google-business-profile`,
-            description: 'Complete profile setup, category refinement, and review acquisition framework.'
+            description: 'Complete profile setup, category refinement, review acquisition framework, and local map ranking.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Social Media Marketing & Instagram Marketing Agency Palani',
+            url: `${origin}/services/social-media-management`,
+            description: 'Content calendar planning, custom promotional posters, viral Instagram Reels concepts, and brand growth.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Meta Ads & Facebook Advertising Agency Palani',
+            url: `${origin}/services/meta-ads`,
+            description: 'High-conversion Facebook and Instagram ad campaigns for lead generation, footfall, and WhatsApp orders.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Google Ads Agency & PPC Management Palani',
+            url: `${origin}/services/google-ads-agency`,
+            description: 'Targeted Google Search, Call-only, and Shopping PPC campaigns capturing high-intent local buyers.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Website Development Company & Ecommerce in Palani',
+            url: `${origin}/services/website-development`,
+            description: 'Modern, mobile-first responsive business websites, ecommerce stores, and high-converting landing pages.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Digital Marketing for Small Businesses & Shops in Palani',
+            url: `${origin}/services`,
+            description: 'Tailored, affordable digital marketing for shops, textile stores, restaurants, hotels, clinics, and startups.'
           }
         }
       ]

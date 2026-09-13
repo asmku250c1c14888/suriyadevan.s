@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { Breadcrumbs } from '../common/Breadcrumbs';
+import { buildContactPageSchema } from '../../utils/seoSchemas';
 import { 
   Mail, 
   Phone, 
@@ -63,27 +64,75 @@ export const ContactView: React.FC = () => {
     setIsSubmitting(true);
     setSubmitError(null);
 
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      business: formData.business?.trim() || 'N/A',
+      website: formData.website?.trim() || 'N/A',
+      service: formData.service || 'SEO Services',
+      budget: formData.budget || 'Flexible',
+      message: formData.message.trim(),
+      _subject: `New Portfolio Lead: ${formData.name.trim()} - ${formData.service || 'Inquiry'}`
+    };
+
     try {
-      const response = await fetch('/api/contact', {
+      // 1. Submit directly to user's Formspree endpoint (collects all forms to suriya2993@gmail.com)
+      const formspreeResponse = await fetch('https://formspree.io/f/mnpqyvyq', {
         method: 'POST',
         headers: {
+          'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to process contact details.');
+      if (!formspreeResponse.ok) {
+        const errorData = await formspreeResponse.json().catch(() => ({}));
+        const errMessage = 
+          errorData.errors?.map((err: any) => err.message).join(', ') || 
+          'Form delivery encountered an issue. Please try again or WhatsApp directly.';
+        throw new Error(errMessage);
       }
 
-      setSubmissionMeta(data);
+      // 2. Also log to backend portfolio store for Admin CMS lead records
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      } catch (logErr) {
+        console.warn('Backend leads store sync notice:', logErr);
+      }
+
+      setSubmissionMeta({
+        recipientEmail: 'suriya2993@gmail.com',
+        emailSent: true,
+        emailStatus: 'Delivered directly to suriya2993@gmail.com via Formspree.'
+      });
       setSubmitted(true);
       trackEvent('contact_form_submit', `${formData.name} - ${formData.service} (${formData.business || 'Individual'})`);
     } catch (err: any) {
       console.error('Contact submission error:', err);
-      setSubmitError(err.message || 'Unable to send details right now. Please message directly on WhatsApp.');
+      // Fallback attempt via backend
+      try {
+        const fallbackRes = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (fallbackRes.ok) {
+          const fallbackData = await fallbackRes.json();
+          setSubmissionMeta(fallbackData);
+          setSubmitted(true);
+          trackEvent('contact_form_submit', `${formData.name} - ${formData.service}`);
+          return;
+        }
+      } catch {
+        // Fallback error handled below
+      }
+      setSubmitError(err.message || 'Unable to send message right now. Please reach out directly on WhatsApp or email suriya2993@gmail.com.');
     } finally {
       setIsSubmitting(false);
     }
@@ -94,30 +143,15 @@ export const ContactView: React.FC = () => {
     `Hello SURIYADEVAN, I am contacting you from your website regarding ${formData.service || 'SEO services'}.`
   )}`;
 
-  const contactSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    name: 'Contact SURIYADEVAN S — SEO & Digital Marketing Specialist',
-    description: 'Get in touch with SURIYADEVAN S for freelance SEO, Local SEO, and Digital Marketing consulting in Palani, Tamil Nadu.',
-    mainEntity: {
-      '@type': 'Person',
-      name: siteSettings.name,
-      telephone: siteSettings.phone,
-      email: siteSettings.email,
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Palani',
-        addressRegion: 'Tamil Nadu',
-        addressCountry: 'India'
-      }
-    }
-  };
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+  const contactSchema = buildContactPageSchema(origin);
 
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
         title="Contact SURIYADEVAN S | SEO Specialist in Palani"
         description="Contact SURIYADEVAN S for freelance SEO & digital marketing in Palani, Tamil Nadu. Call +91 9087571737 or email suriya2993@gmail.com for a free consultation!"
+        canonical={`${origin}/contact`}
         schema={contactSchema}
       />
 
@@ -257,13 +291,13 @@ export const ContactView: React.FC = () => {
                   <div className="space-y-1">
                     <div className="inline-flex items-center space-x-1.5 bg-emerald-100/80 text-emerald-800 text-[11px] font-bold px-3 py-1 rounded-full">
                       <Mail className="w-3 h-3 text-emerald-700" />
-                      <span>Transmitted to suriya2993@gmail.com</span>
+                      <span>Delivered to suriya2993@gmail.com via Formspree</span>
                     </div>
                     <h3 className="text-lg font-bold text-slate-900">
-                      Inquiry Dispatched Successfully!
+                      Inquiry Sent Successfully!
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed max-w-md mx-auto">
-                      Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your message and requirements have been shared directly with SURIYADEVAN at <strong className="text-indigo-600">suriya2993@gmail.com</strong>.
+                      Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your message and requirements have been sent directly to SURIYADEVAN at <strong className="text-indigo-600">suriya2993@gmail.com</strong> via Formspree.
                     </p>
                   </div>
 
@@ -461,7 +495,7 @@ export const ContactView: React.FC = () => {
                   <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-[11px] text-slate-600 flex items-center space-x-2">
                     <Inbox className="w-4 h-4 text-indigo-600 flex-shrink-0" />
                     <span>
-                      Details entered above are sent via backend email to <strong>suriya2993@gmail.com</strong> for review.
+                      Forms are delivered directly to <strong>suriya2993@gmail.com</strong> via Formspree.
                     </span>
                   </div>
 
@@ -477,7 +511,7 @@ export const ContactView: React.FC = () => {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Transmitting to suriya2993@gmail.com...</span>
+                        <span>Sending to suriya2993@gmail.com via Formspree...</span>
                       </>
                     ) : (
                       <>

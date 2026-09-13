@@ -11,6 +11,7 @@ export const NotFoundView: React.FC = () => {
       <SEOHead
         title="Page Not Found (404) | SURIYADEVAN S Palani"
         description="The requested page could not be found. Return to SURIYADEVAN S homepage to explore SEO services, client case studies, or request a free consultation."
+        noIndex={true}
       />
 
       <div className="max-w-md w-full text-center space-y-6 bg-white p-8 rounded-2xl border border-slate-200 shadow-xs">

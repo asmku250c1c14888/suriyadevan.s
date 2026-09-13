@@ -2,6 +2,12 @@ import React, { useState, useMemo } from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { 
+  buildPersonSchema, 
+  buildLocalBusinessSchema, 
+  buildWebSiteSchema, 
+  buildFAQSchema 
+} from '../../utils/seoSchemas';
+import { 
   ArrowRight, 
   ArrowUpRight, 
   MapPin, 
@@ -122,84 +128,26 @@ export const HomeView: React.FC = () => {
 
   const displayedFaqs = showAllFaqs ? faqs : faqs.slice(0, 6);
 
-  const homeSchema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Person',
-        '@id': 'https://suriyadevan.in/#person',
-        name: siteSettings.name,
-        jobTitle: siteSettings.title,
-        description: siteSettings.bio,
-        url: window.location.origin,
-        telephone: siteSettings.phone,
-        email: siteSettings.email,
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Palani',
-          addressRegion: 'Tamil Nadu',
-          postalCode: '624601',
-          addressCountry: 'IN'
-        },
-        sameAs: [
-          siteSettings.linkedin,
-          siteSettings.github
-        ],
-        knowsAbout: [
-          'Search Engine Optimization (SEO)',
-          'Local SEO',
-          'Technical SEO',
-          'Google Business Profile Optimization',
-          'Meta Ads Management',
-          'Social Media Management',
-          'WordPress SEO',
-          'Google Search Console',
-          'Google Analytics 4',
-          'Google Tag Manager',
-          'Microsoft Clarity'
-        ]
-      },
-      {
-        '@type': 'ProfessionalService',
-        '@id': 'https://suriyadevan.in/#service',
-        name: `${siteSettings.name} — SEO & Digital Marketing Consultant`,
-        url: window.location.origin,
-        telephone: siteSettings.phone,
-        priceRange: '₹₹',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Palani',
-          addressRegion: 'Tamil Nadu',
-          addressCountry: 'IN'
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: '10.4500',
-          longitude: '77.5200'
-        },
-        areaServed: [
-          'Palani',
-          'Dindigul',
-          'Oddanchatram',
-          'Dharapuram',
-          'Udumalpet',
-          'Pollachi',
-          'Coimbatore',
-          'Madurai',
-          'Tamil Nadu',
-          'India'
-        ],
-        description: 'Professional SEO and digital marketing services helping businesses grow Google visibility, organic traffic, and local search presence.'
-      },
-      {
-        '@type': 'WebSite',
-        '@id': 'https://suriyadevan.in/#website',
-        url: window.location.origin,
-        name: 'SURIYADEVAN S | SEO & Digital Marketing Specialist Palani',
-        description: 'Official portfolio and digital marketing consultancy website of SURIYADEVAN S in Palani, Tamil Nadu.'
-      }
-    ]
-  };
+  const homeSchema = useMemo(() => {
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+    const graph: any[] = [
+      buildPersonSchema(origin),
+      buildLocalBusinessSchema(origin),
+      buildWebSiteSchema(origin)
+    ];
+
+    if (faqs && faqs.length > 0) {
+      const faqSchema = buildFAQSchema(
+        faqs.map(f => ({ question: f.question, answer: f.answer }))
+      );
+      if (faqSchema) graph.push(faqSchema);
+    }
+
+    return {
+      '@context': 'https://schema.org',
+      '@graph': graph
+    };
+  }, [faqs]);
 
   const handleConsultation = () => {
     trackEvent('consultation_click', 'Homepage Hero');

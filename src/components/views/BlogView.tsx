@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { Breadcrumbs } from '../common/Breadcrumbs';
+import { buildBlogPostingSchema, buildCollectionSchema } from '../../utils/seoSchemas';
 import { BlogPost } from '../../types';
 import { 
   Calendar, 
@@ -140,34 +141,17 @@ export const BlogView: React.FC = () => {
   const currentPost = blogPosts.find(b => b.slug === slug);
 
   if (currentPost) {
-    const articleSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: currentPost.title,
-      description: currentPost.excerpt,
-      datePublished: currentPost.publishDate,
-      dateModified: currentPost.modifiedDate,
-      author: {
-        '@type': 'Person',
-        name: siteSettings.name,
-        jobTitle: 'SEO & Digital Marketing Specialist',
-        url: window.location.origin
-      },
-      publisher: {
-        '@type': 'Person',
-        name: siteSettings.name
-      },
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': window.location.href
-      }
-    };
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+    const articleSchema = buildBlogPostingSchema(currentPost, origin);
 
     return (
       <div className="min-h-screen bg-slate-50/70 pb-20">
         <SEOHead
           title={currentPost.metaTitle || currentPost.title}
           description={currentPost.metaDescription || currentPost.excerpt}
+          canonical={`${origin}/blog/${currentPost.slug}`}
+          keywords={currentPost.focusKeyword ? `${currentPost.focusKeyword}, SEO Palani, Digital Marketing Palani` : undefined}
+          ogType="article"
           schema={articleSchema}
         />
 
@@ -332,11 +316,28 @@ export const BlogView: React.FC = () => {
     return matchesCat && matchesSearch;
   });
 
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+  const blogDirectorySchema = useMemo(() => {
+    return buildCollectionSchema(
+      'SEO & Digital Marketing Blog',
+      'Actionable SEO, Local SEO & digital marketing guides by SURIYADEVAN S in Palani, Tamil Nadu. Learn Google ranking tactics, Google Maps growth & technical tips.',
+      '/blog',
+      blogPosts.map(p => ({
+        name: p.title,
+        url: `/blog/${p.slug}`,
+        description: p.excerpt
+      })),
+      origin
+    );
+  }, [blogPosts, origin]);
+
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
         title="SEO & Digital Marketing Blog Palani | SURIYADEVAN S"
         description="Actionable SEO, Local SEO & digital marketing guides by SURIYADEVAN S in Palani, Tamil Nadu. Learn Google ranking tactics, Google Maps growth & technical tips."
+        canonical={`${origin}/blog`}
+        schema={blogDirectorySchema}
       />
 
       {/* Toast notification */}

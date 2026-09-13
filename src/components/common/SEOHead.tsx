@@ -5,10 +5,22 @@ interface SEOHeadProps {
   description: string;
   canonical?: string;
   keywords?: string;
-  schema?: Record<string, any>;
+  ogType?: 'website' | 'article' | 'profile';
+  ogImage?: string;
+  schema?: Record<string, any> | Record<string, any>[];
+  noIndex?: boolean;
 }
 
-export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical, keywords, schema }) => {
+export const SEOHead: React.FC<SEOHeadProps> = ({ 
+  title, 
+  description, 
+  canonical, 
+  keywords, 
+  ogType = 'website',
+  ogImage,
+  schema,
+  noIndex = false
+}) => {
   useEffect(() => {
     // Strict SEO bounds: Max 60 chars for Meta Title, Max 160 chars for Meta Description
     const trimmedTitle = title.trim();
@@ -20,52 +32,62 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
     // Update document title
     document.title = finalTitle;
 
+    // Helper to set or create meta tag
+    const setMetaTag = (attrName: string, attrVal: string, contentVal: string) => {
+      let tag = document.querySelector(`meta[${attrName}="${attrVal}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute(attrName, attrVal);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', contentVal);
+    };
+
     // Update meta description
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.setAttribute('name', 'description');
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute('content', finalDesc);
+    setMetaTag('name', 'description', finalDesc);
 
     // Update meta keywords if provided
     if (keywords) {
-      let metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (!metaKeywords) {
-        metaKeywords = document.createElement('meta');
-        metaKeywords.setAttribute('name', 'keywords');
-        document.head.appendChild(metaKeywords);
-      }
-      metaKeywords.setAttribute('content', keywords);
+      setMetaTag('name', 'keywords', keywords);
     }
 
-    // Update Open Graph tags
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta');
-      ogTitle.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitle);
-    }
-    ogTitle.setAttribute('content', finalTitle);
+    // Author
+    setMetaTag('name', 'author', 'SURIYADEVAN S');
 
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (!ogDesc) {
-      ogDesc = document.createElement('meta');
-      ogDesc.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDesc);
-    }
-    ogDesc.setAttribute('content', finalDesc);
+    // Robots
+    setMetaTag(
+      'name', 
+      'robots', 
+      noIndex 
+        ? 'noindex, nofollow' 
+        : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+    );
 
-    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute('content', finalTitle);
+    // Geo tags for Palani, Tamil Nadu
+    setMetaTag('name', 'geo.region', 'IN-TN');
+    setMetaTag('name', 'geo.placename', 'Palani, Tamil Nadu');
+    setMetaTag('name', 'geo.position', '10.4500;77.5167');
+    setMetaTag('name', 'ICBM', '10.4500, 77.5167');
 
-    let twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDesc) twitterDesc.setAttribute('content', finalDesc);
+    // Open Graph
+    setMetaTag('property', 'og:site_name', 'SURIYADEVAN S | SEO & Digital Marketing');
+    setMetaTag('property', 'og:title', finalTitle);
+    setMetaTag('property', 'og:description', finalDesc);
+    setMetaTag('property', 'og:type', ogType);
+    setMetaTag('property', 'og:locale', 'en_IN');
 
-    let ogUrl = document.querySelector('meta[property="og:url"]');
-    const targetUrl = canonical || (window.location.origin + window.location.pathname + window.location.hash);
-    if (ogUrl) ogUrl.setAttribute('content', targetUrl);
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+    const targetUrl = canonical || (origin + (window.location.pathname === '/' ? '' : window.location.pathname));
+    setMetaTag('property', 'og:url', targetUrl || origin);
+
+    const defaultImage = `${origin}/og-image.svg`;
+    setMetaTag('property', 'og:image', ogImage || defaultImage);
+
+    // Twitter Card
+    setMetaTag('name', 'twitter:card', 'summary_large_image');
+    setMetaTag('name', 'twitter:title', finalTitle);
+    setMetaTag('name', 'twitter:description', finalDesc);
+    setMetaTag('name', 'twitter:image', ogImage || defaultImage);
 
     // Update canonical tag
     let linkCanonical = document.querySelector('link[rel="canonical"]');
@@ -74,9 +96,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
       linkCanonical.setAttribute('rel', 'canonical');
       document.head.appendChild(linkCanonical);
     }
-    linkCanonical.setAttribute('href', canonical || 'https://suriyadevan-s.vercel.app/');
+    linkCanonical.setAttribute('href', canonical || targetUrl || 'https://suriyadevan-s.vercel.app/');
 
-    // Update or inject JSON-LD script
+    // Inject or update JSON-LD schema
     const existingScript = document.getElementById('page-json-ld');
     if (existingScript) {
       existingScript.remove();
@@ -86,7 +108,22 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
       const script = document.createElement('script');
       script.id = 'page-json-ld';
       script.type = 'application/ld+json';
-      script.text = JSON.stringify(schema);
+      
+      let finalSchema = schema;
+      // If schema is an array of schemas, wrap in @graph
+      if (Array.isArray(schema)) {
+        finalSchema = {
+          '@context': 'https://schema.org',
+          '@graph': schema
+        };
+      } else if (!schema['@context'] && !schema['@graph']) {
+        finalSchema = {
+          '@context': 'https://schema.org',
+          ...schema
+        };
+      }
+
+      script.text = JSON.stringify(finalSchema);
       document.head.appendChild(script);
     }
 
@@ -94,7 +131,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ title, description, canonical,
       const scriptToRemove = document.getElementById('page-json-ld');
       if (scriptToRemove) scriptToRemove.remove();
     };
-  }, [title, description, canonical, keywords, schema]);
+  }, [title, description, canonical, keywords, ogType, ogImage, schema, noIndex]);
 
   return null;
 };
+

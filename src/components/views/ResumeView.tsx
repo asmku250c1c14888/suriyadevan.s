@@ -2,6 +2,7 @@ import React from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { Breadcrumbs } from '../common/Breadcrumbs';
+import { buildResumePageSchema } from '../../utils/seoSchemas';
 import { 
   Printer, 
   Download, 
@@ -25,30 +26,16 @@ export const ResumeView: React.FC = () => {
     window.print();
   };
 
-  const resumeSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfilePage',
-    name: `Resume of ${siteSettings.name}`,
-    mainEntity: {
-      '@type': 'Person',
-      name: siteSettings.name,
-      jobTitle: siteSettings.roleTitle,
-      email: siteSettings.email,
-      telephone: siteSettings.phone,
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Palani',
-        addressRegion: 'Tamil Nadu',
-        addressCountry: 'India'
-      }
-    }
-  };
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+  const resumeSchema = buildResumePageSchema(origin);
 
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
         title="SURIYADEVAN S Resume | SEO & Digital Marketing Executive"
         description="View the professional resume of SURIYADEVAN S: SEO specialist in Palani with 9 delivered client projects, Google & SEMrush credentials, and technical tools."
+        canonical={`${origin}/resume`}
+        ogType="profile"
         schema={resumeSchema}
       />
 

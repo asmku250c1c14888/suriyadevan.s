@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { Breadcrumbs } from '../common/Breadcrumbs';
+import { buildServiceSchema, buildCollectionSchema } from '../../utils/seoSchemas';
 import { Project } from '../../types';
 import { SocialMediaPortfolio } from '../services/SocialMediaPortfolio';
 import { MetaAdsCampaigns } from '../services/MetaAdsCampaigns';
@@ -160,28 +161,15 @@ export const ServicesView: React.FC = () => {
   // Render: Single Service Detail Page with its Projects
   // ----------------------------------------------------
   if (currentService) {
-    const serviceSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: currentService.name,
-      description: currentService.shortDescription,
-      provider: {
-        '@type': 'Person',
-        name: siteSettings.name,
-        url: window.location.origin
-      },
-      areaServed: {
-        '@type': 'AdministrativeArea',
-        name: 'Palani, Tamil Nadu, India'
-      },
-      serviceType: currentService.name
-    };
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+    const serviceSchema = buildServiceSchema(currentService, origin);
 
     return (
       <div className="min-h-screen bg-slate-50/60 pb-20">
         <SEOHead
           title={currentService.seoTitle}
           description={currentService.metaDescription}
+          canonical={`${origin}/services/${currentService.slug}`}
           schema={serviceSchema}
         />
 
@@ -830,11 +818,28 @@ export const ServicesView: React.FC = () => {
     return matchesCat && matchesQuery;
   });
 
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+  const servicesDirectorySchema = useMemo(() => {
+    return buildCollectionSchema(
+      'SEO & Digital Marketing Services',
+      'Comprehensive search engine optimization, local SEO, technical audits, social media marketing, and Meta ad management services in Palani by SURIYADEVAN S.',
+      '/services',
+      services.map(s => ({
+        name: s.name,
+        url: `/services/${s.slug}`,
+        description: s.shortDescription
+      })),
+      origin
+    );
+  }, [services, origin]);
+
   return (
     <div className="min-h-screen bg-slate-50/60 pb-20">
       <SEOHead
         title="SEO & Digital Marketing Services Palani | SURIYADEVAN S"
         description="Result-driven SEO, Local SEO, Technical SEO, Meta Ads & Social Media Management services in Palani by SURIYADEVAN S. Grow organic traffic & local leads."
+        canonical={`${origin}/services`}
+        schema={servicesDirectorySchema}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12">

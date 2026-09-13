@@ -19,6 +19,18 @@
           // Fallback if property is non-configurable
         }
       })();
+      // Automatically and immediately strip '#' from the URL bar on load
+      (function() {
+        try {
+          if (window.location.hash || (window.location.href && window.location.href.indexOf('#') !== -1)) {
+            var rawHash = window.location.hash || '';
+            var clean = rawHash.replace(/^#\/?/, '');
+            var targetPath = clean ? (clean.charAt(0) === '/' ? clean : '/' + clean) : (window.location.pathname || '/');
+            var cleanUrl = window.location.origin + targetPath + window.location.search;
+            window.history.replaceState(null, '', cleanUrl);
+          }
+        } catch (e) {}
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,12 +63,18 @@
     <meta property="og:description" content="Hire SURIYADEVAN S, top SEO specialist & digital marketer in Palani, Tamil Nadu. Proven local SEO, Meta Ads, social media & Google rankings. Contact today!" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://suriyadevan-s.vercel.app/" />
+    <meta property="og:image" content="https://suriyadevan-s.vercel.app/og-image.svg" />
     <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SEO & Digital Marketing Specialist Palani | SURIYADEVAN S" />
     <meta name="twitter:description" content="Hire SURIYADEVAN S, top SEO specialist & digital marketer in Palani, Tamil Nadu. Proven local SEO, Meta Ads, social media & Google rankings. Contact today!" />
+    <meta name="twitter:image" content="https://suriyadevan-s.vercel.app/og-image.svg" />
+
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
     <!-- Canonical & Sitemap -->
     <link rel="canonical" href="https://suriyadevan-s.vercel.app/" />

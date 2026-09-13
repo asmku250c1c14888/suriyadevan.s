@@ -2,6 +2,7 @@ import React from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { Breadcrumbs } from '../common/Breadcrumbs';
+import { buildAboutPageSchema } from '../../utils/seoSchemas';
 import { 
   MapPin, 
   Linkedin, 
@@ -18,35 +19,16 @@ import { toolsAndTech } from '../../data/initialData';
 export const AboutView: React.FC = () => {
   const { siteSettings, experience, certifications, education, navigateTo, trackEvent } = useData();
 
-  const aboutSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfilePage',
-    mainEntity: {
-      '@type': 'Person',
-      name: siteSettings.name,
-      jobTitle: siteSettings.roleTitle,
-      url: window.location.href,
-      email: siteSettings.email,
-      telephone: siteSettings.phone,
-      sameAs: [siteSettings.linkedin],
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Palani',
-        addressRegion: 'Tamil Nadu',
-        addressCountry: 'India'
-      },
-      alumniOf: {
-        '@type': 'EducationalOrganization',
-        name: education.institution
-      }
-    }
-  };
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+  const aboutSchema = buildAboutPageSchema(origin);
 
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
         title="About SURIYADEVAN S | SEO & Digital Marketer Palani"
         description="Meet SURIYADEVAN S, an SEO & Digital Marketing Specialist in Palani, Tamil Nadu. Proven experience, SEMrush certifications, client results & verified skills."
+        canonical={`${origin}/about`}
+        ogType="profile"
         schema={aboutSchema}
       />
 

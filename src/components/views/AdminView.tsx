@@ -168,50 +168,50 @@ export const AdminView: React.FC = () => {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#about</loc>
+    <loc>${window.location.origin}/about</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#services</loc>
+    <loc>${window.location.origin}/services</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#services/seo</loc>
+    <loc>${window.location.origin}/services/seo</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#services/local-seo</loc>
+    <loc>${window.location.origin}/services/local-seo</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#services/technical-seo</loc>
+    <loc>${window.location.origin}/services/technical-seo</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#services/social-media-management</loc>
+    <loc>${window.location.origin}/services/social-media-management</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#services/meta-ads</loc>
+    <loc>${window.location.origin}/services/meta-ads</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#services/google-business-profile</loc>
+    <loc>${window.location.origin}/services/google-business-profile</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>${window.location.origin}/#blog</loc>
+    <loc>${window.location.origin}/blog</loc>
     <priority>0.8</priority>
   </url>
   ${blogPosts.map(b => `
   <url>
-    <loc>${window.location.origin}/#blog/${b.slug}</loc>
+    <loc>${window.location.origin}/blog/${b.slug}</loc>
     <priority>0.7</priority>
   </url>`).join('')}
   <url>
-    <loc>${window.location.origin}/#contact</loc>
+    <loc>${window.location.origin}/contact</loc>
     <priority>0.9</priority>
   </url>
 </urlset>`;
@@ -221,7 +221,6 @@ Allow: /
 
 # Disallow private CMS administration endpoints from search engine indexing
 Disallow: /admin
-Disallow: /#admin
 
 Sitemap: ${window.location.origin}/sitemap.xml`;
 
@@ -315,6 +314,7 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
         <SEOHead
           title="Owner CMS Login | SURIYADEVAN S Palani"
           description="Owner authentication portal to access CMS management, live SEO audits, sitemap tools, and client inquiries for SURIYADEVAN S in Palani."
+          noIndex={true}
         />
         <div className="max-w-md w-full bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
           <div className="bg-slate-900 px-6 py-5 text-white flex items-center space-x-3">
@@ -390,6 +390,7 @@ Suggestion: Ensure all headings reflect clear search intent. Never introduce spe
       <SEOHead
         title="Admin CMS & SEO Dashboard | SURIYADEVAN S Palani"
         description="Private CMS dashboard and technical SEO auditor for SURIYADEVAN S. Manage projects, SEO meta tags, blog articles, and client leads in Palani."
+        noIndex={true}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">

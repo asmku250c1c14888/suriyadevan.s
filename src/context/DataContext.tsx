@@ -284,25 +284,80 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  // Routing state based on window hash or path
+  // Helper to extract clean path and permanently purge '#' from the URL bar
+  const getCleanPathWithoutHash = (): string => {
+    if (typeof window === 'undefined') return '/';
+    let path = window.location.pathname || '/';
+
+    // If a hash exists (e.g. /#/services, #/contact, #about, or dangling #)
+    if (window.location.hash || window.location.href.includes('#')) {
+      const rawHash = (window.location.hash || '').replace(/^#\/?/, '');
+      if (rawHash && rawHash !== '/') {
+        path = rawHash.startsWith('/') ? rawHash : `/${rawHash}`;
+      }
+      try {
+        const cleanUrl = window.location.origin + path + window.location.search;
+        window.history.replaceState(null, '', cleanUrl);
+      } catch (e) {}
+    }
+    return path;
+  };
+
+  // Routing state based on window pathname and HTML5 history API (strictly no hash /#/)
   const [activePath, setActivePath] = useState<string>(() => {
-    const hash = window.location.hash.replace('#', '');
-    return hash || '/';
+    return getCleanPathWithoutHash();
   });
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      setActivePath(hash || '/');
+    // Initial verification to ensure no hash remains in URL
+    getCleanPathWithoutHash();
+
+    const handlePopState = () => {
+      const path = getCleanPathWithoutHash();
+      setActivePath(path);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    const handleHashChange = (e?: Event) => {
+      if (e && typeof e.preventDefault === 'function') {
+        e.preventDefault();
+      }
+      const path = getCleanPathWithoutHash();
+      setActivePath(path);
+    };
+
+    // Global interceptor for any anchor tag with hash
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement)?.closest('a');
+      if (target) {
+        const href = target.getAttribute('href');
+        if (href && (href.startsWith('#') || href.includes('/#/'))) {
+          e.preventDefault();
+          const clean = href.replace(/^#\/?/, '/').replace('/#/', '/');
+          navigateTo(clean || '/');
+        }
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    document.addEventListener('click', handleGlobalClick, true);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handleHashChange);
+      document.removeEventListener('click', handleGlobalClick, true);
+    };
   }, []);
 
   const navigateTo = (path: string) => {
-    window.location.hash = path;
-    setActivePath(path);
+    // Strip any leading hash or /#/ if passed
+    const clean = path.replace(/^#\/?/, '').replace('/#/', '/');
+    const targetPath = clean.startsWith('/') ? clean : `/${clean}`;
+    try {
+      window.history.pushState(null, '', targetPath);
+    } catch (e) {}
+    setActivePath(targetPath);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

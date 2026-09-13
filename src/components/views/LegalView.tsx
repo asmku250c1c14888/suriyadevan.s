@@ -2,6 +2,7 @@ import React from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
 import { Breadcrumbs } from '../common/Breadcrumbs';
+import { buildBreadcrumbSchema } from '../../utils/seoSchemas';
 
 export const LegalView: React.FC<{ type: 'privacy' | 'terms' | 'disclaimer' }> = ({ type }) => {
   const { siteSettings } = useData();
@@ -28,12 +29,34 @@ export const LegalView: React.FC<{ type: 'privacy' | 'terms' | 'disclaimer' }> =
   };
 
   const currentSeo = seoData[type] || seoData.privacy;
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+  const pagePath = `/${type}`;
+  const canonicalUrl = `${origin}${pagePath}`;
+
+  const legalSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${canonicalUrl}#webpage`,
+        name: titles[type],
+        description: currentSeo.desc,
+        url: canonicalUrl,
+        publisher: {
+          '@id': `${origin}/#person`
+        }
+      },
+      buildBreadcrumbSchema([{ name: titles[type], path: pagePath }], origin)
+    ]
+  };
 
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
         title={currentSeo.title}
         description={currentSeo.desc}
+        canonical={canonicalUrl}
+        schema={legalSchema}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">

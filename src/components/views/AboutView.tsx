@@ -25,8 +25,8 @@ export const AboutView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">
       <SEOHead
-        title="About SURIYADEVAN S | SEO & Digital Marketer Palani"
-        description="Meet SURIYADEVAN S, an SEO & Digital Marketing Specialist in Palani, Tamil Nadu. Proven experience, SEMrush certifications, client results & verified skills."
+        title="About SURIYADEVAN S | SEO & Digital Marketing Specialist Palani"
+        description="Learn more about SURIYADEVAN S (Suriyadevan), verified SEO & Digital Marketing Specialist in Palani, Tamil Nadu. Experience at Avanexa & Cannibals Media, SEMrush certifications, and client results."
         canonical={`${origin}/about`}
         ogType="profile"
         schema={aboutSchema}

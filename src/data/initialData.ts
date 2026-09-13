@@ -396,13 +396,13 @@ export const initialServices: ServiceDetail[] = [
     id: 'serv-1',
     slug: 'seo',
     name: 'SEO Services',
-    shortDescription: 'Comprehensive search engine optimization encompassing technical foundation, keyword research, on-page optimization, and organic growth.',
-    fullDescription: 'Data-driven search engine optimization designed to systematically improve your organic rankings on Google. Through deep keyword research, search intent mapping, technical refinement, and on-page optimization, I help your business attract qualified search traffic without relying solely on paid ads.',
+    shortDescription: 'Comprehensive search engine optimization encompassing technical foundation, keyword research, on-page optimization, and organic growth in Palani.',
+    fullDescription: 'Data-driven search engine optimization designed to systematically improve your organic rankings on Google for Palani and Tamil Nadu searches. Through deep keyword research, search intent mapping, technical refinement, and on-page optimization, SURIYADEVAN S helps your business attract qualified search traffic without relying solely on paid ads.',
     h1: 'SEO Services in Palani, Tamil Nadu',
-    targetAudience: 'Small to mid-sized businesses, service providers, e-commerce brands, and local companies seeking sustainable Google visibility.',
+    targetAudience: 'Small to mid-sized businesses, service providers, e-commerce brands, and local companies seeking sustainable Google page #1 visibility in Palani and Tamil Nadu.',
     keyFeatures: [
-      'Comprehensive Website & Competitor SEO Audit',
-      'High-Intent Keyword Research & Topic Clustering',
+      'Comprehensive Website & Competitor SEO Audit in Palani',
+      'High-Intent Keyword Research & Topic Clustering (Local & National)',
       'On-Page Optimization (Titles, Meta, H-tags, URLs, Content)',
       'Internal Linking Architecture & Information Hierarchy',
       'Technical SEO Fixes & Core Web Vitals Guidance',
@@ -417,27 +417,59 @@ export const initialServices: ServiceDetail[] = [
     ],
     deliverables: [
       'Comprehensive SEO Audit Report',
-      'Target Keyword Map & Intent Blueprint',
+      'Target Keyword Map & Intent Blueprint for Palani market',
       'Optimized Meta Tags and Heading Suggestions',
       'Monthly Search Console Performance Summary'
     ],
     toolsUsed: ['SEMrush', 'Google Search Console', 'Google Analytics 4', 'Microsoft Clarity'],
     localFocus: 'Palani, Dindigul, Coimbatore, and across Tamil Nadu',
-    seoTitle: 'SEO Services in Palani | Freelance SEO | SURIYADEVAN S',
-    metaDescription: 'Data-driven On-Page, Off-Page & Organic SEO services in Palani by SURIYADEVAN S. Boost keyword rankings, organic traffic & Google visibility. Hire today!',
+    seoTitle: 'SEO Services in Palani | Freelance SEO Specialist | SURIYADEVAN S',
+    metaDescription: 'Top-ranked SEO Services in Palani by SURIYADEVAN S. On-Page, Technical & Organic Search Optimization for Palani businesses. Rank #1 on Google — Get free audit!',
     focusKeyword: 'SEO Services in Palani',
-    faqs: [
+    palaniKeywords: [
+      'SEO Services in Palani',
+      'Best SEO Specialist in Palani',
+      'Freelance SEO Expert Palani',
+      'SEO Company in Palani',
+      'Organic Search Marketing Palani',
+      'Website SEO Ranking Palani',
+      'SEO Consultant near me Palani',
+      'Affordable SEO Services Tamil Nadu'
+    ],
+    searchIntents: [
       {
-        question: 'What does an SEO specialist do?',
-        answer: 'An SEO specialist analyzes website structure, researches search keywords, optimizes on-page content, and resolves technical barriers so search engines like Google can easily crawl, index, and rank your web pages for relevant customer queries.'
+        intent: 'Informational',
+        query: 'How does SEO help small businesses in Palani rank on Google?',
+        solution: 'SEO aligns your site structure, local entity signals, and search intent so Google presents your business on Page 1 when customers search for your products or services.'
       },
       {
-        question: 'How long does it take to see SEO results?',
-        answer: 'SEO is a compounding marketing strategy. While technical and indexing fixes show improvements in Google Search Console within weeks, significant organic keyword ranking and traffic growth typically materialize over 3 to 6 months of consistent optimization.'
+        intent: 'Commercial',
+        query: 'Why hire a freelance SEO specialist in Palani instead of an agency?',
+        solution: 'Direct 1-on-1 execution by SURIYADEVAN S ensures transparent reporting, faster turnarounds, local Palani market knowledge, and zero agency markups.'
+      },
+      {
+        intent: 'Transactional',
+        query: 'How can I hire SURIYADEVAN S for SEO services in Palani?',
+        solution: 'Schedule a free preliminary SEO audit via WhatsApp at +91 9087571737 or through the contact form for a comprehensive ranking diagnosis within 24 hours.'
+      },
+      {
+        intent: 'Local & Near Me',
+        query: 'SEO specialist near me in Palani, Dindigul, and Oddanchatram',
+        solution: 'On-site and remote service covering Palani Town (Adivaram, Gandhi Road, Bus Stand area), Dindigul, Oddanchatram, Dharapuram, Udumalpet, and Coimbatore.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What do SEO services in Palani include?',
+        answer: 'SEO services by SURIYADEVAN S include comprehensive technical site crawls, competitor gap analysis, keyword mapping for local and regional buyers, on-page optimization, Google Search Console indexation fixes, and monthly organic growth tracking.'
+      },
+      {
+        question: 'How long does it take for a Palani business to rank on Google?',
+        answer: 'While technical fixes and Google indexing take 1 to 3 weeks, noticeable organic ranking improvements and inbound customer inquiries typically compound over 3 to 6 months of white-hat optimization.'
       },
       {
         question: 'Do you provide SEO services for businesses outside Palani?',
-        answer: 'Yes. While I am physically based in Palani, Tamil Nadu, I work remotely with clients across Tamil Nadu, all over India, and internationally.'
+        answer: 'Yes. While physically based in Palani, Tamil Nadu, I provide remote SEO consultations and ongoing campaigns for clients throughout Tamil Nadu, India, and internationally.'
       }
     ]
   },
@@ -446,8 +478,8 @@ export const initialServices: ServiceDetail[] = [
     slug: 'local-seo',
     name: 'Local SEO Services',
     shortDescription: 'Dominate Google Maps and local 3-pack searches for high-intent nearby customers searching in Palani and Tamil Nadu.',
-    fullDescription: 'Local SEO connects your business with customers in your immediate geographic area who are actively searching for your services. By optimizing your Google Business Profile, local keyword signals, NAP consistency, and localized landing pages, I ensure your business stands out on Google Maps and local search results.',
-    h1: 'Local SEO Services in Palani',
+    fullDescription: 'Local SEO connects your business with customers in Palani who are actively searching for nearby services. By optimizing your Google Business Profile, local keyword signals, NAP consistency, and localized landing pages, SURIYADEVAN S ensures your business stands out on Google Maps and the coveted Local 3-Pack.',
+    h1: 'Local SEO Services in Palani, Tamil Nadu',
     targetAudience: 'Retail shops, clinics, showrooms, hotels, restaurants, interior designers, service contractors, and small businesses in Palani and nearby towns.',
     keyFeatures: [
       'Google Business Profile (formerly GMB) Setup & Complete Optimization',
@@ -458,7 +490,7 @@ export const initialServices: ServiceDetail[] = [
       'Review Strategy & Online Reputation Management Support'
     ],
     processSteps: [
-      { title: '1. Local Discovery & Audit', description: 'Assessing your current Google Maps ranking, profile completeness, and competitor positions.' },
+      { title: '1. Local Discovery & Audit', description: 'Assessing your current Google Maps ranking, profile completeness, and competitor positions in Palani.' },
       { title: '2. Profile Optimization', description: 'Optimizing business categories, service lists, high-res photos, and operating hours.' },
       { title: '3. Local Keyword Integration', description: 'Weaving Palani and regional geographic keywords naturally into page copy and descriptions.' },
       { title: '4. Citation & NAP Alignment', description: 'Ensuring your business details match identically everywhere online.' },
@@ -466,23 +498,54 @@ export const initialServices: ServiceDetail[] = [
     ],
     deliverables: [
       'Optimized Google Business Profile',
-      'Local Keyword Ranking Blueprint',
+      'Local Keyword Ranking Blueprint for Palani',
       'Local Citation Directory Audit',
       'Review Acquisition Framework'
     ],
     toolsUsed: ['Google Business Profile', 'Google Maps', 'Google Search Console'],
     localFocus: 'Palani, Oddanchatram, Dharapuram, Udumalpet, Dindigul',
-    seoTitle: 'Local SEO Services in Palani | Google Maps | SURIYADEVAN S',
-    metaDescription: 'Rank #1 on Google Maps in Palani. Expert Local SEO, Google Business Profile optimization, local citations & review strategy by SURIYADEVAN S. Call today!',
+    seoTitle: 'Local SEO Services in Palani | Google Maps 3-Pack | SURIYADEVAN S',
+    metaDescription: 'Rank #1 on Google Maps in Palani. Expert Local SEO, Google Business Profile optimization, citations & review strategy by SURIYADEVAN S. Drive local store visits!',
     focusKeyword: 'Local SEO Services in Palani',
+    palaniKeywords: [
+      'Local SEO Services in Palani',
+      'Google Maps 3-Pack Ranking Palani',
+      'Local Business SEO Palani',
+      'Local SEO Specialist near me Palani',
+      'Palani Google Maps Optimization',
+      'Local Citation Building Palani',
+      'Google Maps Marketing Tamil Nadu'
+    ],
+    searchIntents: [
+      {
+        intent: 'Informational',
+        query: 'What is Local SEO and how does the Google Maps 3-Pack work in Palani?',
+        solution: 'Local SEO signals geographic proximity, category relevance, and review authority to Google so your shop appears in the top 3 map results when people search locally in Palani.'
+      },
+      {
+        intent: 'Commercial',
+        query: 'Why is Local SEO better than newspaper or pamphlet ads in Palani?',
+        solution: 'Unlike print ads that reach passive viewers, Local SEO captures active buyers in Palani who are searching with high intent on mobile and ready to visit your store immediately.'
+      },
+      {
+        intent: 'Transactional',
+        query: 'How do I get my Palani shop ranked in the top 3 of Google Maps?',
+        solution: 'Hire SURIYADEVAN S to audit your Google Business Profile, resolve category mismatches, synchronize NAP citations, and launch an organic review velocity framework.'
+      },
+      {
+        intent: 'Local & Near Me',
+        query: 'Local SEO services near me in Palani and Dindigul district',
+        solution: 'Immediate support for retail stores, clinics, showrooms, and services in Palani town, Adivaram, Oddanchatram, Dharapuram, and Udumalpet.'
+      }
+    ],
     faqs: [
       {
-        question: 'What is Local SEO and how does it help a local business?',
-        answer: 'Local SEO optimizes your online presence so your business appears when people search for products or services in your specific town or city. It helps drive foot traffic, local phone calls, and direct inquiries from nearby buyers.'
+        question: 'What is Local SEO and how does it help a Palani business?',
+        answer: 'Local SEO optimizes your online presence so your business appears when people search for products or services in Palani. It directly drives phone calls, map direction requests, and in-person foot traffic.'
       },
       {
         question: 'What types of Palani businesses benefit from Local SEO?',
-        answer: 'Retail stores, furniture and home appliance showrooms, clinics, hospitals, restaurants, local educational institutions, architecture firms, and repair services in Palani greatly benefit from Local SEO.'
+        answer: 'Retail stores, furniture & home appliance showrooms, clinics, hospitals, restaurants, hotels, architecture firms, educational institutions, and repair contractors in Palani greatly benefit from Local SEO.'
       }
     ]
   },
@@ -490,10 +553,10 @@ export const initialServices: ServiceDetail[] = [
     id: 'serv-3',
     slug: 'technical-seo',
     name: 'Technical SEO',
-    shortDescription: 'Ensure search engine crawlers can index and render your website smoothly without performance bottlenecks or crawl errors.',
-    fullDescription: 'Technical SEO forms the bedrock of every successful organic search strategy. If search engine spiders encounter broken redirects, slow page speeds, canonical confusion, or invalid robots instructions, even exceptional content cannot rank. I inspect and refine your technical architecture to secure maximum crawl efficiency.',
+    shortDescription: 'Ensure search engine crawlers can index and render your website smoothly without performance bottlenecks or crawl errors in Palani.',
+    fullDescription: 'Technical SEO forms the bedrock of every successful organic search strategy. If search engine spiders encounter broken redirects, slow mobile page speeds, canonical confusion, or invalid robots instructions, even exceptional content cannot rank. SURIYADEVAN S inspects and refines your technical architecture to secure maximum crawl efficiency.',
     h1: 'Technical SEO & Website Performance in Palani',
-    targetAudience: 'Websites facing indexation issues, drops in organic impressions, slow loading speeds, or complex CMS migrations.',
+    targetAudience: 'Websites facing indexation issues, drops in organic impressions, slow loading speeds, or complex CMS migrations in Palani and Tamil Nadu.',
     keyFeatures: [
       'Comprehensive Crawl Audit (Screaming Frog / SEMrush)',
       'XML Sitemap Configuration & Validation',
@@ -516,13 +579,48 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Google Search Console', 'PageSpeed Insights', 'Microsoft Clarity', 'SEMrush'],
     localFocus: 'Palani, Tamil Nadu, and Remote Clients',
-    seoTitle: 'Technical SEO Consultant in Palani | SURIYADEVAN S',
-    metaDescription: 'Resolve crawl errors, improve Core Web Vitals, site speed & indexation with technical SEO in Palani by SURIYADEVAN S. Audit your website for Google ranking!',
-    focusKeyword: 'Technical SEO Consultant',
+    seoTitle: 'Technical SEO Consultant in Palani | Website Audit | SURIYADEVAN S',
+    metaDescription: 'Resolve crawl errors, improve Core Web Vitals & Google indexation with Technical SEO in Palani by SURIYADEVAN S. Request comprehensive site audit!',
+    focusKeyword: 'Technical SEO Consultant in Palani',
+    palaniKeywords: [
+      'Technical SEO Consultant Palani',
+      'Website Speed Optimization Palani',
+      'Core Web Vitals Specialist Palani',
+      'Google Search Console Fixes Palani',
+      'Technical SEO Audit Tamil Nadu',
+      'Fix Crawl Errors Palani',
+      'WordPress SEO Audit Palani'
+    ],
+    searchIntents: [
+      {
+        intent: 'Informational',
+        query: 'Why is my website not indexing on Google even with good content?',
+        solution: 'Hidden technical blockers such as incorrect robots directives, missing sitemaps, canonical tags pointing to wrong URLs, or 404 crawl errors stop Google from indexing pages.'
+      },
+      {
+        intent: 'Commercial',
+        query: 'What is the cost of a technical SEO audit in Palani?',
+        solution: 'SURIYADEVAN S provides transparent, fixed-price technical audits covering full crawl analysis, speed diagnostics, and step-by-step developer remediation guides.'
+      },
+      {
+        intent: 'Transactional',
+        query: 'Hire a technical SEO consultant in Palani to fix Google Search Console errors',
+        solution: 'Book an emergency technical diagnostic session with SURIYADEVAN S to resolve indexing exclusions, soft 404s, and Core Web Vitals failures.'
+      },
+      {
+        intent: 'Local & Near Me',
+        query: 'Website speed & technical SEO expert near me in Palani',
+        solution: 'Available for both on-site review in Palani and remote diagnostics across Tamil Nadu for WordPress, custom React, and Shopify sites.'
+      }
+    ],
     faqs: [
       {
-        question: 'What is technical SEO and why is it essential?',
-        answer: 'Technical SEO focuses on server and code optimizations that make it easier for search engines to crawl, understand, and index your website. Without sound technical SEO, content may remain unindexed or rank poorly.'
+        question: 'What is technical SEO and why is it essential for my website?',
+        answer: 'Technical SEO focuses on server and code optimizations that make it seamless for search engines to crawl, understand, and index your website. Without sound technical SEO, content may remain unindexed or rank poorly.'
+      },
+      {
+        question: 'How do Core Web Vitals affect my Google ranking?',
+        answer: 'Core Web Vitals measure loading speed (LCP), interactivity (INP), and visual stability (CLS). Google uses them as direct mobile page experience ranking signals.'
       }
     ]
   },
@@ -530,10 +628,10 @@ export const initialServices: ServiceDetail[] = [
     id: 'serv-4',
     slug: 'social-media-management',
     name: 'Social Media Management',
-    shortDescription: 'Strategic social media planning, eye-catching posters, and engaging Reels concepts to build your brand presence.',
-    fullDescription: 'Build an authentic, consistent digital brand presence across Instagram, Facebook, and LinkedIn. I develop cohesive content calendars, craft promotional and educational posters, and outline high-retention Reels concepts that connect with your target market.',
+    shortDescription: 'Strategic social media planning, eye-catching posters, and engaging Reels concepts to build your brand presence in Palani.',
+    fullDescription: 'Build an authentic, consistent digital brand presence across Instagram, Facebook, and LinkedIn in Palani and Tamil Nadu. SURIYADEVAN S develops cohesive content calendars, crafts promotional and educational posters, and outlines high-retention Reels concepts that connect with your target market.',
     h1: 'Social Media Management Services in Palani',
-    targetAudience: 'Brands and businesses wanting consistent, professional social media posting without the daily operational burden.',
+    targetAudience: 'Brands and businesses wanting consistent, professional social media posting without the daily operational burden in Palani and Tamil Nadu.',
     keyFeatures: [
       'Monthly Social Media Content Calendars',
       'Custom Social Media Poster Design (Promotions, Tips, Offers)',
@@ -543,7 +641,7 @@ export const initialServices: ServiceDetail[] = [
       'Engagement & Performance Tracking'
     ],
     processSteps: [
-      { title: '1. Brand Persona & Audience Study', description: 'Defining visual style, tone of voice, and customer content preferences.' },
+      { title: '1. Brand Persona & Audience Study', description: 'Defining visual style, tone of voice, and customer content preferences in Palani.' },
       { title: '2. Monthly Content Calendar', description: 'Planning a structured mix of promotional, educational, and engagement posts.' },
       { title: '3. Creative Asset Production', description: 'Designing clean graphic posters and scripting impactful Reels hooks.' },
       { title: '4. Publishing & Monitoring', description: 'Scheduling content at optimal times and tracking reach and interaction.' }
@@ -556,12 +654,43 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Adobe Express', 'Hootsuite', 'Meta Business Suite', 'Canva'],
     localFocus: 'Palani, Dindigul, Pollachi, Coimbatore, Tamil Nadu',
-    seoTitle: 'Social Media Management in Palani | SURIYADEVAN S',
-    metaDescription: 'Grow your brand on Instagram & Facebook in Palani. Custom poster design, viral Reels strategy & engagement management by SURIYADEVAN S. Boost your reach!',
+    seoTitle: 'Social Media Management in Palani | Poster Design & Reels | SURIYADEVAN S',
+    metaDescription: 'Grow your brand on Instagram & Facebook in Palani. Custom poster design, viral Reels strategy & social media management by SURIYADEVAN S. Boost your reach!',
     focusKeyword: 'Social Media Management Palani',
+    palaniKeywords: [
+      'Social Media Management Palani',
+      'Instagram Marketing Specialist Palani',
+      'Social Media Poster Design Palani',
+      'Instagram Reels Strategy Palani',
+      'Facebook Page Management Palani',
+      'Social Media Agency Palani',
+      'Digital Marketing Palani Tamil Nadu'
+    ],
+    searchIntents: [
+      {
+        intent: 'Informational',
+        query: 'How does social media marketing help local retail businesses in Palani?',
+        solution: 'Consistent branded posters and entertaining Reels keep your store top-of-mind, highlight festival offers, and build authentic local customer loyalty.'
+      },
+      {
+        intent: 'Commercial',
+        query: 'How much does social media management cost in Palani?',
+        solution: 'Affordable monthly retainers including 12 to 20 custom branded graphic posters, Reels scripts, caption copywriting, and hashtag strategy.'
+      },
+      {
+        intent: 'Transactional',
+        query: 'Hire a social media manager in Palani for Instagram and Facebook',
+        solution: 'Contact SURIYADEVAN S to develop a tailored 30-day social media roadmap and custom promotional creatives.'
+      },
+      {
+        intent: 'Local & Near Me',
+        query: 'Social media poster designer near me in Palani',
+        solution: 'Providing rapid-turnaround Tamil and English graphic posters for showrooms, clinics, hotels, and schools in Palani and Dindigul.'
+      }
+    ],
     faqs: [
       {
-        question: 'How do social media posters and Reels help local businesses?',
+        question: 'How do social media posters and Reels help local businesses in Palani?',
         answer: 'They keep your brand top-of-mind, communicate seasonal offers, educate customers about your expertise, and attract followers who can convert into repeat local buyers.'
       }
     ]
@@ -570,13 +699,13 @@ export const initialServices: ServiceDetail[] = [
     id: 'serv-5',
     slug: 'meta-ads',
     name: 'Meta Ads Management',
-    shortDescription: 'Targeted Facebook and Instagram advertising campaigns built for lead generation, foot traffic, and product sales.',
-    fullDescription: 'Maximize your advertising return on investment across Facebook and Instagram. I design structured ad campaigns with granular audience targeting, persuasive ad copy, and strategic creative testing to deliver qualified inquiries without wasting ad spend.',
-    h1: 'Meta Ads Management for Businesses',
-    targetAudience: 'Local service businesses, showrooms, clinics, and e-commerce stores looking for reliable inquiries and sales.',
+    shortDescription: 'Targeted Facebook and Instagram advertising campaigns built for lead generation, foot traffic, and product sales in Palani.',
+    fullDescription: 'Maximize your advertising return on investment across Facebook and Instagram in Palani and across India. SURIYADEVAN S designs structured ad campaigns with granular audience targeting, persuasive ad copy, and strategic creative testing to deliver qualified customer inquiries without wasting ad spend.',
+    h1: 'Meta Ads Management (Facebook & Instagram Ads) in Palani',
+    targetAudience: 'Local service businesses, showrooms, clinics, and e-commerce stores looking for reliable inquiries and sales in Palani and Tamil Nadu.',
     keyFeatures: [
       'Meta Business Suite & Ads Manager Setup',
-      'Audience Research & Geographic Radius Targeting',
+      'Audience Research & Geographic Radius Targeting (Palani & Region)',
       'Compelling Ad Copywriting & Value Propositions',
       'A/B Creative & Headline Testing',
       'Lead Generation & WhatsApp Inquiry Campaigns',
@@ -584,7 +713,7 @@ export const initialServices: ServiceDetail[] = [
     ],
     processSteps: [
       { title: '1. Campaign Objective Mapping', description: 'Selecting the exact campaign objective (Leads, Traffic, Awareness, Messages).' },
-      { title: '2. Audience Segmentation', description: 'Targeting specific demographics, geographic boundaries, and interest clusters.' },
+      { title: '2. Audience Segmentation', description: 'Targeting specific demographics, geographic boundaries, and interest clusters in Palani.' },
       { title: '3. Creative & Copy Crafting', description: 'Developing arresting visuals and clear call-to-action copy.' },
       { title: '4. Monitoring & Budget Scaling', description: 'Refining low-cost ad sets and pausing underperforming creatives.' }
     ],
@@ -596,13 +725,44 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Meta Ads Manager', 'Meta Business Suite', 'Google Analytics 4'],
     localFocus: 'Palani, Tamil Nadu, and All-India Campaigns',
-    seoTitle: 'Meta Ads Specialist in Palani | Facebook & Instagram Ads',
-    metaDescription: 'High-ROAS Meta Ads management in Palani by SURIYADEVAN S. Targeted Facebook & Instagram ad campaigns that drive qualified local leads, sales & conversions.',
+    seoTitle: 'Meta Ads Specialist in Palani | Facebook & Instagram Ads | SURIYADEVAN S',
+    metaDescription: 'High-ROAS Meta Ads management in Palani by SURIYADEVAN S. Targeted Facebook & Instagram ad campaigns that drive qualified local leads, sales & WhatsApp inquiries.',
     focusKeyword: 'Meta Ads Specialist Palani',
+    palaniKeywords: [
+      'Meta Ads Specialist Palani',
+      'Facebook Ads Freelancer Palani',
+      'Instagram Ads Expert Palani',
+      'Lead Generation Ads Palani',
+      'Social Media Advertising Tamil Nadu',
+      'High ROAS Facebook Ads Palani',
+      'WhatsApp Ad Campaigns Palani'
+    ],
+    searchIntents: [
+      {
+        intent: 'Informational',
+        query: 'How do Facebook and Instagram ads generate direct sales in Palani?',
+        solution: 'By showing targeted visual offers to people living within 10 to 40 km of Palani, prompting them directly with Click-to-WhatsApp or lead forms.'
+      },
+      {
+        intent: 'Commercial',
+        query: 'What daily budget is required to run Meta ads for a Palani business?',
+        solution: 'You can launch high-converting local campaigns starting from ₹300 to ₹600 per day to test creatives and generate consistent inquiries.'
+      },
+      {
+        intent: 'Transactional',
+        query: 'Hire a Meta Ads specialist in Palani for immediate lead generation',
+        solution: 'Partner with SURIYADEVAN S to set up pixel tracking, high-converting ad copy, and targeted campaigns that yield profitable ROAS.'
+      },
+      {
+        intent: 'Local & Near Me',
+        query: 'Facebook ads manager near me in Palani and Dindigul',
+        solution: 'Local digital advertising support for jewellers, doctors, apparel stores, and service contractors in Palani, Pollachi, and Coimbatore.'
+      }
+    ],
     faqs: [
       {
-        question: 'Do you guarantee specific lead numbers or ROAS?',
-        answer: 'No ethical digital marketer guarantees exact revenue or lead volume, as market variables, pricing, and product demand play major roles. However, I use rigorous audience testing, data-backed targeting, and continuous optimization to maximize your advertising efficiency.'
+        question: 'Do you guarantee specific lead numbers or ROAS on Meta Ads?',
+        answer: 'No ethical digital marketer guarantees exact revenue or lead volume, as market variables, pricing, and product demand play major roles. However, SURIYADEVAN S uses rigorous audience testing, data-backed targeting, and continuous optimization to maximize your advertising efficiency.'
       }
     ]
   },
@@ -610,12 +770,12 @@ export const initialServices: ServiceDetail[] = [
     id: 'serv-6',
     slug: 'google-business-profile',
     name: 'Google Business Profile Optimization',
-    shortDescription: 'Turn local Google searches into calls, directions, and website visits with complete profile management.',
-    fullDescription: 'Your Google Business Profile is often the very first impression potential customers have of your company. I perform comprehensive profile auditing, category refinement, service cataloging, and local optimization so your business gains prominent placement in Google Maps and local 3-pack results.',
-    h1: 'Google Business Profile Optimization in Palani',
+    shortDescription: 'Turn local Google searches into calls, directions, and website visits with complete profile management in Palani.',
+    fullDescription: 'Your Google Business Profile is often the very first impression potential customers have of your company in Palani. SURIYADEVAN S performs comprehensive profile auditing, category refinement, service cataloging, and local optimization so your business gains prominent placement in Google Maps and local 3-pack results.',
+    h1: 'Google Business Profile (GMB) Optimization in Palani',
     targetAudience: 'Brick-and-mortar stores, professional practices, and local service companies in Palani and surrounding regions.',
     keyFeatures: [
-      'Complete Profile Audit & Verification Assistance',
+      'Complete Profile Audit & Verification Assistance in Palani',
       'Primary & Secondary Category Optimization',
       'Detailed Service & Product Cataloging',
       'Geo-Tagged Photo Uploads & Visual Presentation',
@@ -623,7 +783,7 @@ export const initialServices: ServiceDetail[] = [
       'Reputation Management & Review Response Guidance'
     ],
     processSteps: [
-      { title: '1. Profile Diagnostic', description: 'Checking verification status, NAP consistency, and existing ranking radius.' },
+      { title: '1. Profile Diagnostic', description: 'Checking verification status, NAP consistency, and existing ranking radius in Palani.' },
       { title: '2. Category & Attribute Tuning', description: 'Selecting the precise business categories that trigger local search results.' },
       { title: '3. Visual & Service Cataloging', description: 'Adding clear service pricing, descriptions, and high-quality photography.' },
       { title: '4. Ongoing Local Activity', description: 'Publishing regular posts to signal active business operations to Google.' }
@@ -635,9 +795,39 @@ export const initialServices: ServiceDetail[] = [
     ],
     toolsUsed: ['Google Business Profile', 'Google Maps'],
     localFocus: 'Palani and Tamil Nadu',
-    seoTitle: 'Google Business Profile in Palani | SURIYADEVAN S',
+    seoTitle: 'Google Business Profile in Palani | GMB Optimization | SURIYADEVAN S',
     metaDescription: 'Optimize your Google Business Profile in Palani. Get more phone calls, foot traffic & store directions on Google Maps with expert setup by SURIYADEVAN S.',
     focusKeyword: 'Google Business Profile Optimization in Palani',
+    palaniKeywords: [
+      'Google Business Profile in Palani',
+      'Google My Business Specialist Palani',
+      'Google Maps Ranking Palani',
+      'GMB Verification Palani',
+      'Local Business Listing Palani',
+      'Google Map Listing Optimization Tamil Nadu'
+    ],
+    searchIntents: [
+      {
+        intent: 'Informational',
+        query: 'How do I get my Palani business verified and ranked on Google Maps?',
+        solution: 'SURIYADEVAN S assists with profile claim, business category selection, video verification, and citation building so Google ranks your shop.'
+      },
+      {
+        intent: 'Commercial',
+        query: 'How much more customer calls does an optimized Google Business Profile generate in Palani?',
+        solution: 'Over 65% of mobile searchers call or click directions directly from Google Maps 3-Pack listings without visiting a website.'
+      },
+      {
+        intent: 'Transactional',
+        query: 'Hire Google Business Profile specialist in Palani for Google Maps ranking',
+        solution: 'Get your GMB listing audited and optimized today by SURIYADEVAN S to rank #1 for local searches in Palani.'
+      },
+      {
+        intent: 'Local & Near Me',
+        query: 'Google My Business consultant near me in Palani (624601)',
+        solution: 'Serving all commercial areas in Palani including Adivaram, Bus Stand road, Railway feeder road, Gandhi road, and Dindigul highway.'
+      }
+    ],
     faqs: [
       {
         question: 'Was Google Business Profile formerly called Google My Business?',
@@ -777,51 +967,72 @@ When search engines see users finding exactly what they need on your page withou
 export const initialFAQs: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'Who is SURIYADEVAN S?',
-    answer: 'SURIYADEVAN S is an SEO and Digital Marketing Executive based in Palani, Tamil Nadu, India. He specializes in end-to-end SEO, Local SEO, Technical SEO, Social Media Marketing, Meta Ads, and Google Business Profile optimization for growing businesses.',
-    category: 'General',
+    question: 'Who is SURIYADEVAN S and what is his specialization?',
+    answer: 'SURIYADEVAN S (also searched as Suriyadevan or Suriya Devan) is a verified SEO and Digital Marketing Specialist based in Palani, Tamil Nadu, India. He specializes in organic keyword rankings, Local SEO & Google Maps 3-pack optimization, Technical SEO site audits, Meta Ads (Facebook & Instagram), and Social Media Management for regional and global businesses.',
+    category: 'General & Brand',
     featured: true
   },
   {
     id: 'faq-2',
-    question: 'What SEO services does SURIYADEVAN provide?',
-    answer: 'Services include On-Page SEO, Off-Page SEO & link building, Technical SEO audits, Local SEO and Google Business Profile optimization, Keyword Research, Content Optimization, and Analytics integration (GA4, GSC, GTM, Microsoft Clarity).',
+    question: 'How can Suriyadevan help my business rank on the first page of Google?',
+    answer: 'Suriyadevan uses a data-driven, white-hat SEO methodology: 1) In-depth technical crawl audit to fix indexing and Core Web Vitals barriers; 2) Search intent mapping for high-converting commercial keywords; 3) On-page semantic content optimization with Schema.org JSON-LD; 4) Local citation consistency (NAP) and Google Business Profile authority; and 5) Google Search Console performance monitoring.',
     category: 'SEO',
     featured: true
   },
   {
     id: 'faq-3',
-    question: 'Does SURIYADEVAN provide SEO services in Palani and nearby areas?',
-    answer: 'Yes. SURIYADEVAN is located in Palani, Tamil Nadu, and actively works with businesses in Palani, Dindigul, Oddanchatram, Dharapuram, Udumalpet, Pollachi, Coimbatore, Madurai, across Tamil Nadu, and nationwide.',
+    question: 'Does SURIYADEVAN provide SEO services in Palani and across Tamil Nadu?',
+    answer: 'Yes! SURIYADEVAN is locally based in Palani (624601), Tamil Nadu, offering on-site and remote SEO services for clients in Palani, Dindigul, Oddanchatram, Dharapuram, Udumalpet, Pollachi, Coimbatore, Madurai, Tirupur, and across all of Tamil Nadu and India.',
     category: 'Local SEO',
     featured: true
   },
   {
     id: 'faq-4',
-    question: 'What is Local SEO and why does my business need it?',
-    answer: 'Local SEO optimizes your digital presence to attract customers from relevant local searches on Google and Google Maps. For brick-and-mortar stores, clinics, showrooms, and service providers, it is the most cost-effective way to generate direct phone calls, map directions, and customer visits.',
-    category: 'Local SEO',
+    question: 'How do I hire Suriyadevan S for freelance SEO or digital marketing?',
+    answer: 'You can hire Suriyadevan directly by filling out the consultation form on this website, emailing suriya2993@gmail.com, or calling/messaging on WhatsApp at +91 9087571737. You will receive an initial audit and personalized proposal within 24 hours.',
+    category: 'Hiring & Pricing',
     featured: true
   },
   {
     id: 'faq-5',
-    question: 'Can you guarantee first-page Google rankings?',
-    answer: 'No ethical or professional SEO specialist can guarantee specific #1 positions on Google, as Google uses hundreds of dynamic algorithms and search results vary by user location and history. However, I use verified, white-hat strategies, technical best practices, and data-driven methods that consistently improve organic search visibility and rankings.',
-    category: 'SEO',
+    question: 'What is Local SEO and why is Google Maps 3-Pack ranking essential for shops and clinics?',
+    answer: 'Local SEO ensures that when customers search for "near me" or "[service] in Palani", your business appears in the coveted Google Maps 3-Pack at the top of results. Over 70% of local smartphone searches lead to a store visit or phone call within 24 hours. Suriyadevan optimizes your Google Business Profile, geo-tags, categories, and review velocity to capture this high-intent foot traffic.',
+    category: 'Local SEO',
     featured: true
   },
   {
     id: 'faq-6',
-    question: 'Do you manage Meta Ads (Facebook & Instagram Ads)?',
-    answer: 'Yes. I design, launch, and optimize Meta advertising campaigns focused on local customer acquisition, lead generation, and brand awareness with disciplined budget management and A/B creative testing.',
-    category: 'Social Media & Ads',
+    question: 'How much does freelance SEO service cost in Tamil Nadu, India?',
+    answer: 'Freelance SEO services by Suriyadevan are flexible and tailored to your business scale. Packages range from one-time Comprehensive Technical & Local SEO Audits to monthly ongoing Organic Growth Retainers and Meta Ads Management. Because he works independently without heavy agency overhead, pricing is transparent, cost-effective, and delivers direct ROI.',
+    category: 'Hiring & Pricing',
     featured: true
   },
   {
     id: 'faq-7',
-    question: 'How do we begin working together?',
-    answer: 'You can reach out through the contact form, email suriya2993@gmail.com, call/WhatsApp +91 9087571737, or connect on LinkedIn. We will discuss your website, target audience, and business goals during an initial consultation.',
-    category: 'Working Together',
+    question: 'Can Suriyadevan guarantee #1 Google rankings?',
+    answer: 'No genuine or Google-certified SEO professional guarantees permanent #1 rankings because Google uses 200+ dynamic algorithmic ranking factors. However, Suriyadevan applies industry-proven white-hat optimization techniques, entity SEO, and technical hygiene that have consistently driven verified Google 1st-page rankings for clients like Intrax, Insd, Triaz, and Best Precision.',
+    category: 'SEO',
+    featured: true
+  },
+  {
+    id: 'faq-8',
+    question: 'Should I choose SEO or Meta Ads (Facebook & Instagram Ads) for my business?',
+    answer: 'Both strategies complement each other. Meta Ads deliver immediate qualified traffic, leads, and brand awareness within 24–48 hours, making them ideal for promotions, product launches, and local shop footfall. SEO builds compounding, long-term organic authority where you receive steady leads daily without paying for every click. Suriyadevan offers hybrid growth plans integrating both channels.',
+    category: 'Social Media & Ads',
+    featured: true
+  },
+  {
+    id: 'faq-9',
+    question: 'What tools does Suriyadevan use to audit and optimize websites?',
+    answer: 'Suriyadevan uses enterprise-standard SEO software including SEMrush, Google Search Console, Google Analytics 4 (GA4), Google Tag Manager, Microsoft Clarity (heatmaps & session recordings), Google PageSpeed Insights, Meta Ads Manager, and schema markup validators.',
+    category: 'Technical SEO',
+    featured: true
+  },
+  {
+    id: 'faq-10',
+    question: 'Why hire a dedicated SEO Specialist instead of a large digital marketing agency?',
+    answer: 'Hiring Suriyadevan provides direct 1-on-1 communication with the actual specialist working on your campaigns—no account managers, no generic templates, and no outsourced junior staff. You get customized strategies, rapid turnarounds, verified reporting, and higher return on ad spend (ROAS).',
+    category: 'General & Brand',
     featured: true
   }
 ];

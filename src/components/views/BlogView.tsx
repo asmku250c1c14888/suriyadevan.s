@@ -45,6 +45,21 @@ export const BlogView: React.FC = () => {
     metaDescription: ''
   });
 
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+  const blogDirectorySchema = useMemo(() => {
+    return buildCollectionSchema(
+      'SEO & Digital Marketing Blog',
+      'Actionable SEO, Local SEO & digital marketing guides by SURIYADEVAN S in Palani, Tamil Nadu. Learn Google ranking tactics, Google Maps growth & technical tips.',
+      '/blog',
+      blogPosts.map(p => ({
+        name: p.title,
+        url: `/blog/${p.slug}`,
+        description: p.excerpt
+      })),
+      origin
+    );
+  }, [blogPosts, origin]);
+
   const showToast = (msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3500);
@@ -141,7 +156,6 @@ export const BlogView: React.FC = () => {
   const currentPost = blogPosts.find(b => b.slug === slug);
 
   if (currentPost) {
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
     const articleSchema = buildBlogPostingSchema(currentPost, origin);
 
     return (
@@ -315,21 +329,6 @@ export const BlogView: React.FC = () => {
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCat && matchesSearch;
   });
-
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
-  const blogDirectorySchema = useMemo(() => {
-    return buildCollectionSchema(
-      'SEO & Digital Marketing Blog',
-      'Actionable SEO, Local SEO & digital marketing guides by SURIYADEVAN S in Palani, Tamil Nadu. Learn Google ranking tactics, Google Maps growth & technical tips.',
-      '/blog',
-      blogPosts.map(p => ({
-        name: p.title,
-        url: `/blog/${p.slug}`,
-        description: p.excerpt
-      })),
-      origin
-    );
-  }, [blogPosts, origin]);
 
   return (
     <div className="min-h-screen bg-slate-50/70 pb-20">

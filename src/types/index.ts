@@ -46,6 +46,12 @@ export interface ServiceDetail {
   seoTitle: string;
   metaDescription: string;
   focusKeyword: string;
+  palaniKeywords?: string[];
+  searchIntents?: {
+    intent: 'Informational' | 'Commercial' | 'Transactional' | 'Local & Near Me';
+    query: string;
+    solution: string;
+  }[];
   faqs: { question: string; answer: string }[];
 }
 
@@ -74,7 +80,7 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: 'General' | 'SEO' | 'Local SEO' | 'Social Media & Ads' | 'Working Together';
+  category: 'General' | 'SEO' | 'Local SEO' | 'Social Media & Ads' | 'Working Together' | 'General & Brand' | 'Hiring & Pricing' | 'Technical SEO';
   featured: boolean;
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useData } from '../../context/DataContext';
 import { SEOHead } from '../common/SEOHead';
+import { SearchIntentHub } from '../common/SearchIntentHub';
 import { 
   buildPersonSchema, 
   buildLocalBusinessSchema, 
@@ -171,8 +172,8 @@ export const HomeView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50/70">
       <SEOHead
-        title="SEO & Digital Marketing Specialist Palani | SURIYADEVAN S"
-        description="Rank #1 on Google with SURIYADEVAN S. Expert SEO, Local SEO, Meta Ads & social media management for businesses in Palani, Tamil Nadu. Get a free audit!"
+        title="SURIYADEVAN S | SEO & Digital Marketing Specialist Palani, Tamil Nadu"
+        description="Official website of SURIYADEVAN S (Suriyadevan). Top SEO specialist, Local SEO, Meta Ads & Google Business Profile expert in Palani, Tamil Nadu. Proven Google 1st-page rankings."
         schema={homeSchema}
       />
 
@@ -187,15 +188,22 @@ export const HomeView: React.FC = () => {
             <span className="text-indigo-600 font-medium">Available for Freelance Growth Projects</span>
           </div>
 
-          {/* Main H1 Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.15] font-display">
-            SEO & Digital Marketing Specialist <br className="hidden sm:inline" />
-            <span className="text-indigo-600">in Palani, Tamil Nadu</span>
-          </h1>
+          {/* Main H1 Headline with Name and Intent Queries */}
+          <div className="space-y-2">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-indigo-600 block">
+              Official Portfolio & Freelance SEO Practice
+            </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.15] font-display">
+              SURIYADEVAN S <br className="hidden sm:inline" />
+              <span className="text-indigo-600 text-2xl sm:text-4xl lg:text-5xl block mt-1">
+                SEO & Digital Marketing Specialist in Palani
+              </span>
+            </h1>
+          </div>
 
-          {/* Supporting Headline */}
+          {/* Supporting Headline with natural search intent entity keywords */}
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto font-normal leading-relaxed">
-            Helping businesses grow their Google visibility, organic traffic, local search presence and digital brand visibility through SEO and performance-focused digital marketing.
+            Helping businesses in Palani, Tamil Nadu, and globally rank on Google first page, dominate Google Maps 3-Pack searches, generate qualified customer leads with Meta Ads, and accelerate revenue through organic search engine optimization.
           </p>
 
           {/* Core CTAs */}
@@ -587,6 +595,9 @@ export const HomeView: React.FC = () => {
         </div>
       </section>
 
+      {/* Search Intent & How People Search Hub */}
+      <SearchIntentHub />
+
       {/* Tools and Technologies Section */}
       <section className="py-14 px-4 sm:px-6 lg:px-8 border-t border-slate-200 bg-slate-50">
         <div className="max-w-7xl mx-auto text-center">
@@ -872,11 +883,14 @@ export const HomeView: React.FC = () => {
                     onChange={(e) => setFaqFormData({ ...faqFormData, category: e.target.value as any })}
                     className="w-full p-2.5 border border-slate-300 rounded-lg text-xs bg-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                   >
-                    <option value="General">General</option>
+                    <option value="General & Brand">General & Brand</option>
                     <option value="SEO">SEO</option>
                     <option value="Local SEO">Local SEO</option>
+                    <option value="Technical SEO">Technical SEO</option>
+                    <option value="Hiring & Pricing">Hiring & Pricing</option>
                     <option value="Social Media & Ads">Social Media & Ads</option>
                     <option value="Working Together">Working Together</option>
+                    <option value="General">General</option>
                   </select>
                 </div>
 

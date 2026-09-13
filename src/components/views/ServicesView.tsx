@@ -30,7 +30,8 @@ import {
   Check,
   ChevronRight,
   Eye,
-  Trash2
+  Trash2,
+  Target
 } from 'lucide-react';
 
 export const ServicesView: React.FC = () => {
@@ -41,6 +42,7 @@ export const ServicesView: React.FC = () => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<Project | null>(null);
   const [categoryFilter, setCategoryFilter] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [intentFilter, setIntentFilter] = useState<'All' | 'Informational' | 'Commercial' | 'Transactional' | 'Local & Near Me'>('All');
 
   // Form state for adding project directly to service
   const [newProject, setNewProject] = useState({
@@ -80,11 +82,27 @@ export const ServicesView: React.FC = () => {
     return false;
   };
 
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
+
   // Projects filtered for current service
   const currentServiceProjects = useMemo(() => {
     if (!currentService) return [];
     return projects.filter(p => isProjectMatchingService(p, currentService.slug));
   }, [currentService, projects]);
+
+  const servicesDirectorySchema = useMemo(() => {
+    return buildCollectionSchema(
+      'SEO & Digital Marketing Services',
+      'Comprehensive search engine optimization, local SEO, technical audits, social media marketing, and Meta ad management services in Palani by SURIYADEVAN S.',
+      '/services',
+      services.map(s => ({
+        name: s.name,
+        url: `/services/${s.slug}`,
+        description: s.shortDescription
+      })),
+      origin
+    );
+  }, [services, origin]);
 
   // Open add project modal pre-configured for the current service
   const openAddProjectForCurrentService = () => {
@@ -161,7 +179,6 @@ export const ServicesView: React.FC = () => {
   // Render: Single Service Detail Page with its Projects
   // ----------------------------------------------------
   if (currentService) {
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
     const serviceSchema = buildServiceSchema(currentService, origin);
 
     return (
@@ -258,6 +275,124 @@ export const ServicesView: React.FC = () => {
               </ul>
             </div>
           </div>
+
+          {/* ============================================================ */}
+          {/* PALANI SEARCH INTENT & QUERY OPTIMIZATION MATRIX */}
+          {/* ============================================================ */}
+          {currentService.searchIntents && currentService.searchIntents.length > 0 && (
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-5">
+                <div>
+                  <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">
+                    <Target className="w-4 h-4 text-indigo-500" />
+                    <span>Search Intent & Query Optimization Matrix</span>
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-display">
+                    How People Search for {currentService.name} in Palani & Tamil Nadu
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+                    Engineered across all 4 search intent stages — Informational, Commercial, Transactional, and Local Proximity — ensuring your business captures searchers at every point of the conversion funnel.
+                  </p>
+                </div>
+                <div className="inline-flex items-center space-x-2 bg-emerald-50 text-emerald-700 border border-emerald-200/80 px-3 py-1.5 rounded-xl text-xs font-semibold self-start sm:self-auto flex-shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Intent-Optimized</span>
+                </div>
+              </div>
+
+              {/* 4 Search Intent Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                {currentService.searchIntents.map((item, idx) => {
+                  const intentConfig = {
+                    Informational: {
+                      badge: 'bg-sky-50 text-sky-700 border-sky-200',
+                      stage: 'Informational (Learning)',
+                      sub: 'Users researching how this service solves business visibility'
+                    },
+                    Commercial: {
+                      badge: 'bg-amber-50 text-amber-700 border-amber-200',
+                      stage: 'Commercial (Evaluation)',
+                      sub: 'Prospects comparing solutions, local agencies vs. freelance specialists'
+                    },
+                    Transactional: {
+                      badge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                      stage: 'Transactional (Action / Hiring)',
+                      sub: 'Ready-to-hire buyers seeking audits, quotes, and contact'
+                    },
+                    'Local & Near Me': {
+                      badge: 'bg-purple-50 text-purple-700 border-purple-200',
+                      stage: 'Local & Near Me (Palani Proximity)',
+                      sub: 'Hyper-local mobile searches in Palani, Dindigul & surrounding areas'
+                    }
+                  }[item.intent] || {
+                    badge: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+                    stage: item.intent,
+                    sub: 'Search Query Target'
+                  };
+
+                  return (
+                    <div
+                      key={idx}
+                      className="bg-slate-50/70 rounded-xl p-5 border border-slate-200/80 hover:border-indigo-300 transition-all flex flex-col justify-between space-y-3"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-md border ${intentConfig.badge}`}>
+                            {intentConfig.stage}
+                          </span>
+                          <span className="text-[10px] text-slate-400 font-mono">Stage {idx + 1}</span>
+                        </div>
+                        <div className="text-sm font-bold text-slate-900 mb-2 flex items-start space-x-2">
+                          <Search className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
+                          <span className="leading-snug">"{item.query}"</span>
+                        </div>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          <strong className="text-slate-800 font-semibold">Optimization Solution: </strong>
+                          {item.solution}
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-500">
+                        <span className="flex items-center space-x-1">
+                          <MapPin className="w-3 h-3 text-rose-500" />
+                          <span>Palani, Tamil Nadu (624601)</span>
+                        </span>
+                        <span className="text-emerald-600 font-semibold flex items-center space-x-1">
+                          <Check className="w-3.5 h-3.5" />
+                          <span>Google Page 1 Target</span>
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Local Palani Keywords for this Service */}
+              {currentService.palaniKeywords && currentService.palaniKeywords.length > 0 && (
+                <div className="pt-5 border-t border-slate-100 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2 text-xs font-bold text-slate-800">
+                      <MapPin className="w-4 h-4 text-rose-500" />
+                      <span>Target Search Queries & Local Keywords for Palani Ranking:</span>
+                    </div>
+                    <span className="text-[11px] text-slate-400">
+                      {currentService.palaniKeywords.length} Search Queries
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {currentService.palaniKeywords.map((kw, kidx) => (
+                      <span
+                        key={kidx}
+                        className="inline-flex items-center space-x-1.5 text-xs bg-slate-50 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200/80 transition-colors font-medium cursor-default"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                        <span>{kw}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Dedicated Social Media Portfolio (Instagram Posts & Reels) */}
           {currentService.slug === 'social-media-management' && (
@@ -818,21 +953,6 @@ export const ServicesView: React.FC = () => {
     return matchesCat && matchesQuery;
   });
 
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://suriyadevan-s.vercel.app';
-  const servicesDirectorySchema = useMemo(() => {
-    return buildCollectionSchema(
-      'SEO & Digital Marketing Services',
-      'Comprehensive search engine optimization, local SEO, technical audits, social media marketing, and Meta ad management services in Palani by SURIYADEVAN S.',
-      '/services',
-      services.map(s => ({
-        name: s.name,
-        url: `/services/${s.slug}`,
-        description: s.shortDescription
-      })),
-      origin
-    );
-  }, [services, origin]);
-
   return (
     <div className="min-h-screen bg-slate-50/60 pb-20">
       <SEOHead
@@ -942,6 +1062,120 @@ export const ServicesView: React.FC = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* PALANI SERVICES: COMPLETE SEARCH INTENT & QUERY DIRECTORY */}
+        {/* ============================================================ */}
+        <div className="py-12 border-t border-slate-200">
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-6">
+            <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-100 pb-5">
+              <div>
+                <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">
+                  <Target className="w-4 h-4 text-indigo-500" />
+                  <span>Search Intent Mapping & Semantic Coverage</span>
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900 font-display">
+                  Palani Services: Search Intent & Query Optimization Directory
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+                  Explore the exact search queries people use when looking for SEO, Local Maps ranking, social media, and digital advertising services in Palani and Tamil Nadu.
+                </p>
+              </div>
+
+              {/* Intent Filter Pills */}
+              <div className="flex flex-wrap gap-1.5 self-start md:self-auto">
+                {(['All', 'Informational', 'Commercial', 'Transactional', 'Local & Near Me'] as const).map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setIntentFilter(tab)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                      intentFilter === tab
+                        ? 'bg-indigo-600 text-white shadow-2xs'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Queries Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {services.flatMap((serv) => {
+                const items = (serv.searchIntents || []).filter(
+                  (item) => intentFilter === 'All' || item.intent === intentFilter
+                );
+                return items.map((item, idx) => {
+                  const intentBadge = {
+                    Informational: 'bg-sky-50 text-sky-700 border-sky-200',
+                    Commercial: 'bg-amber-50 text-amber-700 border-amber-200',
+                    Transactional: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                    'Local & Near Me': 'bg-purple-50 text-purple-700 border-purple-200'
+                  }[item.intent] || 'bg-slate-100 text-slate-700 border-slate-200';
+
+                  return (
+                    <div
+                      key={`${serv.id}-${item.intent}-${idx}`}
+                      className="bg-slate-50/70 p-4 rounded-xl border border-slate-200/80 hover:border-indigo-300 transition-all flex flex-col justify-between space-y-3"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${intentBadge}`}>
+                            {item.intent}
+                          </span>
+                          <span className="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                            {serv.name}
+                          </span>
+                        </div>
+                        <div className="text-xs font-bold text-slate-900 mb-1.5 flex items-start space-x-1.5">
+                          <Search className="w-3.5 h-3.5 text-indigo-500 mt-0.5 flex-shrink-0" />
+                          <span className="leading-snug">"{item.query}"</span>
+                        </div>
+                        <p className="text-[11px] text-slate-600 leading-relaxed">
+                          {item.solution}
+                        </p>
+                      </div>
+
+                      <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                        <span className="text-[10px] text-slate-400 flex items-center space-x-1">
+                          <MapPin className="w-3 h-3 text-rose-500" />
+                          <span>Palani & TN</span>
+                        </span>
+                        <button
+                          onClick={() => {
+                            trackEvent('intent_query_click', `${serv.name} - ${item.query}`);
+                            navigateTo(`/services/${serv.slug}`);
+                          }}
+                          className="text-[11px] font-bold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1"
+                        >
+                          <span>Explore Service</span>
+                          <ChevronRight className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                });
+              })}
+            </div>
+
+            {/* Local Focus Footnote Banner */}
+            <div className="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div className="flex items-center space-x-2 text-slate-700">
+                <MapPin className="w-4 h-4 text-indigo-600 flex-shrink-0" />
+                <span>
+                  <strong className="text-slate-900">Palani Geographic Ranking Coverage:</strong> Palani Town (PIN 624601), Adivaram, Gandhi Road, Bus Stand, Oddanchatram, Dharapuram, Udumalpet, Dindigul, and across Tamil Nadu.
+                </span>
+              </div>
+              <button
+                onClick={() => navigateTo('/contact')}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-bold flex-shrink-0 transition-colors shadow-2xs self-start sm:self-auto text-xs"
+              >
+                Book Free Local SEO Audit
+              </button>
+            </div>
           </div>
         </div>
 

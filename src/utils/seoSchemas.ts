@@ -26,6 +26,16 @@ export function buildPersonSchema(origin = DOMAIN_URL) {
     givenName: 'SURIYADEVAN',
     familyName: 'S',
     additionalName: 'Suriya',
+    alternateName: [
+      'Suriyadevan',
+      'Suriya Devan',
+      'Suriyadevan S',
+      'Suriyadevan Palani',
+      'Suriyadevan SEO Specialist',
+      'Suriyadevan Digital Marketer',
+      'Suriyadevan Freelance SEO'
+    ],
+    disambiguatingDescription: 'SURIYADEVAN S is a professional Indian SEO Specialist and Digital Marketing Consultant from Palani, Tamil Nadu, recognized for Google first-page search rankings, Local SEO, and technical site performance.',
     jobTitle: 'SEO & Digital Marketing Specialist',
     description: 'Specialist in Search Engine Optimization, Google Business Profile, Local SEO, Technical SEO, and Meta Ads for businesses in Palani, Tamil Nadu, and globally.',
     url: origin,
@@ -50,7 +60,7 @@ export function buildPersonSchema(origin = DOMAIN_URL) {
     ],
     alumniOf: {
       '@type': 'EducationalOrganization',
-      name: 'Subramanya College of Arts and Science, Palani',
+      name: 'Rev. Jacob Memorial Christian College (Bachelor of Commerce in Computer Applications)',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Palani',
@@ -87,7 +97,13 @@ export function buildLocalBusinessSchema(origin = DOMAIN_URL) {
     '@type': 'ProfessionalService',
     '@id': `${origin}/#service-business`,
     name: 'SURIYADEVAN S — SEO & Digital Marketing Specialist Palani',
-    alternateName: 'SuriyaDevan SEO Consultant Palani',
+    alternateName: [
+      'Suriyadevan SEO Consultant Palani',
+      'Suriyadevan S Digital Marketing',
+      'Suriyadevan Local SEO Services Palani',
+      'Best SEO Specialist in Palani'
+    ],
+    disambiguatingDescription: 'Premier SEO and digital marketing consultancy in Palani, Tamil Nadu, run by Suriyadevan S. Delivering top Google keyword rankings, Google Maps 3-pack visibility, high-ROAS Meta Ads, and social media growth.',
     description: 'Premier SEO and digital marketing consultancy in Palani, Tamil Nadu. Delivering top Google keyword rankings, Google Maps 3-pack visibility, high-ROAS Meta Ads, and social media growth.',
     url: origin,
     logo: `${origin}/favicon.svg`,
@@ -97,6 +113,7 @@ export function buildLocalBusinessSchema(origin = DOMAIN_URL) {
     priceRange: '₹₹',
     currenciesAccepted: 'INR, USD',
     paymentAccepted: 'Cash, Credit Card, UPI, Net Banking',
+    keywords: 'Suriyadevan, Suriyadevan S, SEO Services in Palani, Local SEO Specialist Tamil Nadu, Digital Marketing Freelancer Palani, Meta Ads Palani, Technical SEO Audit, Google Business Profile Ranking',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Palani Town',
@@ -284,27 +301,99 @@ export function buildServiceSchema(
     fullDescription?: string;
     slug: string;
     localFocus?: string;
+    palaniKeywords?: string[];
+    searchIntents?: Array<{ intent: string; query: string; solution: string }>;
     faqs?: FAQEntry[];
   },
   origin = DOMAIN_URL
 ) {
   const serviceUrl = `${origin}/services/${service.slug}`;
+  
+  // Combine FAQs and searchIntents into Google FAQ rich snippet format
+  const combinedFaqs: FAQEntry[] = [
+    ...(service.faqs || []),
+    ...((service.searchIntents || []).map(si => ({
+      question: si.query,
+      answer: si.solution
+    })))
+  ];
+
+  const keywordsList = service.palaniKeywords && service.palaniKeywords.length > 0
+    ? service.palaniKeywords.join(', ')
+    : `${service.name} in Palani, ${service.name} Tamil Nadu, Palani SEO Specialist, Suriyadevan S`;
+
   const graph: any[] = [
     {
       '@type': 'Service',
       '@id': `${serviceUrl}#service`,
-      name: service.name,
-      description: service.shortDescription,
+      name: `${service.name} in Palani, Tamil Nadu`,
+      description: service.fullDescription || service.shortDescription,
       url: serviceUrl,
       provider: {
         '@id': `${origin}/#person`
       },
-      areaServed: {
-        '@type': 'AdministrativeArea',
-        name: service.localFocus || 'Palani, Tamil Nadu, India'
-      },
-      serviceType: service.name,
+      areaServed: [
+        {
+          '@type': 'City',
+          name: 'Palani',
+          postalCode: '624601',
+          addressRegion: 'Tamil Nadu',
+          addressCountry: 'IN'
+        },
+        {
+          '@type': 'AdministrativeArea',
+          name: 'Dindigul District, Tamil Nadu'
+        },
+        {
+          '@type': 'City',
+          name: 'Oddanchatram, Tamil Nadu'
+        },
+        {
+          '@type': 'City',
+          name: 'Dharapuram, Tamil Nadu'
+        },
+        {
+          '@type': 'City',
+          name: 'Udumalpet, Tamil Nadu'
+        },
+        {
+          '@type': 'State',
+          name: 'Tamil Nadu'
+        },
+        {
+          '@type': 'Country',
+          name: 'India'
+        }
+      ],
+      serviceType: `${service.name} in Palani`,
       category: 'Digital Marketing & SEO Services',
+      keywords: keywordsList,
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `${service.name} Packages - Palani & Remote`,
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: `Preliminary ${service.name} Audit & Consultation`,
+              description: `Initial diagnostic assessment for ${service.name} tailored for Palani businesses.`
+            },
+            price: '0',
+            priceCurrency: 'INR'
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: `Monthly ${service.name} Execution`,
+              description: `End-to-end execution, monitoring, and performance optimization.`
+            },
+            priceCurrency: 'INR',
+            price: 'Custom'
+          }
+        ]
+      },
       offers: {
         '@type': 'Offer',
         availability: 'https://schema.org/InStock',
@@ -316,14 +405,14 @@ export function buildServiceSchema(
     buildBreadcrumbSchema(
       [
         { name: 'Services', path: '/services' },
-        { name: service.name, path: `/services/${service.slug}` }
+        { name: `${service.name} in Palani`, path: `/services/${service.slug}` }
       ],
       origin
     )
   ];
 
-  if (service.faqs && service.faqs.length > 0) {
-    const faqSchema = buildFAQSchema(service.faqs);
+  if (combinedFaqs.length > 0) {
+    const faqSchema = buildFAQSchema(combinedFaqs);
     if (faqSchema) graph.push(faqSchema);
   }
 

@@ -6,6 +6,7 @@ import { buildServiceSchema, buildCollectionSchema } from '../../utils/seoSchema
 import { Project } from '../../types';
 import { SocialMediaPortfolio } from '../services/SocialMediaPortfolio';
 import { MetaAdsCampaigns } from '../services/MetaAdsCampaigns';
+import { renderClientLogo } from '../common/ClientLogos';
 import { 
   Search, 
   MapPin, 
@@ -817,19 +818,24 @@ export const ServicesView: React.FC = () => {
           <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in duration-150">
             <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-6">
               <div className="flex items-start justify-between border-b border-slate-100 pb-4">
-                <div>
-                  <div className="flex items-center space-x-2 mb-1.5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-200/60">
-                      {selectedCaseStudy.category}
-                    </span>
-                    <span className="text-xs text-slate-400">• {selectedCaseStudy.industry}</span>
-                    <span className="text-xs text-slate-400">• {selectedCaseStudy.date}</span>
+                <div className="flex items-start space-x-3">
+                  <div className="p-1 bg-slate-50 border border-slate-200 rounded-xl flex-shrink-0">
+                    {renderClientLogo(selectedCaseStudy.slug || selectedCaseStudy.name, 'md')}
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 font-display">
-                    {selectedCaseStudy.name}
-                  </h3>
-                  <div className="text-xs font-semibold text-slate-500">
-                    Client: {selectedCaseStudy.client}
+                  <div>
+                    <div className="flex items-center space-x-2 mb-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-200/60">
+                        {selectedCaseStudy.category}
+                      </span>
+                      <span className="text-xs text-slate-400">• {selectedCaseStudy.industry}</span>
+                      <span className="text-xs text-slate-400">• {selectedCaseStudy.date}</span>
+                    </div>
+                    <h3 className="text-2xl font-black text-slate-900 font-display">
+                      {selectedCaseStudy.name}
+                    </h3>
+                    <div className="text-xs font-semibold text-slate-500">
+                      Client: {selectedCaseStudy.client}
+                    </div>
                   </div>
                 </div>
                 <button
@@ -890,19 +896,33 @@ export const ServicesView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 flex justify-between items-center">
-                {isAdmin ? (
-                  <button
-                    onClick={() => {
-                      deleteProject(selectedCaseStudy.id);
-                      setSelectedCaseStudy(null);
-                    }}
-                    className="text-red-500 hover:text-red-700 text-xs font-semibold flex items-center space-x-1"
+              <div className="pt-2 border-t border-slate-100 flex flex-wrap gap-2 justify-between items-center">
+                <div className="flex items-center space-x-2">
+                  <a
+                    href={`https://www.google.com/search?q=${encodeURIComponent(selectedCaseStudy.client + ' ' + (selectedCaseStudy.location || 'Palani'))}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent('verify_google_case_study', selectedCaseStudy.name)}
+                    className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 rounded-lg text-xs font-bold flex items-center space-x-1.5 transition-colors"
                   >
-                    <Trash2 className="w-3.5 h-3.5" />
-                    <span>Delete Project</span>
-                  </button>
-                ) : <div />}
+                    <Search className="w-3.5 h-3.5" />
+                    <span>Search on Google.com</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+
+                  {isAdmin && (
+                    <button
+                      onClick={() => {
+                        deleteProject(selectedCaseStudy.id);
+                        setSelectedCaseStudy(null);
+                      }}
+                      className="text-red-500 hover:text-red-700 text-xs font-semibold flex items-center space-x-1"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      <span>Delete Project</span>
+                    </button>
+                  )}
+                </div>
 
                 <button
                   onClick={() => setSelectedCaseStudy(null)}
@@ -1222,18 +1242,25 @@ export const ServicesView: React.FC = () => {
                   className="bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between hover:border-indigo-300 transition-all hover:shadow-md"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3">
+                    {/* Client Own Brand Logo */}
+                    <div className="flex items-start justify-between mb-3 border-b border-slate-200/60 pb-2.5">
+                      <div className="flex-1">
+                        {renderClientLogo(project.slug || project.name, 'sm')}
+                      </div>
                       <span className="text-[10px] font-bold uppercase tracking-wider bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">
                         {project.category}
                       </span>
+                    </div>
+
+                    <div className="flex justify-between items-baseline mb-1">
+                      <h3 className="text-base font-bold text-slate-900 font-display">
+                        {project.name}
+                      </h3>
                       <span className="text-[11px] text-slate-400 font-medium">
                         {project.date}
                       </span>
                     </div>
 
-                    <h3 className="text-base font-bold text-slate-900 font-display">
-                      {project.name}
-                    </h3>
                     <div className="text-xs font-semibold text-slate-500 mt-0.5">
                       Client: {project.client}
                     </div>
@@ -1256,26 +1283,38 @@ export const ServicesView: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-slate-200/60 flex items-center justify-between">
-                    <button
-                      onClick={() => {
-                        // Find matching service slug and navigate to it
-                        const matchingSlug = project.relatedServices?.[0] || 'seo';
-                        navigateTo(`/services/${matchingSlug}`);
-                      }}
-                      className="text-xs font-semibold text-slate-600 hover:text-indigo-600 flex items-center space-x-1"
+                  <div className="mt-5 pt-3 border-t border-slate-200/60 space-y-2">
+                    <a
+                      href={`https://www.google.com/search?q=${encodeURIComponent(project.client + ' ' + (project.location || 'Palani'))}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent('google_search_project_card', project.name)}
+                      className="w-full py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 rounded-lg text-xs font-bold transition-colors flex items-center justify-center space-x-1.5"
                     >
-                      <span>Go to Service Page</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                      <Search className="w-3.5 h-3.5" />
+                      <span>Search "{project.client}" on Google</span>
+                    </a>
 
-                    <button
-                      onClick={() => setSelectedCaseStudy(project)}
-                      className="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1"
-                    >
-                      <Eye className="w-3.5 h-3.5" />
-                      <span>Case Study</span>
-                    </button>
+                    <div className="flex items-center justify-between pt-1">
+                      <button
+                        onClick={() => {
+                          const matchingSlug = project.relatedServices?.[0] || 'seo';
+                          navigateTo(`/services/${matchingSlug}`);
+                        }}
+                        className="text-xs font-semibold text-slate-600 hover:text-indigo-600 flex items-center space-x-1"
+                      >
+                        <span>Go to Service Page</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+
+                      <button
+                        onClick={() => setSelectedCaseStudy(project)}
+                        className="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>Case Study</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
